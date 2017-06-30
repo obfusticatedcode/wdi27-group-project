@@ -17,7 +17,7 @@ describe('Campaign tests', () => {
     done();
   });
 
-  xdescribe('GET /api/campaigns', () => {
+  describe('GET /api/campaigns', () => {
 
     beforeEach(done => {
       Campaign.create({
@@ -77,7 +77,7 @@ describe('Campaign tests', () => {
     });
   });
 
-  xdescribe('POST /api/campaigns without token', () => {
+  describe('POST /api/campaigns without token', () => {
 
     it('should return a 401 response', done => {
       api.post('/api/campaigns')
@@ -99,16 +99,23 @@ describe('Campaign tests', () => {
 
   });
 
-  xdescribe('POST /api/campaigns with token', () => {
+  describe('POST /api/campaigns with token', () => {
+
+    let user;
 
     beforeEach(done => {
       User.create({
-        username: 'test',
+        firstName: 'John',
+        lastName: 'Smith',
+        image: '',
         email: 'test@test.com',
+        username: 'test',
         password: 'password',
         passwordConfirmation: 'password'
-      }, (err, user) => {
-        token = jwt.sign({ userId: user.id }, secret, { expiresIn: 60*60*24 });
+      }, (err, _user) => {
+        token = jwt.sign({ userId: _user.id }, secret, { expiresIn: 60*60*24 });
+        console.log(token, _user);
+        user = _user;
         done();
       });
     });
@@ -118,22 +125,20 @@ describe('Campaign tests', () => {
         .set('Accept', 'application/json')
         .set('Authorization', `Bearer ${token}`)
         .send({
-          campaign: {
-            name: 'Assitance for male in London Bridge area',
-            lat: '51.5079',
-            lng: '0.0877',
-            createdBy: '53cb6b9b4f4ddef1ad47f943',
-            description: 'This is an example description',
-            expiryDate: new Date('12-10-1990'),
-            isAvailable: true,
-            type: true,
-            categories: [ {} ]
-          }
+          name: 'Assitance for male in London Bridge area',
+          lat: '51.5079',
+          lng: '0.0877',
+          createdBy: user.id,
+          description: 'This is an example description',
+          expiryDate: new Date('12-10-1990'),
+          isAvailable: true,
+          type: true,
+          categories: [ {} ]
         }).expect(201, done);
     });
   });
 
-  xdescribe('GET /api/campaigns/:id', () => {
+  describe('GET /api/campaigns/:id', () => {
 
     let campaign;
 
@@ -161,7 +166,7 @@ describe('Campaign tests', () => {
     });
   });
 
-  xdescribe('DELETE /api/campaigns/:id without token', () => {
+  describe('DELETE /api/campaigns/:id without token', () => {
 
     let campaign;
 
@@ -190,7 +195,7 @@ describe('Campaign tests', () => {
 
   });
 
-  xdescribe('DELETE /api/campaigns/:id with token', () => {
+  describe('DELETE /api/campaigns/:id with token', () => {
 
     beforeEach(done => {
       User.create({

@@ -1,6 +1,5 @@
 const Campaign = require('../models/campaign');
 
-
 function indexRoute(req, res, next) {
   Campaign
   .find()
@@ -18,12 +17,14 @@ function createRoute(req, res, next) {
 }
 
 function showRoute(req, res, next) {
+
+  req.body.createdBy = req.user;
+
   Campaign
   .findById(req.params.id)
   .populate('createdBy')
   .exec()
   .then((campaign) => {
-    // No error handling
     if(!campaign) return res.notFound();
 
     res.json(campaign);

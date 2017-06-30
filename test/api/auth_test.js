@@ -10,7 +10,7 @@ describe('Authentications tests', () => {
     done();
   });
 
-  xdescribe('POST /api/register with good credentials', () => {
+  describe('POST /api/register with good credentials', () => {
     it('should return a message', (done) => {
       api.post('/api/register')
         .set('Accept', 'application/json')

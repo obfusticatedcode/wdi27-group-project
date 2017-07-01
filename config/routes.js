@@ -27,6 +27,9 @@ router.route('/login')
 router.route('/oauth/facebook')
   .post(oauth.facebook);
 
+router.route('/oauth/instagram')
+  .post(oauth.instagram);
+
 router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;

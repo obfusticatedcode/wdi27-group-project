@@ -54,8 +54,55 @@ function facebook(req, res, next) {
 }
 
 
+//instagram
+function instagram (req, res, next) {
+
+  return rp({
+    method: 'POST',
+    url: oauth.instagram.accessTokenUrl,
+    form: {
+      client_id: oauth.instagram.clientId,
+      client_secret: oauth.instagram.clientSecret,
+      grant_type: 'authorization_code',
+      redirect_uri: oauth.instagram.redirectUri,
+      code: req.body.code
+    },
+    json: true
+  })
+  .then((token) => {
+    console.log('token', token);
+    return User
+    .findOne({ instagramId: token.user.id })
+    .then((user) => {
+      if(!user) {
+        user = new User({
+          username: token.user.username,
+          image: token.user.profile_picture
+        });
+      }
+
+      user.instagramId = token.user.id;
+      return user.save();
+    });
+  })
+  .then((user) => {
+    console.log(user);
+    //Create a JWT tocken and send it back to Angular app
+
+    const payload = { userId: user.id };
+    const token = jwt.sign(payload, secret, { expiresIn: '1hr'});
+
+    return res.json({
+      token,
+      message: `Welcome back ${ user.username }`
+    });
+
+  })
+  .catch(next);
+}
 
 
 module.exports = {
-  facebook
+  facebook,
+  instagram
 };

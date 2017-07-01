@@ -4,7 +4,7 @@ const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
 
 router.route('/campaigns')
-  .get(campaigns.index)
+  .get(secureRoute, campaigns.index)
   .post(secureRoute, campaigns.create);
 
 router.route('/campaigns/:id')

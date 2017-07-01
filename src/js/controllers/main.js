@@ -2,28 +2,28 @@ angular
   .module('disasterRelief')
   .controller('MainCtrl', MainCtrl);
 
-MainCtrl.$inject = ['$rootScope', '$state', '$auth'];
-function MainCtrl($rootScope, $state, $auth) {
+MainCtrl.$inject = ['$rootScope', '$state', '$auth', '$transitions'];
+function MainCtrl($rootScope, $state, $auth, $transitions) {
   const vm = this;
 
   //hide and show DOM elements based on authentication
   vm.isAuthenticated = $auth.isAuthenticated;
 
-  $rootScope.$on('error', (e, err) => {
-    vm.stateHasChanged = false;
 
+  $rootScope.$on('error', (e, err) => {
+    vm.message = err.data.message;
     if(err.status === 401) {
-      vm.message = err.data.message;
+      if(vm.pageName !== '/') vm.stateHasChanged = false;
       $state.go('login');
     }
-
   });
 
-  $rootScope.$on('$stateChangeSuccess', () => {
+  $transitions.onSuccess({}, (transition) => {
+    vm.pageName = transition.$to().name; // Storing the current state name as a string
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
+    if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
   });
-
 
   function logout() {
     $auth.logout();

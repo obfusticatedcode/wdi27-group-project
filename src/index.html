@@ -16,11 +16,11 @@
     <nav>
 
       <div class="nav-right nav-menu">
-        <ul>
-          <li ng-if="!main.isAuthenticated()"> <a class="nav-item" ui-sref="register">Register</a></li>
-          <li ng-if="!main.isAuthenticated()"> <a class="nav-item" ui-sref="login">Login</a></li>
-          <li><a class="nav-item" ng-click="main.logout()">Logout</a></li>
-        </ul>
+
+           <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
+           <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
+           <a class="nav-item" ng-click="main.logout()">Logout</a>
+
       </div>
 
     </nav>

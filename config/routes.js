@@ -3,6 +3,11 @@ const campaigns = require('../controllers/campaigns');
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
 const oauth = require('../controllers/oauth');
+const users = require('../controllers/users');
+
+router.route('/users/:id')
+  .all(secureRoute)
+  .get(users.show);
 
 router.route('/campaigns')
   .get(secureRoute, campaigns.index)

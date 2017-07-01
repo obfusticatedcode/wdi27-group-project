@@ -10,7 +10,7 @@ router.route('/users/:id')
   .get(users.show);
 
 router.route('/campaigns')
-  .get(secureRoute, campaigns.index)
+  .get(campaigns.index)
   .post(secureRoute, campaigns.create);
 
 router.route('/campaigns/:id')

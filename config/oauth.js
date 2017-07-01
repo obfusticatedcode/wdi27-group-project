@@ -8,5 +8,5 @@ module.exports = {
     scope: 'user: email',
     accessTokenUrl: 'https://graph.facebook.com/v2.9/oauth/access_token'
   }
-  
+
 };

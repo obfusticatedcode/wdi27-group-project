@@ -27,7 +27,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     controller: 'CampaignsEditCtrl as campaignsEdit'
   })
   .state('login', {
-    url: '/login',
+    url: '/',
     templateUrl: 'js/views/auth/login.html',
     controller: 'LoginCtrl as login'
   })

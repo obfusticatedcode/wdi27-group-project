@@ -11,14 +11,19 @@ function MainCtrl($rootScope, $state, $auth) {
 
   $rootScope.$on('error', (e, err) => {
     vm.stateHasChanged = false;
-    vm.message = err.data.message;
-    $state.go('login');
+
+    if(err.status === 401) {
+      vm.message = err.data.message;
+      $state.go('login');
+    }
+
   });
 
   $rootScope.$on('$stateChangeSuccess', () => {
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
   });
+
 
   function logout() {
     $auth.logout();

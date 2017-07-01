@@ -57,7 +57,8 @@
     "express": "^4.15.3",
     "jsonwebtoken": "^7.4.1",
     "mongoose": "^4.10.8",
-    "morgan": "^1.8.2"
+    "morgan": "^1.8.2",
+    "request-promise": "^4.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

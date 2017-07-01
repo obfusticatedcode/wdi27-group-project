@@ -11,18 +11,13 @@
   </head>
   <body ng-controller="MainCtrl as main">
 
-
     <!-- navigation -->
     <nav>
-
       <div class="nav-right nav-menu">
-
            <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
            <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
            <a class="nav-item" ng-click="main.logout()">Logout</a>
-
       </div>
-
     </nav>
 
     <!-- displaying error message -->

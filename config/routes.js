@@ -2,6 +2,7 @@ const router = require('express').Router();
 const campaigns = require('../controllers/campaigns');
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
+const oauth = require('../controllers/oauth');
 
 router.route('/campaigns')
   .get(secureRoute, campaigns.index)
@@ -17,6 +18,9 @@ router.route('/register')
 
 router.route('/login')
   .post(auth.login);
+
+router.route('/oauth/facebook')
+  .post(oauth.facebook);
 
 router.all('/*', (req, res) => res.notFound());
 

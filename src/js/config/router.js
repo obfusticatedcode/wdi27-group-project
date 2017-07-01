@@ -25,6 +25,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     url: '/campaigns/:id/edit',
     templateUrl: 'js/views/campaigns/edit.html',
     controller: 'CampaignsEditCtrl as campaignsEdit'
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: 'js/views/auth/login.html',
+    controller: 'LoginCtrl as login'
   });
 
   $urlRouterProvider.otherwise('/');

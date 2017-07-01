@@ -6,7 +6,15 @@
 @import "bulma/grid/_all";
 @import "bulma/layout/_all";
 
-body, html {
-  background: red;
 
+/*Variables*/
+
+/*Colors*/
+$whiteSmoke: #f5f5f5;
+$royalBlue: #4169e1;
+
+
+
+body, html {
+  background: $royalBlue;
 }

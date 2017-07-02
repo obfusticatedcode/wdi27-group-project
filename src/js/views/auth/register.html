@@ -16,10 +16,6 @@
             ng-maxlength="30"
             required>
           </p>
-
-          <div ng-messages="register.registerForm.username.$error" role="alert" ng-show="(register.registerForm.$submitted || register.registerForm.username.$touched) && register.registerForm.username.$invalid" class="error">
-            <div ng-message="required">Please enter a value for this field.</div>
-          </div>
         </div>
         <!-- ng-messages username-->
         <div class="error-messages" ng-messages="register.registerForm.username.$error" ng-show="register.registerForm.$submitted || register.registerForm.username.$touched" ng-messages-multiple>
@@ -46,10 +42,6 @@
             ng-maxlength="30"
             required>
           </p>
-          <div ng-messages="register.registerForm.email.$error" role="alert" ng-show="(register.registerForm.$submitted || register.registerForm.email.$touched) && register.registerForm.email.$invalid" class="error">
-            <div ng-message="required">Please enter a value for this field.</div>
-            <div ng-message="email">This field must be a valid email address.</div>
-          </div>
         </div>
         <!-- ng-messages email-->
         <div class="error-messages" ng-messages="register.registerForm.email.$error" ng-show="register.registerForm.$submitted || register.registerForm.email.$touched" ng-messages-multiple>
@@ -73,9 +65,7 @@
             <input class="input" type="password" name="password" id="password"
             ng-model="register.user.password" required>
           </p>
-          <div ng-messages="register.registerForm.password.$error" role="alert" ng-show="(register.registerForm.$submitted || register.registerForm.password.$touched) && register.registerForm.password.$invalid" class="error">
-            <div ng-message="required">Please enter a value for this field.</div>
-          </div>
+
         </div>
         <!-- ng messages password-->
         <div ng-messages="register.registerForm.password.$error" ng-show="register.registerForm.$submitted || register.registerForm.password.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages">
@@ -90,9 +80,6 @@
             match-password="password"
             ng-model="register.user.passwordConfirmation" required>
           </p>
-          <div ng-messages="register.registerForm.passwordConfirmation.$error" role="alert" ng-show="(register.registerForm.$submitted || register.registerForm.passwordConfirmation.$touched) && register.registerForm.passwordConfirmation.$invalid" class="error">
-            <div ng-message="required">Please enter a value for this field.</div>
-          </div>
         </div>
         <!-- ng messages password confirmation-->
         <div ng-messages="register.registerForm.passwordConfirmation.$error" ng-show="register.registerForm.$submitted || register.registerForm.passwordConfirmation.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages">

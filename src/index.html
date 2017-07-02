@@ -20,7 +20,7 @@
       <nav>
         <div class="nav-right nav-menu">
             <a class="nav-item" ui-sref="campaignsIndex" ui-sref-active="active">All campaigns</a>
-            <a class="nav-item" ng-if="main.isAuthenticated()" ui-sref="campaignsNew" ui-sref-active="active">Add a campaign</a>
+            <a class="nav-item" ng-if="main.isAuthenticated()" ui-sref="campaignsNew" ui-sref-active="active">Start a campaign</a>
             <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
             <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
             <a class="nav-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>

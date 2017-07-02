@@ -9,8 +9,7 @@ const categorySchema = new mongoose.Schema({
 
 const campaignSchema = new mongoose.Schema({
   name: { type: String },
-  lat: { type: Number },
-  lng: { type: Number },
+  location: { type: Object },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true},
   description: { type: String },
   expiryDate: { type: Date },
@@ -21,6 +20,11 @@ const campaignSchema = new mongoose.Schema({
   timestamps: true
 });
 
+campaignSchema
+  .virtual('campaignType')
+  .get(function campaignType() {
+    return this.type ? 'Help offered' : 'Help needed';
+  });
 
 
 

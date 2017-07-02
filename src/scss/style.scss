@@ -19,3 +19,17 @@ $black: #171717;
 body, html {
   background: $whiteSmoke;
 }
+
+aside.column {
+  padding: 0;
+  position: fixed;
+  display: inline-block;
+}
+
+.map {
+  height: 600px;
+}
+
+.campaign-item {
+  border: 2px solid black;
+}

@@ -3,9 +3,10 @@
 <section class="section">
 
   <div class="columns">
-    <div class="column is-half is-offset-one-quarter">
+    <div class="column is-one-quarter is-offset-one-third">
           <h1 class="title">Register your account</h1>
-      <form ng-submit="register.submit()">
+      <!-- form name -->
+      <form name="register.registerForm" ng-submit="register.submit()">
         <div class="field">
           <label class="label" for="email">Username</label>
           <p class="control">
@@ -39,4 +40,5 @@
       </form>
     </div>
   </div>
+
 </section>

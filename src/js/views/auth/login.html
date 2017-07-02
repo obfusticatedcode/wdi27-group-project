@@ -2,14 +2,34 @@
 
 <section class="section">
   <div class="columns">
-    <div class="column is-half is-offset-one-quarter">
+    <div class="column is-one-quarter is-offset-one-third">
       <h1 class="title">Login</h1>
-      <form ng-submit="login.submit()">
+      <!-- form name -->
+      <form name="login.loginForm" ng-submit="login.submit()" novalidate>
         <div class="field">
           <label class="label" for="email">Email</label>
           <p class="control">
-            <input class="input" type="text" name="email" id="email" ng-model="login.credentials.email">
+            <input class="input" type="text" name="email" id="email"
+              ng-model="login.credentials.email"
+              ng-minlength="5"
+              ng-maxlength="30"
+              required>
           </p>
+        </div>
+        <!-- ng-messages email-->
+        <div class="error-messages" ng-messages="login.loginForm.email.$error" ng-show="login.loginForm.$submitted || login.loginForm.email.$touched" ng-messages-multiple>
+          <div ng-message="required">
+            You forgot to enter the email address
+          </div>
+          <div ng-message="email">
+            You didn't enter the email address correctly
+          </div>
+          <div ng-message="minlength">
+            The email address you entered is too short
+          </div>
+          <div ng-message="maxlength">
+            The email address you entered is too long
+          </div>
         </div>
         <div class="field">
           <label class="label" for="password">Password</label>
@@ -21,7 +41,7 @@
         <div class="field">
           <p class="control">
             <input type="submit" class="button is-primary is-fullwidth" value="Login">
-            
+
           </p>
         </div>
         <!-- facebook -->

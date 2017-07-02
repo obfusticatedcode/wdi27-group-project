@@ -18,8 +18,6 @@ userSchema
     this._passwordConfirmation = passwordConfirmation;
   });
 
-
-
 userSchema.pre('validate', function checkPassword(next) {
   if(!this.password && !this.facebookId && !this.instagramId) {
     this.invalidate('password', 'required');

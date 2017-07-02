@@ -10,15 +10,17 @@
     <!-- endinject -->
   </head>
   <body ng-controller="MainCtrl as main">
+    <header>
+      <!-- navigation -->
+      <nav>
+        <div class="nav-right nav-menu">
+             <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
+             <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
+             <a class="nav-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
+        </div>
+      </nav>
+    </header>
 
-    <!-- navigation -->
-    <nav>
-      <div class="nav-right nav-menu">
-           <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
-           <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
-           <a class="nav-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
-      </div>
-    </nav>
 
     <!-- displaying error message -->
     <div class="notification" ng-if="main.message" >{{ main.message }}</div>

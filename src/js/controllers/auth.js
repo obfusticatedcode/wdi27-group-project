@@ -10,8 +10,11 @@ function RegisterCtrl($auth, $state) {
   vm.user = {};
 
   function submit() {
-    $auth.signup(vm.user)
-      .then(() => $state.go('login'));
+    if(vm.registerForm.$valid){
+      $auth.signup(vm.user)
+        .then(() => $state.go('login'))
+        .catch(() => $state.go('register'));
+    }
   }
 
   vm.submit = submit;
@@ -24,8 +27,9 @@ function LoginCtrl($auth, $state) {
   vm.credentials = {};
 
   function submit() {
-    $auth.login(vm.credentials).
-      then(() => $state.go('campaignsIndex'));
+    $auth.login(vm.credentials)
+    .then(() => $state.go('campaignsIndex'))
+    .catch(() => $state.go('login'));
   }
 
   vm.submit = submit;

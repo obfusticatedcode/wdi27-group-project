@@ -7,8 +7,26 @@ angular
 
 CampaignsIndexCtrl.$inject = ['Campaign'];
 function CampaignsIndexCtrl(Campaign) {
-  const vm = this;
-  vm.all = Campaign.query();
+  const vm        = this;
+  vm.getLocations = convertLatLng;
+  vm.all          = Campaign.query();
+  console.log('CampaignsIndexCtrl', vm);
+  convertLatLng();
+
+  function convertLatLng() {
+    console.log('This convertLatLng function: "I have been called!"');
+    const data = [];
+    angular.forEach(vm.all, function(campaign) {
+      data.push(campaign.location);
+    });
+    console.log(data);
+    console.log(vm);
+
+    vm.locations = data;
+    return data;
+  }
+
+
 }
 
 CampaignsNewCtrl.$inject = ['Campaign', '$state'];

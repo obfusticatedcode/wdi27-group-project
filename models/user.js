@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
   firstName: {type: String },
   lastName: {type: String },
-  image: {type: String },
+  image: {type: String, default: 'http://s3.amazonaws.com/wavesforwater/images/avatar-default.gif?sizes=/y:71/x:71' },
   email: { type: String, trim: true },
   username: { type: String, required: true, trim: true },
   password: { type: String },

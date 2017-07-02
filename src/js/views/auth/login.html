@@ -3,18 +3,32 @@
 <section class="section">
   <div class="columns">
     <div class="column is-half is-offset-one-quarter">
-      <form ng-submit="login.submit()">
+      <form ng-submit="login.submit()" name="login.loginForm" novalidate>
+
         <div class="field">
           <label class="label" for="email">Email</label>
           <p class="control">
-            <input class="input" type="text" name="email" id="email" ng-model="login.credentials.email">
+            <input class="input" type="text" name="email" id="email" ng-model="login.credentials.email" required>
           </p>
         </div>
+
+        <div>
+          <div ng-messages="login.loginForm.email.$error" ng-show="login.loginForm.$submitted || login.loginForm.email.$touched">
+            <div ng-message="required" class="notification">Email is required.</div>
+          </div>
+        </div>
+
         <div class="field">
           <label class="label" for="password">Password</label>
           <p class="control">
-            <input class="input" type="password" name="password" id="password" ng-model="login.credentials.password">
+            <input class="input" type="password" name="password" id="password" ng-model="login.credentials.password" required>
           </p>
+        </div>
+
+        <div>
+          <div ng-messages="login.loginForm.password.$error" ng-show="login.loginForm.$submitted || login.loginForm.password.$touched">
+            <div ng-message="required" class="notification">Password is required.</div>
+          </div>
         </div>
 
         <div class="field">
@@ -25,7 +39,7 @@
         <!-- facebook -->
         <div class="field">
           <button class="button" ng-click="login.authenticate('facebook')">Login with Facebook</button>
-          
+
         </div>
       </form>
     </div>

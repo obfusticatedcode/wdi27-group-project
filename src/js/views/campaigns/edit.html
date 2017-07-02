@@ -1,1 +1,115 @@
+<!DOCTYPE html>
 <h1>Edit Campaign</h1>
+
+<section class="section">
+  <div class="columns">
+    <div class="column is-half is-offset-one-quarter">
+      <form ng-submit="campaignsEdit.update()" name="campaignsEdit.campaignForm" novalidate>
+
+        <div class="field">
+          <p class="control">
+            <label class="label" for="name">Name</label>
+          </p>
+
+          <input type="text" class="input" id="name" name="name" ng-model="campaignsEdit.campaign.name" required>
+
+          <div ng-messages="campaignsEdit.campaignForm.name.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.name.$touched">
+
+            <div ng-message="required" class="notification">Name is required.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <label class="label" for="location">Location</label>
+          </p>
+
+          <input type="text" class="input" id="location" name="location" ng-model="campaignsEdit.campaign.location" required>
+
+          <div ng-messages="campaignsEdit.campaignForm.location.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.location.$touched">
+
+            <div ng-message="required" class="notification">Location is required.</div>
+          </div>
+        </div>
+
+
+        <div class="field">
+          <p class="control">
+            <label class="label" for="campaignType">Campaign type</label>
+          </p>
+
+          <select type="text" class="input" id="campaignType" name="campaignType" ng-model="campaignsEdit.campaign.campaignType" required>
+            <option value="campaigner">Campaigner</option>
+            <option value="helper">Helper</option>
+          </select>
+
+          <div ng-messages="campaignsEdit.campaignForm.campaignType.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.campaignType.$touched">
+            <div ng-message="required" class="notification">Campaign type is required.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <label class="label" for="campaignType">Category</label>
+          </p>
+
+          <select type="text" class="input" id="category" name="category" ng-model="Edit.campaign.category" required>
+            <option value="food">Food</option>
+            <option value="shelter">Shelter</option>
+            <option value="medical">Medical Assistance</option>
+          </select>
+
+          <div ng-messages="campaignsEdit.campaignForm.category.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.category.$touched">
+            <div ng-message="required" class="notification">Category is required.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <label class="label" for="people">Number of people</label>
+          </p>
+
+          <input type="text" class="input" id="people" name="people" ng-model="campaignsEdit.campaign.people" required>
+
+          <div ng-messages="campaignsEdit.campaignForm.people.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.people.$touched">
+
+            <div ng-message="required" class="notification">Number of people is required.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <label class="label" for="name">Expiry date</label>
+          </p>
+
+          <input type="text" class="input" id="date" name="date" ng-model="campaignsEdit.campaign.date" required>
+
+          <div ng-messages="campaignsEdit.campaignForm.date.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.date.$touched">
+
+            <div ng-message="required" class="notification">Expiry date is required.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <label class="label" for="description">Campaign description</label>
+          </p>
+
+          <input type="text" class="input" id="description" name="description" ng-model="campaignsEdit.campaign.description" required>
+
+          <div ng-messages="campaignsEdit.campaignForm.description.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.description.$touched">
+
+            <div ng-message="required" class="notification">Description is required.</div>
+          </div>
+        </div>
+
+
+        <div class="field">
+          <p class="control">
+            <input type="submit" class="button is-primary is-fullwidth" value="Edit">
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

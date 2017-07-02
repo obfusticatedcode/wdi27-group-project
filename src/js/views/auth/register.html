@@ -1,37 +1,92 @@
 <!DOCTYPE html>
-
+<!-- register -->
 <section class="section">
-
   <div class="columns">
     <div class="column is-one-quarter is-offset-one-third">
-          <h1 class="title">Register your account</h1>
+      <h1 class="title">Register your account</h1>
       <!-- form name -->
-      <form name="register.registerForm" ng-submit="register.submit()">
+      <form name="register.registerForm" ng-submit="register.submit()" novalidate>
+        <!-- username -->
         <div class="field">
           <label class="label" for="email">Username</label>
           <p class="control">
-            <input class="input" type="text" name="username" id="username" ng-model="register.user.username">
+            <input class="input" type="text" name="username" id="username"
+            ng-model="register.user.username"
+            ng-minlength="1"
+            ng-maxlength="30"
+            required>
           </p>
         </div>
+        <!-- ng-messages username-->
+        <div class="error-messages" ng-messages="register.registerForm.username.$error" ng-show="register.registerForm.$submitted || register.registerForm.username.$touched" ng-messages-multiple>
+          <div ng-message="required">
+            You forgot to enter the username
+          </div>
+          <div ng-message="username">
+            You didn't enter the username  correctly
+          </div>
+          <div ng-message="minlength">
+            The username  you entered is too short
+          </div>
+          <div ng-message="maxlength">
+            The username  you entered is too long
+          </div>
+        </div>
+        <!-- email -->
         <div class="field">
           <label class="label" for="email">Email</label>
           <p class="control">
-            <input class="input" type="text" name="email" id="email" ng-model="register.user.email">
+            <input class="input" type="text" name="email" id="email"
+            ng-model="register.user.email"
+            ng-minlength="5"
+            ng-maxlength="30"
+            required>
           </p>
         </div>
+        <!-- ng-messages email-->
+        <div class="error-messages" ng-messages="register.registerForm.email.$error" ng-show="register.registerForm.$submitted || register.registerForm.email.$touched" ng-messages-multiple>
+          <div ng-message="required">
+            You forgot to enter the email address
+          </div>
+          <div ng-message="email">
+            You didn't enter the email address correctly
+          </div>
+          <div ng-message="minlength">
+            The email address you entered is too short
+          </div>
+          <div ng-message="maxlength">
+            The email address you entered is too long
+          </div>
+        </div>
+        <!-- password -->
         <div class="field">
           <label class="label" for="password">Password</label>
           <p class="control">
-            <input class="input" type="password" name="password" id="password" ng-model="register.user.password">
+            <input class="input" type="password" name="password" id="password"
+            ng-model="register.user.password" required>
           </p>
         </div>
+        <!-- ng messages password-->
+        <div ng-messages="register.registerForm.password.$error" ng-show="register.registerForm.$submitted || register.registerForm.password.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages">
+          <div ng-message="required">You forgot to enter a password</div>
+        </div>
+
+        <!-- password confirmation -->
         <div class="field">
           <label class="label" for="passwordConfirmation">Password Confirmation</label>
           <p class="control">
-            <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation">
+            <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation"
+            match-password="password"
+            ng-model="register.user.passwordConfirmation" required>
           </p>
         </div>
+        <!-- ng messages password confirmation-->
+        <div ng-messages="register.registerForm.passwordConfirmation.$error" ng-show="register.registerForm.$submitted || register.registerForm.passwordConfirmation.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages">
+          <div ng-message="required">You forgot to enter a password</div>
+          <div ng-message="passwordMatch">Your passwords didn't match</div>
+        </div>
 
+        <!-- submit -->
         <div class="field">
           <p class="control">
             <input type="submit" class="button is-primary is-fullwidth" value="Register">
@@ -40,5 +95,4 @@
       </form>
     </div>
   </div>
-
 </section>

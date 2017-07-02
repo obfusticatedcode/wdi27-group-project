@@ -28,8 +28,7 @@ function LoginCtrl($auth, $state) {
 
   function submit() {
     $auth.login(vm.credentials)
-    .then(() => $state.go('campaignsIndex'))
-    .catch(() => $state.go('login'));
+    .then(() => $state.go('campaignsIndex'));
   }
 
   vm.submit = submit;

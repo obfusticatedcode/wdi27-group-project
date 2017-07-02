@@ -2,7 +2,7 @@
 
 <section class="section">
   <div class="columns">
-<<<<<<< HEAD
+
     <div class="column is-one-quarter is-offset-one-third">
       <h1 class="title">Login</h1>
       <!-- form name -->
@@ -34,45 +34,17 @@
           </div>
         </div>
         <!-- password -->
-=======
-    <div class="column is-half is-offset-one-quarter">
-      <form ng-submit="login.submit()" name="login.loginForm" novalidate>
-
-        <div class="field">
-          <label class="label" for="email">Email</label>
-          <p class="control">
-            <input class="input" type="text" name="email" id="email" ng-model="login.credentials.email" required>
-          </p>
-        </div>
-
-        <div>
-          <div ng-messages="login.loginForm.email.$error" ng-show="login.loginForm.$submitted || login.loginForm.email.$touched">
-            <div ng-message="required" class="notification">Email is required.</div>
-          </div>
-        </div>
-
->>>>>>> development
         <div class="field">
           <label class="label" for="password">Password</label>
           <p class="control">
             <input class="input" type="password" name="password" id="password" ng-model="login.credentials.password" required>
           </p>
         </div>
-<<<<<<< HEAD
         <!-- ng messages password-->
         <div ng-messages="login.loginForm.password.$error" ng-show="login.loginForm.$submitted || login.loginForm.password.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages">
           <div ng-message="required">You forgot to enter a password</div>
         </div>
         <!-- submit button -->
-=======
-
-        <div>
-          <div ng-messages="login.loginForm.password.$error" ng-show="login.loginForm.$submitted || login.loginForm.password.$touched">
-            <div ng-message="required" class="notification">Password is required.</div>
-          </div>
-        </div>
-
->>>>>>> development
         <div class="field">
           <p class="control">
             <input type="submit" class="button is-primary is-fullwidth" value="Login">
@@ -81,11 +53,7 @@
         <!-- facebook  and instagram buttons-->
         <div class="field">
           <button class="button" ng-click="login.authenticate('facebook')">Login with Facebook</button>
-<<<<<<< HEAD
           <button class="button" ng-click="login.authenticate('instagram')">Login with Instagram</button>
-=======
-
->>>>>>> development
         </div>
       </form>
     </div>

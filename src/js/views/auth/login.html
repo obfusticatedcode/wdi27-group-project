@@ -6,6 +6,7 @@
       <h1 class="title">Login</h1>
       <!-- form name -->
       <form name="login.loginForm" ng-submit="login.submit()" novalidate>
+        <!-- email -->
         <div class="field">
           <label class="label" for="email">Email</label>
           <p class="control">
@@ -31,20 +32,24 @@
             The email address you entered is too long
           </div>
         </div>
+        <!-- password -->
         <div class="field">
           <label class="label" for="password">Password</label>
           <p class="control">
-            <input class="input" type="password" name="password" id="password" ng-model="login.credentials.password">
+            <input class="input" type="password" name="password" id="password" ng-model="login.credentials.password" required>
           </p>
         </div>
-
+        <!-- ng messages password-->
+        <div ng-messages="login.loginForm.password.$error" ng-show="login.loginForm.$submitted || login.loginForm.password.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages">
+          <div ng-message="required">You forgot to enter a password</div>
+        </div>
+        <!-- submit button -->
         <div class="field">
           <p class="control">
             <input type="submit" class="button is-primary is-fullwidth" value="Login">
-
           </p>
         </div>
-        <!-- facebook -->
+        <!-- facebook  and instagram buttons-->
         <div class="field">
           <button class="button" ng-click="login.authenticate('facebook')">Login with Facebook</button>
           <button class="button" ng-click="login.authenticate('instagram')">Login with Instagram</button>

@@ -7,9 +7,14 @@
     <img ng-src="{{ profile.user.image }}" alt="profile.user.username">
     <h2>{{ profile.user.username }}</h2>
     <a href="mailto:{{ profile.user.email }}" ng-if="profile.user.email">{{ profile.user.email }}</a>
+<<<<<<< HEAD
     <p ng-if="profile.user.facebookId">Facebook Id: <strong>{{ profile.user.facebookId }}</strong></p>
     <p ng-if="profile.user.instagramId">Instagram Id: <strong>{{ profile.user.instagramId }}</strong></p>
   
+=======
+    <p>Facebook Id: <strong>{{ profile.user.facebookId }}</strong></p>
+     <button class="button" type="button" name="button" ng-click="profile.logout()">Logout</button>
+>>>>>>> development
   </div>
 
 </div>

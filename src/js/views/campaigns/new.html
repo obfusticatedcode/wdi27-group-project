@@ -18,7 +18,7 @@
           required>
           <div ng-messages="campaignsNew.campaignForm.name.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.name.$touched">
             <!-- ng message name -->
-            <div ng-message="required" class="notification">Name is required.</div>
+            <div ng-message="required" class="notification">You forgot to enter the  name</div>
           </div>
         </div>
         <!-- location -->
@@ -32,7 +32,7 @@
           required autocomplete>
           <!-- ng message location -->
           <div ng-messages="campaignsNew.campaignForm.location.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.location.$touched">
-            <div ng-message="required" class="notification">Location is required.</div>
+            <div ng-message="required" class="notification">You forgot to enter the location</div>
           </div>
         </div>
 
@@ -48,7 +48,7 @@
           </select>
           <!-- ng message campaign type -->
           <div ng-messages="campaignsNew.campaignForm.campaignType.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.campaignType.$touched">
-            <div ng-message="required" class="notification">Campaign type is required.</div>
+            <div ng-message="required" class="notification">You forgot to enter the type of campaign</div>
           </div>
         </div>
         <!-- category -->
@@ -64,7 +64,7 @@
           </select>
           <!-- ng message category -->
           <div ng-messages="campaignsNew.campaignForm.category.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.category.$touched">
-            <div ng-message="required" class="notification">Category is required.</div>
+            <div ng-message="required" class="notification">You forgot to enter the category</div>
           </div>
         </div>
         <!-- number of people -->
@@ -73,7 +73,7 @@
             <label class="label" for="people">Number of people</label>
           </p>
 
-          <input type="number" class="input" id="people" name="people"
+          <input type="number" class="input" min="1" max="50" id="people" name="people"
           ng-model="campaignsNew.campaign.people"
           required>
           <!-- ng message number of people -->
@@ -106,7 +106,7 @@
           <!-- ng message campaign description -->
           <div ng-messages="campaignsNew.campaignForm.description.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.description.$touched">
 
-            <div ng-message="required" class="notification">Description is required.</div>
+            <div ng-message="required" class="notification">You forgot to enter a description</div>
           </div>
         </div>
 

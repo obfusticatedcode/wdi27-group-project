@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <section ng-controller="GeolocationCtrl as location">
-  <h1>Location: {{ location }}</h1>
 </section>
 
 <section class="section">
@@ -32,8 +31,8 @@
           </p>
 
           <input type="text" class="input" id="location" name="location"
-          ng-model="campaignsNew.campaign.location"
-          required>
+          ng-model="campaignsNew.campaign.address" location="campaignsNew.campaign.location"
+          required autocomplete>
           <!-- ng message location -->
           <div ng-messages="campaignsNew.campaignForm.location.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.location.$touched">
             <div ng-message="required" class="notification">Location is required.</div>
@@ -124,7 +123,8 @@
     </div>
 
     <!-- the google map -->
-    <g-map center="{ lat: 51.501476, lng: -0.140634	 }"></g-map>
+
+    <g-map center="campaignsNew.campaign.location"></g-map>
 
   </div>
 

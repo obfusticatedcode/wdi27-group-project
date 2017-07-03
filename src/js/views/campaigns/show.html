@@ -15,6 +15,8 @@
 
   <p class="subtitle">{{ campaignssShow.campaign.description }}</p>
 
+  <g-map center="campaignsNew.campaign.location"></g-map>
+
   <button class="button is-small is-success" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated()" id="editbutton">Edit</button>
 
   <button class="button is-small is-danger" ng-click="campaignsShow.delete()" ng-if="main.isAuthenticated()" id="deletebutton">Delete</button>

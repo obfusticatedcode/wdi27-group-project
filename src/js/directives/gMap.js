@@ -23,7 +23,7 @@ function gMap() {
 
       function initMap(center) {
         map =  new google.maps.Map(element[0], {
-          zoom: 14,
+          zoom: 10,
           scrollwheel: false,
           center: center
         });

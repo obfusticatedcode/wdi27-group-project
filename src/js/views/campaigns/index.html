@@ -3,7 +3,7 @@
 <section class="columns">
 
 
-
+<!-- the map -->
 <aside class="column is-one-quarter">
   <google-map center="campaignsIndex.center" locations="campaignsIndex.locations"></google-map>
 </aside>
@@ -24,12 +24,32 @@
           <p><strong>{{ campaign.campaignType }}</strong></p>
           <p><strong>{{ campaign.description }}</strong></p>
           <p><em>{{ campaign.createdBy.username }}</em></p>
-        
+
 
           <p ui-sref="campaignsShow({ id: campaign.id })">View</p>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- the search -->
+  <div class="column is-4">
+    <div class="field has-addons">
+
+      <p class="control has-icons-left">
+        <input class="input" id="search" type="text" name="q" placeholder="Search here" >
+        <span class="icon is-small is-left">
+          <i class="fa fa-search"></i>
+        </span>
+      </p>
+
+      <p class="control">
+        <button class="button is-primary">
+          Search
+        </button>
+      </p>
+    </div>
+  </div>
+
 
 </section>

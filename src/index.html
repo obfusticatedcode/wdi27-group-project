@@ -1,43 +1,44 @@
 <!DOCTYPE html>
 <html ng-app="disasterRelief">
-  <head>
-    <base href="/">
-    <meta charset="utf-8">
-    <title>Disaster Relief</title>
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-    </script>
-    <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt44-Q1N19w_NhwSw0NJhFfbDyu_pZ5DQ&libraries=places,geometry">
-    </script>
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <title>Disaster Relief</title>
+  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+  </script>
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt44-Q1N19w_NhwSw0NJhFfbDyu_pZ5DQ&libraries=places,geometry">
+  </script>
 
 
 
 
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body ng-controller="MainCtrl as main">
-    <header>
-      <!-- navigation -->
-      <nav>
-        <div class="nav-right nav-menu">
-            <a class="nav-item" ui-sref="campaignsIndex" ui-sref-active="active">All campaigns</a>
-            <a class="nav-item" ng-if="main.isAuthenticated()" ui-sref="campaignsNew" ui-sref-active="active">Start a campaign</a>
-            <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
-            <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
-            <a class="nav-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
-        </div>
-      </nav>
-    </header>
-
-    <!-- displaying error message -->
-    <div class="notification" ng-if="main.message" >{{ main.message }}</div>
-
-    <!-- main -->
-    <main ui-view></main>
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body ng-controller="MainCtrl as main">
+  <header>
+    <!-- navigation -->
+    <nav>
+      <div class="nav-right nav-menu">
+        <a class="nav-item" ui-sref="campaignsIndex" ui-sref-active="active">All campaigns</a>
+        <a class="nav-item" ng-if="main.isAuthenticated()" ui-sref="campaignsNew" ui-sref-active="active">Start a campaign</a>
+        <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
+        <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
+        <a class="nav-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
+      </div>
 
 
-  </body>
+    </nav>
+  </header>
+  <!-- displaying error message -->
+  <div class="notification" ng-if="main.message" >{{ main.message }}</div>
+
+  <!-- main -->
+  <main ui-view></main>
+
+
+</body>
 </html>

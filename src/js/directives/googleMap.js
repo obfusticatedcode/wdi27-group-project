@@ -23,6 +23,7 @@ function googleMap() {
 
       map = new google.maps.Map(element[0], {
         zoom: 8,
+        scrollwheel: false,
         center: scope.center
       });
 

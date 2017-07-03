@@ -7,8 +7,8 @@ angular
 .controller('CampaignsShowCtrl', CampaignsShowCtrl)
 .controller('CampaignsEditCtrl', CampaignsEditCtrl);
 
-CampaignsIndexCtrl.$inject = ['Campaign', '$scope'];
-function CampaignsIndexCtrl(Campaign, $scope) {
+CampaignsIndexCtrl.$inject = ['Campaign', 'filterFilter', 'orderByFilter','$scope'];
+function CampaignsIndexCtrl(Campaign, filterFilter, orderByFilter, $scope) {
   const vm        = this;
   vm.all          = [];
   vm.center       = { lat: 51.5004808, lng: -0.07 };
@@ -22,6 +22,7 @@ function CampaignsIndexCtrl(Campaign, $scope) {
     vm.locations = data.map(campaign => campaign.location);
     vm.all = data;
     getDistances();
+    filterCampaigns();
   });
 
   function getDistances(){
@@ -30,7 +31,22 @@ function CampaignsIndexCtrl(Campaign, $scope) {
       return campaign;
     });
   }
-}
+
+  //filter function
+  function filterCampaigns() {
+    const params = {name: vm.q };
+    vm.filtered = filterFilter(vm.all, params);//taking the whole array and filtering it
+    vm.filtered = orderByFilter(vm.filtered, vm.distance);//taking the whole array and filtering it
+    console.log('Logging the filtered array',vm.filtered);
+  }
+
+  //create a watch group to listen out for changes and then running the function
+  $scope.$watchGroup([
+    () => vm.q,
+    () => vm.distance
+  ], filterCampaigns);
+
+}//end of CampaignsIndexCtrl function
 
 CampaignsNewCtrl.$inject = ['Campaign', '$state'];
 function CampaignsNewCtrl(Campaign, $state) {

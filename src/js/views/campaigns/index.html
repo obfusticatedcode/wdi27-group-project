@@ -9,14 +9,41 @@
 </aside>
 
 
+
   <div class="column is-three-quarters is-offset-one-quarter">
+
+    <!-- the search -->
+    <div class="nav-left nav-menu">
+      <div class="field is-grouped">
+        <p class="control">
+          <input class="input" type="text" placeholder="Search" ng-model="campaignsIndex.q">
+        </p>
+        <p class="control">
+          <a class="button is-info">
+            Search
+          </a>
+        </p>
+      </div>
+    </div>
+    <!-- location search-->
     <input type="text" class="input" id="location" name="location" location="campaignsIndex.center"
     autocomplete ng-model="campaignsIndex.address">
     {{ campaignsIndex.campaign.location }}
 
+    <!-- order by -->
+    <label for="distance">Order By Distance {{ 1 + 1  }}</label>
+    <!-- dropdown -->
+    <div class="select">
+      <select id="distance" ng-model="campaignsIndex.distance">
+        <optgroup label="Choose an option">
+          <option  value="distance">Ascending</option>
+          <option value="-distance">Descending</option>
+        </optgroup>
+      </select>
+
     <p> {{ campaignsIndex.campaign.address }}</p>
     <div class="columns is-multiline">
-      <div ng-repeat="campaign in campaignsIndex.all track by $index" class="column is-4 campaign-item">
+      <div ng-repeat="campaign in campaignsIndex.all" class="column is-4 campaign-item">
         <div class="campaigns-single">
           <h2 class="title">{{ campaign.name }}</h2>
           <div class="campaign single-image" style="background-image:url('{{ campaign.imageSRC }}')" ui-sref="campaignsShow({ id: campaign.id })"></div>
@@ -25,32 +52,13 @@
           <p><strong>{{ campaign.people }}</strong></p>
           <p><strong>{{ campaign.description }}</strong></p>
           <p><em>{{ campaign.createdBy.username }}</em></p>
-
-
           <p ui-sref="campaignsShow({ id: campaign.id })">View</p>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- the search -->
-  <div class="column is-4">
-    <div class="field has-addons">
-
-      <p class="control has-icons-left">
-        <input class="input" id="search" type="text" name="q" placeholder="Search here" >
-        <span class="icon is-small is-left">
-          <i class="fa fa-search"></i>
-        </span>
-      </p>
-
-      <p class="control">
-        <button class="button is-primary">
-          Search
-        </button>
-      </p>
-    </div>
-  </div>
 
 
 </section>

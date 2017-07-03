@@ -7,10 +7,10 @@ GeolocationCtrl.$inject = ['geolocation'];
 function GeolocationCtrl(geolocation) {
   const vm = this;
 
-  vm.coords = geolocation.getLocation()
+  geolocation.getLocation()
     .then((data) => {
       console.log(`current user position` ,data.coords);
-      return {
+      vm.coords = {
         lat: data.coords.latitude,
         lng: data.coords.longitude
       };

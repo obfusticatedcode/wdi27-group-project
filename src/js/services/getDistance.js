@@ -2,8 +2,7 @@ angular
   .module('disasterRelief')
   .service('GetDistance', GetDistance );
 
-
-
+GetDistance.$inject = ['geolib'];
 function GetDistance(geolib){
 
   return geolib.getDistance(
@@ -11,5 +10,3 @@ function GetDistance(geolib){
     {latitude: 51, longitude: 7.49347}
   );
 }
-
-console.log(GetDistance(geolib));

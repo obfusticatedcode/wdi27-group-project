@@ -25,6 +25,7 @@ function autocomplete() {
         const place = autocomplete.getPlace();
         scope.location = place.geometry.location.toJSON();
         model.$setViewValue(element.val());
+        scope.$apply();
       });
     }
   };

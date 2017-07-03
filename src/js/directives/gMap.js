@@ -18,16 +18,19 @@ function gMap() {
       let map = null;
       let marker = null;
 
-      scope.$watch('center', initMap);
+      scope.$watch('center', centerMap);
       scope.$on('$destroy', destroyMap);
 
-      function initMap(center) {
-        map =  new google.maps.Map(element[0], {
-          zoom: 10,
-          scrollwheel: false,
-          center: center
-        });
+      map = new google.maps.Map(element[0], {
+        zoom: 10,
+        scrollwheel: false,
+        center: {lat: 51.515419, lng: -0.141099 }
+      });
 
+      function centerMap(center){
+        if(!center) return false;
+        map.setCenter(center);
+        map.setZoom(16);
         //create a marker
         marker = new google.maps.Marker({
           position: center,

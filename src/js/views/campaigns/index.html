@@ -10,10 +10,11 @@
   <div class="column is-three-quarters is-offset-one-quarter">
     <p> {{ campaignsIndex.locations }}</p>
     <div class="columns is-multiline">
-      <div ng-repeat="campaign in campaignsIndex.all" class="column is-4 campaign-item">
+      <div ng-repeat="campaign in campaignsIndex.all track by $index" class="column is-4 campaign-item">
         <div class="campaigns-single">
           <h2 class="title">{{ campaign.name }}</h2>
           <div class="campaign single-image" style="background-image:url('{{ campaign.imageSRC }}')" ui-sref="campaignsShow({ id: campaign.id })"></div>
+          <p> {{ campaignsIndex.distance[$index] }} metres away </p>
           <p><strong>{{ campaign.campaignType }}</strong></p>
           <p><em>{{ campaign.createdBy.username }}</em></p>
         </div>

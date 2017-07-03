@@ -3,7 +3,7 @@
 
 <section class="section">
   <div class="columns">
-    <div class="column is-half is-offset-one-quarter">
+    <div class="column is-one-quarter is-offset-one-third">
       <form ng-submit="campaignsEdit.update()" name="campaignsEdit.campaignForm" novalidate>
 
         <div class="field">
@@ -11,7 +11,7 @@
             <label class="label" for="name">Name</label>
           </p>
 
-          <input type="text" class="input" id="name" name="name" ng-model="campaignsEdit.campaign.name" required>
+          <input type="text" class="input" id="name" name="name" ng-model="campaignsEdit.campaign.name" value="campaign.name" required>
 
           <div ng-messages="campaignsEdit.campaignForm.name.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.name.$touched">
 
@@ -24,7 +24,8 @@
             <label class="label" for="location">Location</label>
           </p>
 
-          <input type="text" class="input" id="location" name="location" ng-model="campaignsEdit.campaign.location" required>
+          <input type="text" class="input" id="location" name="location"
+          ng-model="campaignsNew.campaign.address" location="campaignsEdit.campaign.location" value="campaign.location" required autocomplete>
 
           <div ng-messages="campaignsEdit.campaignForm.location.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.location.$touched">
 
@@ -69,7 +70,7 @@
             <label class="label" for="people">Number of people</label>
           </p>
 
-          <input type="text" class="input" id="people" name="people" ng-model="campaignsEdit.campaign.people" required>
+          <input type="text" class="input" id="people" name="people" ng-model="campaignsEdit.campaign.people" value="campaign.people" required>
 
           <div ng-messages="campaignsEdit.campaignForm.people.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.people.$touched">
 

@@ -21,7 +21,10 @@
     "angular-messages": "^1.6.4",
     "satellizer": "^0.15.5",
     "components-font-awesome": "^4.7.0",
-    "angular-password": "^1.0.3"
+    "angular-password": "^1.0.3",
+    "angularjs-geolocation": "^0.1.1",
+    "ngGeolocation": "^0.0.8",
+    "Geolib": "geolib#^2.0.22"
   },
   "resolutions": {
     "angular": "1.6.4"

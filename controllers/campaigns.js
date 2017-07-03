@@ -10,6 +10,9 @@ function indexRoute(req, res, next) {
 }
 
 function createRoute(req, res, next) {
+
+  req.body.createdBy = req.user;
+  console.log(req.body);
   Campaign
   .create(req.body)
   .then((campaign) => res.status(201).json(campaign))

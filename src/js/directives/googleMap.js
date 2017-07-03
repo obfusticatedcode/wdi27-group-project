@@ -7,30 +7,33 @@ angular
 function googleMap() {
   return {
     restrict: 'E',
-    controllerAs: 'CampaignsIndexCtrl',
     replace: true,
     template: '<div class="map">Google Map</div>',
     scope: {
       center: '=',
       locations: '='
     },
-    link(scope, element, CampaignsIndexCtrl) {
+    link(scope, element) {
       let map = null;
       let marker = null;
-      console.log(CampaignsIndexCtrl);
 
-      scope.$on('load', CampaignsIndexCtrl.getLocations);
-      scope.$watch('locations', initMap);
+      scope.$watch('locations', generateMarkers);
       scope.$on('$destroy', destroyMap);
+      scope.$watch('center', centerMap);
 
-      function initMap(locations) {
-        // locations = [].slice.call(locations);
-        if(!locations) return false;
+      map = new google.maps.Map(element[0], {
+        zoom: 8,
+        center: scope.center
+      });
 
-        map = new google.maps.Map(element[0], {
-          zoom: 8,
-          center: {lat: 51.515419, lng: -0.141099 }
-        });
+      function centerMap(center){
+        if(!center) return false;
+        map.setCenter(center);
+        map.setZoom(16);
+
+      }
+
+      function generateMarkers(locations) {
 
         // Create an array of alphabetical characters used to label the markers.
         const labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';

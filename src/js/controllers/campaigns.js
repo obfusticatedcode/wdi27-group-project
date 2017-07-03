@@ -1,32 +1,35 @@
+/* global geolib */
+
 angular
-  .module('disasterRelief')
-  .controller('CampaignsIndexCtrl', CampaignsIndexCtrl)
-  .controller('CampaignsNewCtrl', CampaignsNewCtrl)
-  .controller('CampaignsShowCtrl', CampaignsShowCtrl)
-  .controller('CampaignsEditCtrl', CampaignsEditCtrl);
+.module('disasterRelief')
+.controller('CampaignsIndexCtrl', CampaignsIndexCtrl)
+.controller('CampaignsNewCtrl', CampaignsNewCtrl)
+.controller('CampaignsShowCtrl', CampaignsShowCtrl)
+.controller('CampaignsEditCtrl', CampaignsEditCtrl);
 
-CampaignsIndexCtrl.$inject = ['Campaign'];
-function CampaignsIndexCtrl(Campaign) {
+CampaignsIndexCtrl.$inject = ['Campaign', '$scope'];
+function CampaignsIndexCtrl(Campaign, $scope) {
   const vm        = this;
-  vm.getLocations = convertLatLng;
-  vm.all          = Campaign.query();
-  console.log('CampaignsIndexCtrl', vm);
-  convertLatLng();
+  vm.all          = [];
+  vm.center       = { lat: 51.5004808, lng: -0.07 };
 
-  function convertLatLng() {
-    console.log('This convertLatLng function: "I have been called!"');
-    const data = [];
-    angular.forEach(vm.all, function(campaign) {
-      data.push(campaign.location);
+  $scope.$watch(() => vm.center, getDistances);
+
+  Campaign
+  .query()
+  .$promise
+  .then((data) => {
+    vm.locations = data.map(campaign => campaign.location);
+    vm.all = data;
+    getDistances();
+  });
+
+  function getDistances(){
+    vm.all = vm.all.map(campaign => {
+      campaign.distance = geolib.getDistance(vm.center, campaign.location);
+      return campaign;
     });
-    console.log(data);
-    console.log(vm);
-
-    vm.locations = data;
-    return data;
   }
-
-
 }
 
 CampaignsNewCtrl.$inject = ['Campaign', '$state'];
@@ -35,10 +38,11 @@ function CampaignsNewCtrl(Campaign, $state) {
   vm.campaign = {};
 
   function campaignsCreate() {
+    console.log(vm.campaign);
     Campaign
-      .save(vm.campaign)
-      .$promise
-      .then(() => $state.go('campaignsIndex'));
+    .save(vm.campaign)
+    .$promise
+    .then(() => $state.go('campaignsIndex'));
   }
 
   vm.create = campaignsCreate;
@@ -52,8 +56,8 @@ function CampaignsShowCtrl(Campaign, $stateParams, $state) {
 
   function campaignsDelete() {
     vm.campaign
-      .$remove()
-      .then(() => $state.go('campaignsIndex'));
+    .$remove()
+    .then(() => $state.go('campaignsIndex'));
   }
 
   vm.delete = campaignsDelete;
@@ -68,8 +72,8 @@ function CampaignsEditCtrl(Campaign, $stateParams, $state) {
   function campaignsUpdate() {
     if (vm.campaignForm.$valid) {
       vm.campaign
-        .$update()
-        .then(() => $state.go('campaignsShow', $stateParams));
+      .$update()
+      .then(() => $state.go('campaignsShow', $stateParams));
     }
   }
 

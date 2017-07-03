@@ -7,8 +7,12 @@
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
     <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0aPQBnwf7QmdjdBI0_Ar_bCuYylV6erE">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt44-Q1N19w_NhwSw0NJhFfbDyu_pZ5DQ&libraries=places,geometry">
     </script>
+
+
+
+
     <!-- inject:js -->
     <!-- endinject -->
     <!-- inject:css -->
@@ -20,7 +24,7 @@
       <nav>
         <div class="nav-right nav-menu">
             <a class="nav-item" ui-sref="campaignsIndex" ui-sref-active="active">All campaigns</a>
-            <a class="nav-item" ng-if="main.isAuthenticated()" ui-sref="campaignsNew" ui-sref-active="active">Add a campaign</a>
+            <a class="nav-item" ng-if="main.isAuthenticated()" ui-sref="campaignsNew" ui-sref-active="active">Start a campaign</a>
             <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
             <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
             <a class="nav-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>

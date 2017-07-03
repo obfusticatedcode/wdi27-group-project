@@ -8,23 +8,15 @@ angular
 CampaignsIndexCtrl.$inject = ['Campaign'];
 function CampaignsIndexCtrl(Campaign) {
   const vm        = this;
-  vm.getLocations = convertLatLng;
-  vm.all          = Campaign.query();
-  console.log('CampaignsIndexCtrl', vm);
-  convertLatLng();
+  vm.all          = [];
 
-  function convertLatLng() {
-    console.log('This convertLatLng function: "I have been called!"');
-    const data = [];
-    angular.forEach(vm.all, function(campaign) {
-      data.push(campaign.location);
+  Campaign
+    .query()
+    .$promise
+    .then((data) => {
+      vm.locations = data.map(campaign => campaign.location);
+      vm.all = data;
     });
-    console.log(data);
-    console.log(vm);
-
-    vm.locations = data;
-    return data;
-  }
 
 
 }

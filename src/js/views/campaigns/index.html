@@ -22,7 +22,11 @@
           <div class="campaign single-image" style="background-image:url('{{ campaign.imageSRC }}')" ui-sref="campaignsShow({ id: campaign.id })"></div>
           <p> {{ campaign.distance | number }} metres away </p>
           <p><strong>{{ campaign.campaignType }}</strong></p>
+          <p><strong>{{ campaign.description }}</strong></p>
           <p><em>{{ campaign.createdBy.username }}</em></p>
+        
+
+          <p ui-sref="campaignsShow({ id: campaign.id })">View</p>
         </div>
       </div>
     </div>

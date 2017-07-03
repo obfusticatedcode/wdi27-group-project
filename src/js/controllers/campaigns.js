@@ -38,6 +38,7 @@ function CampaignsNewCtrl(Campaign, $state) {
   vm.campaign = {};
 
   function campaignsCreate() {
+    console.log(vm.campaign);
     Campaign
     .save(vm.campaign)
     .$promise

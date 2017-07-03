@@ -34,10 +34,12 @@ function CampaignsIndexCtrl(Campaign, filterFilter, orderByFilter, $scope) {
 
   //filter function
   function filterCampaigns() {
-    const params = {name: vm.q };
+    const params = {
+      name: vm.q
+    };
     vm.filtered = filterFilter(vm.all, params);//taking the whole array and filtering it
     vm.filtered = orderByFilter(vm.filtered, vm.distance);//taking the whole array and filtering it
-    console.log('Logging the filtered array',vm.filtered);
+
   }
 
   //create a watch group to listen out for changes and then running the function
@@ -54,7 +56,6 @@ function CampaignsNewCtrl(Campaign, $state) {
   vm.campaign = {};
 
   function campaignsCreate() {
-    console.log(vm.campaign);
     Campaign
     .save(vm.campaign)
     .$promise

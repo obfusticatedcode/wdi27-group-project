@@ -19,11 +19,19 @@ function googleMap() {
 
       scope.$watch('locations', generateMarkers);
       scope.$on('$destroy', destroyMap);
+      scope.$watch('center', centerMap);
 
       map = new google.maps.Map(element[0], {
         zoom: 8,
-        center: {lat: 51.515419, lng: -0.141099 }
+        center: scope.center
       });
+
+      function centerMap(center){
+        if(!center) return false;
+        map.setCenter(center);
+        map.setZoom(16);
+
+      }
 
       function generateMarkers(locations) {
 

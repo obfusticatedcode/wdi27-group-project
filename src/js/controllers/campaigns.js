@@ -1,3 +1,5 @@
+/* global geolib */
+
 angular
 .module('disasterRelief')
 .controller('CampaignsIndexCtrl', CampaignsIndexCtrl)
@@ -5,11 +7,13 @@ angular
 .controller('CampaignsShowCtrl', CampaignsShowCtrl)
 .controller('CampaignsEditCtrl', CampaignsEditCtrl);
 
-CampaignsIndexCtrl.$inject = ['Campaign'];
-function CampaignsIndexCtrl(Campaign) {
+CampaignsIndexCtrl.$inject = ['Campaign', '$scope'];
+function CampaignsIndexCtrl(Campaign, $scope) {
   const vm        = this;
   vm.all          = [];
+  vm.center       = { lat: 51.5004808, lng: -0.07 };
 
+  $scope.$watch(() => vm.center, getDistances);
 
   Campaign
   .query()
@@ -17,20 +21,15 @@ function CampaignsIndexCtrl(Campaign) {
   .then((data) => {
     vm.locations = data.map(campaign => campaign.location);
     vm.all = data;
-    vm.distance = vm.all.map(location => getDistance(location.location));
-    console.log('vm', vm);
+    getDistances();
   });
 
-  /*global geolib*/
-  //GetDistance function
-  function getDistance(location){
-    return geolib.getDistance(
-      {lat: 51, lng: 7.49347},
-      location
-    );
+  function getDistances(){
+    vm.all = vm.all.map(campaign => {
+      campaign.distance = geolib.getDistance(vm.center, campaign.location);
+      return campaign;
+    });
   }
-
-
 }
 
 CampaignsNewCtrl.$inject = ['Campaign', '$state'];

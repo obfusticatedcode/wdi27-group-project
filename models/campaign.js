@@ -9,7 +9,8 @@ const categorySchema = new mongoose.Schema({
 
 const campaignSchema = new mongoose.Schema({
   name: { type: String },
-  location: { type: Object },
+  address: { type: String },
+  location: { lat: Number, lng: Number },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true},
   description: { type: String },
   expiryDate: { type: Date },

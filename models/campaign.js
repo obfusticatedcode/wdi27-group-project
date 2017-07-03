@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-//define categorySchema
+// define categorySchema
 const categorySchema = new mongoose.Schema({
   name: { type: String },
   amount: { type: Number }
@@ -11,21 +11,16 @@ const campaignSchema = new mongoose.Schema({
   name: { type: String },
   address: { type: String },
   location: { lat: Number, lng: Number },
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true},
+  campaignType: { type: String },
+  people: { type: Number },
   description: { type: String },
-  expiryDate: { type: Date },
+  date: { type: Date },
   isAvailable: { type: Boolean },
-  type: { type: Boolean },
-  categories: [ categorySchema ]
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  category: { type: String }
 }, {
   timestamps: true
 });
-
-campaignSchema
-  .virtual('campaignType')
-  .get(function campaignType() {
-    return this.type ? 'Help offered' : 'Help needed';
-  });
 
 
 

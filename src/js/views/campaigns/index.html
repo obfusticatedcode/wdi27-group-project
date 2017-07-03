@@ -2,20 +2,18 @@
 
 <section class="columns">
 
-<aside class="column is-one-quarter">
-  <google-map center="{lat: 51.515419, lng: -0.141099 }" locations="campaignsIndex.locations"></google-map>
-</aside>
-
-
   <div class="column is-three-quarters is-offset-one-quarter">
-    <p> {{ campaignsIndex.locations }}</p>
     <div class="columns is-multiline">
       <div ng-repeat="campaign in campaignsIndex.all" class="column is-4 campaign-item">
         <div class="campaigns-single">
           <h2 class="title">{{ campaign.name }}</h2>
           <div class="campaign single-image" style="background-image:url('{{ campaign.imageSRC }}')" ui-sref="campaignsShow({ id: campaign.id })"></div>
           <p><strong>{{ campaign.campaignType }}</strong></p>
+          <p><strong>{{ campaign.description }}</strong></p>
           <p><em>{{ campaign.createdBy.username }}</em></p>
+          <g-map class="indexmap" center="campaignsShow.campaign.location"></g-map>
+
+          <p ui-sref="campaignsShow({ id: campaign.id })">View</p>
         </div>
       </div>
     </div>

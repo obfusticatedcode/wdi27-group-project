@@ -5,6 +5,8 @@
   <button ng-click="campaignsIndex.getLocations()">Click!</button>
 </aside>
 
+
+
 <div class="column is-three-quarters is-offset-one-quarter">
   <div class="columns is-multiline">
     <div ng-repeat="campaign in campaignsIndex.all" class="column is-4 campaign-item">
@@ -13,6 +15,7 @@
         <div class="campaign single-image" style="background-image:url('{{ campaign.imageSRC }}')" ui-sref="campaignsShow({ id: campaign.id })"></div>
         <p><strong>{{ campaign.campaignType }}</strong></p>
         <p><strong>{{ campaign.createdBy.username }}</strong></p>
+        <a ui-sref="campaignsShow({ id: campaign.id })">Show</a>
       </div>
     </div>
   </div>

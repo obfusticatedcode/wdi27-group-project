@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+
 <section class="section">
 
   <h1>{{ campaignsShow.campaign.name }}</h1>
 
-  <p class="subtitle">{{ campaignssShow.campaign.location }}</p>
+  <p class="subtitle">{{ campaignsShow.campaign.location }}</p>
 
-  <p class="subtitle">{{ campaignssShow.campaign.campaignType }}</p>
+  <p class="subtitle">{{ campaignsShow.campaign.campaignType }}</p>
 
-  <p class="subtitle">{{ campaignssShow.campaign.category }}</p>
+  <p class="subtitle">{{ campaignsShow.campaign.category }}</p>
 
-  <p class="subtitle">{{ campaignssShow.campaign.people }}</p>
+  <p class="subtitle">{{ campaignsShow.campaign.people }}</p>
 
-  <p class="subtitle">{{ campaignssShow.campaign.date }}</p>
+  <p class="subtitle">{{ campaignsShow.campaign.date }}</p>
 
-  <p class="subtitle">{{ campaignssShow.campaign.description }}</p>
+  <p class="subtitle">{{ campaignsShow.campaign.description }}</p>
 
   <button class="button is-small is-success" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated()" id="editbutton">Edit</button>
 

@@ -6,7 +6,7 @@ const geolib = require('geolib');
 // define categorySchema
 const categorySchema = new mongoose.Schema({
   name: { type: String },
-  amount: { type: Number }
+  people: { type: Number }
 });
 
 
@@ -21,7 +21,7 @@ const campaignSchema = new mongoose.Schema({
   date: { type: Date },
   isAvailable: { type: Boolean },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-  category: { type: String }
+  category: [ categorySchema ]
 }, {
   timestamps: true
 });

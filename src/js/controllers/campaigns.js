@@ -50,8 +50,8 @@ function CampaignsIndexCtrl(Campaign, filterFilter, orderByFilter, $scope) {
 
 }//end of CampaignsIndexCtrl function
 
-CampaignsNewCtrl.$inject = ['Campaign', '$state', 'CampaignCategory'];
-function CampaignsNewCtrl(Campaign, $state, CampaignCategory) {
+CampaignsNewCtrl.$inject = ['Campaign', '$state'];
+function CampaignsNewCtrl(Campaign, $state) {
   const vm = this;
   vm.campaign = { categories: [{}] };
 
@@ -66,22 +66,16 @@ function CampaignsNewCtrl(Campaign, $state, CampaignCategory) {
 
   function addCategory() {
     vm.campaign.categories.push({}); //pushes category to array
-    console.log(vm.campaign.categories);
+    // .save({ campaignId: vm.campaign.id }, vm.newCategory)
+    // .$promise
+    // .then((category) => {
+    //   console.log(category);
+    // });
   }
-
-
   vm.addCategory = addCategory;
 
-  function deleteCategory(category) {
-    console.log(category);
-    CampaignCategory
-    .delete({ id: category.id })
-    .$promise
-    .then(() => {
-      const index = vm.campaign.categories.indexOf(category);
-      vm.campaign.categories.splice(index, 1);
-    });
-  } //category needs to be passed in
+
+
 
   function deleteCategoryFromView(category) {
     console.log(category);
@@ -89,7 +83,7 @@ function CampaignsNewCtrl(Campaign, $state, CampaignCategory) {
     vm.campaign.categories.splice(index, 1);
   }
   vm.deleteCategoryFromView = deleteCategoryFromView;
-  vm.deleteCategory = deleteCategory; //attached to controller
+
 }
 
 
@@ -111,8 +105,8 @@ function CampaignsShowCtrl(Campaign, $stateParams, $state) {
   vm.delete = campaignsDelete;
 }
 
-CampaignsEditCtrl.$inject = ['Campaign', '$stateParams', '$state'];
-function CampaignsEditCtrl(Campaign, $stateParams, $state) {
+CampaignsEditCtrl.$inject = ['Campaign', '$stateParams', '$state', 'CampaignCategory'];
+function CampaignsEditCtrl(Campaign, $stateParams, $state, CampaignCategory) {
   const vm = this;
 
   vm.campaign = Campaign.get($stateParams);
@@ -126,4 +120,26 @@ function CampaignsEditCtrl(Campaign, $stateParams, $state) {
   }
 
   vm.update = campaignsUpdate;
+
+  function addCategory() {
+    vm.campaign.categories.push({}); //pushes category to array
+    console.log(vm.campaign.categories);
+  }
+
+
+  vm.addCategory = addCategory;
+
+  function deleteCategory(category) {
+    CampaignCategory
+    .delete({ id: category.id })
+    .$promise
+    .then(() => {
+      const index = vm.campaign.categories.indexOf(category);
+      vm.campaign.categories.splice(index, 1);
+    });
+  } //category needs to be passed in
+
+  vm.deleteCategory = deleteCategory; //attached to controller
+
+
 }

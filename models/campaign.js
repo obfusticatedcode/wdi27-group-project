@@ -25,8 +25,8 @@ const campaignSchema = new mongoose.Schema({
 });
 
 campaignSchema.post('save', function sendMail(next) {
-  console.log('LOCATION: ', this.location);
-  console.log('CAMPAIGN DETAILS: ', this);
+  // console.log('LOCATION: ', this.location);
+  // console.log('CAMPAIGN DETAILS: ', this);
 
   User
     .find()

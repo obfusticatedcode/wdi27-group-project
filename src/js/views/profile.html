@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 
 <div class="columns">
-  <div class="column is-4 is-offset-4">
+  <div class="column is-4 is-offset-2">
     <h1 class="title">Your Profile</h1>
 
-    <img ng-src="{{ profile.user.image }}" alt="profile.user.username">
+    <img class="image" ng-src="{{ profile.user.image }}" alt="profile.user.username">
     <h2>{{ profile.user.username }}</h2>
+    <p class="title is-4" ng-if="profile.user.firstname">{{ profile.user.firstname }}</p>
+    <p class="title is-4" ng-if="profile.user.lastname">{{ profile.user.lastname }}</p>
     <a href="mailto:{{ profile.user.email }}" ng-if="profile.user.email">{{ profile.user.email }}</a>
     <p ng-if="profile.user.facebookId">Facebook Id: <strong>{{ profile.user.facebookId }}</strong></p>
     <p ng-if="profile.user.instagramId">Instagram Id: <strong>{{ profile.user.instagramId }}</strong></p>
 
+  </div>
+
+  <!-- comments -->
+  <div class="column is-4">
+    <h1 class="title">Comments</h1>
+    <article class="media">
+      <div class="media-content">
+        <div class="field">
+          <p class="control">
+            <textarea class="textarea" placeholder="Add a comment..."></textarea>
+          </p>
+        </div>
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <a class="button is-info">Submit</a>
+            </div>
+          </div>
+          <div class="level-right">
+            <div class="level-item">
+              <label class="checkbox">
+                <input type="checkbox"> Press enter to submit
+              </label>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </article>
   </div>
 
 </div>

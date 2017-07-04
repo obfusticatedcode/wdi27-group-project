@@ -14,6 +14,8 @@
 
   </div>
 
+
+
   <!-- comments -->
   <div class="column is-4">
     <h1 class="title">Comments</h1>
@@ -42,4 +44,24 @@
     </article>
   </div>
 
+
+</div>
+
+<div class="columns is-multiline">
+  <!-- user campaigns -->
+  <div class="column is-4 is-offset-2" ng-repeat="campaign in profile.user.campaigns">
+    <div >
+      <p>
+        <strong>{{ campaign.name }}</strong>
+      </p>
+      <p>
+        <strong>{{ campaign.address }}</strong>
+      </p>
+      <p>
+        {{ campaign.description }}
+      </p>
+
+    </div>
+
+  </div>
 </div>

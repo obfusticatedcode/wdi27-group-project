@@ -58,6 +58,22 @@
             The email address you entered is too long
           </div>
         </div>
+        <!-- address / location -->
+        <div class="field">
+          <p class="control">
+            <label class="label" for="location">Location</label>
+          </p>
+
+          <input type="text" class="input" id="location" name="location"
+          ng-model="register.user.location" location="register.user.location"
+          required autocomplete>
+          <h1>{{ register.user.location }}</h1>
+
+          <!-- ng message location -->
+          <div ng-messages="register.user.location.$error" ng-show="register.user.$submitted || register.user.location.$touched">
+            <div ng-message="required" class="notification">You forgot to enter the location</div>
+          </div>
+        </div>
         <!-- password -->
         <div class="field">
           <label class="label" for="password">Password</label>

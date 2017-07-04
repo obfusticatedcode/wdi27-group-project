@@ -9,6 +9,8 @@ const categorySchema = new mongoose.Schema({
   people: { type: Number }
 });
 
+
+
 const campaignSchema = new mongoose.Schema({
   name: { type: String, required: true },
   address: { type: String },
@@ -25,8 +27,8 @@ const campaignSchema = new mongoose.Schema({
 });
 
 campaignSchema.post('save', function sendMail(next) {
-  console.log('LOCATION: ', this.location);
-  console.log('CAMPAIGN DETAILS: ', this);
+  // console.log('LOCATION: ', this.location);
+  // console.log('CAMPAIGN DETAILS: ', this);
 
   User
     .find()
@@ -49,7 +51,7 @@ campaignSchema.post('save', function sendMail(next) {
         // I
         if(distance < 25000) {
           const emailConfig = {
-            from: `"Tim Rooke" <${process.env.GMAIL_ADDRESS}>`, // sender address
+            from: `"Disaster Relief" <${process.env.GMAIL_ADDRESS}>`, // sender address
             to: `${user.email}`, // list of receivers
             subject: `${this.createdBy.username} needs your help!`, // Subject line
             text: `${this.createdBy.username} is looking for your help. They are only ${distance} away from you!`, // plain text body

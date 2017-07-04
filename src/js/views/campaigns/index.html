@@ -46,10 +46,12 @@
       <google-map center="campaignsIndex.center" locations="campaignsIndex.locations"></google-map>
     </aside>
 
+
+
     <div class="column is-8 campaigns">
       <div class="columns is-multiline">
-        <div ng-repeat="campaign in campaignsIndex.filtered" class="column is-4 campaign">
-
+        <div ng-repeat="campaign in campaignsIndex.filtered"  ng-if="campaign.isAvailable" class="column is-4 campaign">
+          {{ campaign.isAvailable }}
           <!-- card -->
           <div class="card">
             <div class="card-image">

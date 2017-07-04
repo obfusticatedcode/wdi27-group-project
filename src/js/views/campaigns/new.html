@@ -62,15 +62,39 @@
                   <label class="label" for="category">Category</label>
                 </p>
 
-                <select type="text" class="input" id="category" name="category" ng-model="category.name" required>
-                  <option value="food">Food</option>
-                  <option value="shelter">Shelter</option>
-                  <option value="medical">Medical Assistance</option>
-                </select>
-                <!-- ng message category -->
-                <div ng-messages="campaignsNew.campaignForm.category.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.category.$touched">
-                  <div ng-message="required" class="notification">You forgot to enter the category</div>
-                </div>
+         <!-- is Available? -->
+         <div class="field is-horizontal">
+           <div class="field-label">
+             <label class="label">Is available?</label>
+           </div>
+           <div class="field">
+             <div class="control">
+               <label class="checkbox">
+                 <input type="checkbox" id="isAvailable" name="isAvailable"
+                 ng-model="campaignsNew.campaign.isAvailable"
+                 required>
+               </label>
+             </div>
+           </div>
+         </div>
+
+         <!-- category -->
+        <div class="field">
+          <p class="control">
+            <label class="label" for="campaignType">Category</label>
+          </p>
+          <select type="text" class="input" id="category" name="category" ng-model="campaignsEdit.campaign.category" required>
+            <option value="food">Food</option>
+            <option value="shelter">Shelter</option>
+            <option value="medical">Medical Assistance</option>
+          </select>
+          <!-- ng message category -->
+          <div ng-messages="campaignsEdit.campaignForm.category.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.category.$touched">
+            <div ng-message="required" class="notification">You forgot to enter the category</div>
+          </div>
+        </div>
+
+        <!-- number of people -->
 
                 <!-- number of people -->
 

@@ -11,7 +11,7 @@ function ProfileCtrl($auth, User, $state) {
   const { userId } = $auth.getPayload();
   console.log(userId);
 
-  if (userId) vm.user = User.get({ id: userId });
+  if (userId) vm.data = User.get({ id: userId });
 
   function logout() {
     $auth.logout();

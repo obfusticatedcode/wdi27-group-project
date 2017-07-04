@@ -39,19 +39,19 @@ function showRoute(req, res, next) {
 function updateRoute(req, res, next) {
   req.body.createdBy = req.user;
   Campaign
-    .findById(req.params.id)
-    .exec()
-    .then((campaign) => {
-      if(!campaign) return res.notFound();
+  .findById(req.params.id)
+  .exec()
+  .then((campaign) => {
+    if(!campaign) return res.notFound();
 
-      for(const field in req.body) {
-        campaign[field] = req.body[field];
-      }
+    for(const field in req.body) {
+      campaign[field] = req.body[field];
+    }
 
-      return campaign.save();
-    })
-    .then((campaign) => res.json(campaign))
-    .catch(next);
+    return campaign.save();
+  })
+  .then((campaign) => res.json(campaign))
+  .catch(next);
 }
 
 
@@ -68,6 +68,42 @@ function deleteRoute(req, res, next) {
   .catch(next);
 }
 
+function createCategoryRoute(req, res, next) {
+
+  req.body.createdBy = req.user;
+
+  Campaign
+  .findById(req.params.id)
+  .exec()
+  .then((campaign) => {
+    if(!campaign) return res.notFound();
+
+    const category = campaign.categories.create(req.body);
+    campaign.categories.push(category);
+
+    return campaign.save()
+    .then(() => res.json(category));
+  })
+  .catch(next);
+}
+
+function deleteCategoryRoute(req, res, next) {
+  console.log(req.params.id);
+  Campaign
+  .findById(req.params.id)
+  .exec()
+  .then((campaign) => {
+    if(!campaign) return res.notFound();
+
+    const category = campaign.category.id(req.params.categoryId);
+    category.remove();
+
+    return campaign.save();
+  })
+  .then((campaign) => res.redirect(`/campaigns/${campaign.id}`))
+  .catch(next);
+}
+
 
 
 module.exports = {
@@ -75,5 +111,7 @@ module.exports = {
   create: createRoute,
   show: showRoute,
   delete: deleteRoute,
-  update: updateRoute
+  update: updateRoute,
+  createCategory: createCategoryRoute,
+  deleteCategory: deleteCategoryRoute
 };

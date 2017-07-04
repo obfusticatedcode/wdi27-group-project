@@ -13,7 +13,7 @@
       <!-- category -->
       <label for="category">Category</label>
       <p>
-        {{ campaignsShow.campaign.category }}
+        {{ campaignsShow.campaign.categories }}
       </p>
       <!-- people -->
       <label for="people">Number of people</label>
@@ -37,6 +37,8 @@
       <button class="button is-small is-success" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="editbutton">Edit</button>
 
       <button class="button is-small is-danger" ng-click="campaignsShow.delete()" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="deletebutton">Delete</button>
+
+
     </div>
   </div>
 </section>

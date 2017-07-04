@@ -49,7 +49,7 @@ campaignSchema.post('save', function sendMail(next) {
         // I
         if(distance < 25000) {
           const emailConfig = {
-            from: `"Tim Rooke" <${process.env.GMAIL_ADDRESS}>`, // sender address
+            from: `"Disaster Relief" <${process.env.GMAIL_ADDRESS}>`, // sender address
             to: `${user.email}`, // list of receivers
             subject: `${this.createdBy.username} needs your help!`, // Subject line
             text: `${this.createdBy.username} is looking for your help. They are only ${distance} away from you!`, // plain text body

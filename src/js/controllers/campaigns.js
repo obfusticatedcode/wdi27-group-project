@@ -31,7 +31,7 @@ function CampaignsIndexCtrl(Campaign, filterFilter, orderByFilter, $scope) {
       return campaign;
     });
   }
-
+  console.log('VM', vm);
   //filter function
   function filterCampaigns() {
     const params = {

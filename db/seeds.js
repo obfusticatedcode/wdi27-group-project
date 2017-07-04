@@ -16,6 +16,7 @@ User
   firstName: 'James',
   lastName: 'Harris',
   image: '',
+  location: { lat: 51.71541, lng: -0.111099 },
   email: 'jim@jim.com',
   username: 'jgbharris',
   password: 'password',
@@ -24,7 +25,8 @@ User
   firstName: 'Tim',
   lastName: 'Rooke',
   image: 'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-1/c2.0.320.320/p320x320/10609487_10152259133751701_530836782283067901_n.jpg?oh=3f01db086c5bcf62e3812080c57da23f&oe=5A101B0D',
-  email: 'tim@tim.com',
+  location: { lat: 51.510936, lng: -0.086630 },
+  email: 'timrooke1991@gmail.com',
   username: 'timro123',
   password: 'password',
   passwordConfirmation: 'password'

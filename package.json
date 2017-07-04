@@ -59,7 +59,9 @@
     "jsonwebtoken": "^7.4.1",
     "mongoose": "^4.10.8",
     "morgan": "^1.8.2",
-    "request-promise": "^4.2.1"
+    "nodemailer": "^4.0.1",
+    "request-promise": "^4.2.1",
+    "xoauth2": "^1.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

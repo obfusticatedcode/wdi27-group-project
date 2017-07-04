@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   firstName: {type: String },
   lastName: {type: String },
   image: {type: String },
+  location: { lat: Number, lng: Number },
   email: { type: String, trim: true },
   username: { type: String, required: true, trim: true },
   password: { type: String },

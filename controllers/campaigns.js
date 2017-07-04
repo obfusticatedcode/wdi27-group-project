@@ -15,7 +15,9 @@ function createRoute(req, res, next) {
   console.log(req.body);
   Campaign
   .create(req.body)
-  .then((campaign) => res.status(201).json(campaign))
+  .then((campaign) => {
+    res.status(201).json(campaign);
+  })
   .catch(next);
 }
 
@@ -29,7 +31,6 @@ function showRoute(req, res, next) {
   .exec()
   .then((campaign) => {
     if(!campaign) return res.notFound();
-
     res.json(campaign);
   })
   .catch(next);

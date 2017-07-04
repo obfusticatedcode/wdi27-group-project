@@ -31,11 +31,15 @@
       </p>
 
       <g-map class="map" center="campaignsShow.campaign.location"></g-map>
-      
+
       <hr>
       <button class="button is-small is-success" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated()" id="editbutton">Edit</button>
 
-      <button class="button is-small is-danger" ng-click="campaignsShow.delete()" ng-if="main.isAuthenticated()" id="deletebutton">Delete</button>
+      <button class="button is-small is-danger" ng-click="campaignsShow.delete()" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="deletebutton">Delete</button>
+
+
+      <!-- <button ng-click="postsShow.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === postsShow.post.createdBy.id">Delete</button> -->
+
     </div>
   </div>
 </section>

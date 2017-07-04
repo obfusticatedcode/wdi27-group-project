@@ -12,7 +12,7 @@
       <!-- category -->
       <label for="category">Category</label>
       <p>
-        {{ campaignsShow.campaign.category }}
+        {{ campaignsShow.campaign.categories }}
       </p>
       <!-- people -->
       <label for="people">Number of people</label>
@@ -31,7 +31,7 @@
       </p>
 
       <g-map class="map" center="campaignsShow.campaign.location"></g-map>
-      
+
       <hr>
       <button class="button is-small is-success" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated()" id="editbutton">Edit</button>
 

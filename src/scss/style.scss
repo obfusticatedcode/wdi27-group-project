@@ -21,17 +21,9 @@ body, html {
   background: $whiteSmoke;
 }
 
-aside.column {
-  margin-left: 8px;
-  margin-right: 8px;
-  padding: 0;
-  position: fixed;
-  display: inline-block;
-}
-
 /*classes */
 .map {
-  height: 600px;
+  height: 100%;
 }
 
 .indexmap {
@@ -68,4 +60,33 @@ aside.column {
   background-color: grey;
   height: 600px;
   width: 100%;
+}
+
+// header {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   background-color: #f5f5f5;
+//   z-index: 1;
+// }
+
+// main {
+//   margin-top: 50px;
+// }
+
+.campaigns-index {
+  height: calc(100vh - 28px);
+  padding-right: 20px;
+  .campaigns {
+    height: calc(100vh - 120px);
+    overflow: scroll;
+    .campaign {
+      display: flex;
+    }
+  }
+
+  .campaigns-map {
+    padding-bottom: 0;
+  }
 }

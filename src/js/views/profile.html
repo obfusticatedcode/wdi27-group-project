@@ -3,14 +3,13 @@
 <div class="columns">
   <div class="column is-4 is-offset-2">
     <h1 class="title">Your Profile</h1>
-
-    <img class="image" ng-src="{{ profile.user.image }}" alt="profile.user.username">
-    <h2>{{ profile.user.username }}</h2>
-    <p class="title is-4" ng-if="profile.user.firstname">{{ profile.user.firstname }}</p>
-    <p class="title is-4" ng-if="profile.user.lastname">{{ profile.user.lastname }}</p>
-    <a href="mailto:{{ profile.user.email }}" ng-if="profile.user.email">{{ profile.user.email }}</a>
-    <p ng-if="profile.user.facebookId">Facebook Id: <strong>{{ profile.user.facebookId }}</strong></p>
-    <p ng-if="profile.user.instagramId">Instagram Id: <strong>{{ profile.user.instagramId }}</strong></p>
+    <img class="image" ng-src="{{ profile.data.user.image }}" alt="profile.data.user.username">
+    <h2>{{ profile.data.user.username }}</h2>
+    <p class="title is-4" ng-if="profile.data.user.firstname">{{ profile.data.user.firstname }}</p>
+    <p class="title is-4" ng-if="profile.data.user.lastname">{{ profile.data.user.lastname }}</p>
+    <a href="mailto:{{ profile.data.user.email }}" ng-if="profile.user.email">{{ profile.data.user.email }}</a>
+    <p ng-if="profile.data.user.facebookId">Facebook Id: <strong>{{ profile.data.user.facebookId }}</strong></p>
+    <p ng-if="profile.data.user.instagramId">Instagram Id: <strong>{{ profile.data.user.instagramId }}</strong></p>
 
   </div>
 
@@ -49,7 +48,7 @@
 
 <div class="columns is-multiline">
   <!-- user campaigns -->
-  <div class="column is-4 is-offset-2" ng-repeat="campaign in profile.user.campaigns">
+  <div class="column is-4 is-offset-2" ng-repeat="campaign in profile.data.campaigns">
     <div >
       <p>
         <strong>{{ campaign.name }}</strong>

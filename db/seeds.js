@@ -15,9 +15,9 @@ User
 .create([{
   firstName: 'James',
   lastName: 'Harris',
-  image: '',
+  image: 'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-1/c2.0.320.320/p320x320/10609487_10152259133751701_530836782283067901_n.jpg?oh=3f01db086c5bcf62e3812080c57da23f&oe=5A101B0D',
   location: { lat: 51.71541, lng: -0.111099 },
-  email: 'jim@jim.com',
+  email: 'jim@jim',
   username: 'jgbharris',
   password: 'password',
   passwordConfirmation: 'password'

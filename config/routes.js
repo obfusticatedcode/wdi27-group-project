@@ -30,6 +30,12 @@ router.route('/oauth/facebook')
 router.route('/oauth/instagram')
   .post(oauth.instagram);
 
+router.route('/events/:id/categories')
+  .post(secureRoute, campaigns.createCategory);
+
+router.route('/events/:id/categories/:categoryId')
+  .delete(secureRoute, campaigns.deleteCategory);
+
 router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;

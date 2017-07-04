@@ -30,6 +30,15 @@ User
   username: 'timro123',
   password: 'password',
   passwordConfirmation: 'password'
+}, {
+  firstName: 'Chisomo',
+  lastName: 'Lungu',
+  image: 'https://i.imgur.com/pmJd2YG.jpg',
+  location: { lat: 55.510936, lng: -0.486630 },
+  email: 'fake@gmail.com',
+  username: 'driver',
+  password: 'password',
+  passwordConfirmation: 'password'
 }])
 
 .then((users) => {

@@ -11,7 +11,7 @@ const categorySchema = new mongoose.Schema({
 
 const campaignSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  address: { type: String, required: true },
+  address: { type: String },
   location: { lat: Number, lng: Number },
   campaignType: { type: String },
   people: { type: Number },

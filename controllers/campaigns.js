@@ -37,6 +37,7 @@ function showRoute(req, res, next) {
 }
 
 function updateRoute(req, res, next) {
+  req.body.createdBy = req.user;
   Campaign
     .findById(req.params.id)
     .exec()

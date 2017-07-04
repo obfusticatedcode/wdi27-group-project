@@ -9,6 +9,8 @@ const categorySchema = new mongoose.Schema({
   amount: { type: Number }
 });
 
+
+
 const campaignSchema = new mongoose.Schema({
   name: { type: String, required: true },
   address: { type: String },

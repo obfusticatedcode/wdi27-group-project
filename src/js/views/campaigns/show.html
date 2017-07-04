@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 
-  <h1>{{ campaignsShow.campaign.name }}</h1>
+<section>
+  <div class="columns">
+    <div class="column is-6 is-offset-2">
+      <h1>{{ campaignsShow.campaign.name }}</h1>
+      <!-- campaignType -->
+      <label for="campaignType">Campaign Type</label>
+      <p>
+        {{ campaignsShow.campaign.campaignType }}
+      </p>
+      <!-- category -->
+      <label for="category">Category</label>
+      <p>
+        {{ campaignsShow.campaign.category }}
+      </p>
+      <!-- people -->
+      <label for="people">Number of people</label>
+      <p>
+        {{ campaignsShow.campaign.people }}
+      </p>
+      <!-- expiry date -->
+      <label for="expiryDate">Expiry date</label>
+      <p>
+        {{ campaignsShow.campaign.expiryDate }}
+      </p>
+      <!-- description -->
+      <label for="description">Description</label>
+      <p>
+        {{ campaignsShow.campaign.description }}
+      </p>
 
-  <p>{{ campaignsShow.campaign.campaignType }}</p>
+      <g-map class="map" center="campaignsShow.campaign.location"></g-map>
+      
+      <hr>
+      <button class="button is-small is-success" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated()" id="editbutton">Edit</button>
 
-  <p>{{ campaignsShow.campaign.category }}</p>
-
-  <p>{{ campaignsShow.campaign.people }}</p>
-
-  <p>{{ campaignsShow.campaign.expiryDate }}</p>
-
-  <p>{{ campaignsShow.campaign.description }}</p>
-
-  <g-map class="map" center="campaignsShow.campaign.location"></g-map>
-
-  <button class="button is-small is-success" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated()" id="editbutton">Edit</button>
-
-  <button class="button is-small is-danger" ng-click="campaignsShow.delete()" ng-if="main.isAuthenticated()" id="deletebutton">Delete</button>
+      <button class="button is-small is-danger" ng-click="campaignsShow.delete()" ng-if="main.isAuthenticated()" id="deletebutton">Delete</button>
+    </div>
+  </div>
+</section>

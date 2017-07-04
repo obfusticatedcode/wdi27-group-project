@@ -1,35 +1,88 @@
 <!DOCTYPE html>
 
-<section class="columns">
+<section>
 
+  <div class="column is-2 is-offset-0">
 
+    <!-- the search -->
+      <div class="field is-grouped">
+        <p class="control">
+          <input class="input" type="text" placeholder="Search" ng-model="campaignsIndex.q">
+        </p>
+        <p class="control">
+          <a class="button is-info">
+            Search
+          </a>
+        </p>
 
-<aside class="column is-one-quarter">
-  <google-map center="campaignsIndex.center" locations="campaignsIndex.locations"></google-map>
-</aside>
-
-
-  <div class="column is-three-quarters is-offset-one-quarter">
+    </div>
+    <!-- location search-->
     <input type="text" class="input" id="location" name="location" location="campaignsIndex.center"
     autocomplete ng-model="campaignsIndex.address">
     {{ campaignsIndex.campaign.location }}
+    <hr>
+    <!-- order by -->
+    <label for="distance">Order By Distance</label>
+    <!-- dropdown -->
+    <div class="select">
+      <select id="distance" ng-model="campaignsIndex.distance">
+        <optgroup label="Choose an option">
+          <option  value="distance">Ascending</option>
+          <option value="-distance">Descending</option>
+        </optgroup>
+      </select>
+  </div>
 
-    <p> {{ campaignsIndex.campaign.address }}</p>
-    <div class="columns is-multiline">
-      <div ng-repeat="campaign in campaignsIndex.all track by $index" class="column is-4 campaign-item">
-        <div class="campaigns-single">
-          <h2 class="title">{{ campaign.name }}</h2>
+</div>
+
+
+  <!-- the map -->
+  <aside class="column is-4">
+    <google-map center="campaignsIndex.center" locations="campaignsIndex.locations"></google-map>
+  </aside>
+
+  <div ng-repeat="campaign in campaignsIndex.filtered" class="column is-3 is-offset-4">
+
+    <!-- card -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
           <div class="campaign single-image" style="background-image:url('{{ campaign.imageSRC }}')" ui-sref="campaignsShow({ id: campaign.id })"></div>
-          <p> {{ campaign.distance | number }} metres away </p>
-          <p><strong>{{ campaign.campaignType }}</strong></p>
-          <p><strong>{{ campaign.description }}</strong></p>
-          <p><em>{{ campaign.createdBy.username }}</em></p>
+          <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">{{ campaign.name }}</p>
+            <p class="subtitle is-6">{{ campaign.address }}</p>
+            <p> {{ campaign.distance | number }} metres away </p>
+            <p><strong>{{ campaign.campaignType }}</strong></p>
+            <p><strong>{{ campaign.category }}</strong></p>
+            <p><strong>{{ campaign.people }}</strong></p>
 
-
-          <p ui-sref="campaignsShow({ id: campaign.id })">View</p>
+            <p><em>{{ campaign.createdBy.username }}</em></p>
+          </div>
         </div>
+
+        <div class="content">
+          <p><strong>{{ campaign.description }}</strong></p>
+          <br>
+          <small>{{ campaign.createdBy.username }}</small>
+        </div>
+        <p ui-sref="campaignsShow({ id: campaign.id })">View</p>
       </div>
     </div>
+
   </div>
+
+
+
+
 
 </section>

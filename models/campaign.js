@@ -16,10 +16,10 @@ const campaignSchema = new mongoose.Schema({
   campaignType: { type: String },
   people: { type: Number },
   description: { type: String },
-  date: { type: Date },
+  expiryDate: { type: Date },
   isAvailable: { type: Boolean },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-  category: [ categorySchema ]
+  categories: [ categorySchema ]
 }, {
   timestamps: true
 });

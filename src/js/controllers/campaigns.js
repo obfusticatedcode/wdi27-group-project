@@ -31,7 +31,7 @@ function CampaignsIndexCtrl(Campaign, filterFilter, orderByFilter, $scope) {
       return campaign;
     });
   }
-
+  console.log('VM', vm);
   //filter function
   function filterCampaigns() {
     const params = {
@@ -126,8 +126,8 @@ function CampaignsEditCtrl(Campaign, $stateParams, $state, CampaignCategory) {
     console.log(vm.campaign.categories);
   }
 
-  vm.addCategory = addCategory;
 
+  vm.addCategory = addCategory;
 
   function deleteCategory(category) {
     CampaignCategory

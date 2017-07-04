@@ -38,6 +38,22 @@
           </div>
         </div>
 
+        <!-- is Available? -->
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label">Is available?</label>
+          </div>
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox" id="isAvailable" name="isAvailable"
+                ng-model="campaignsEdit.campaign.isAvailable"
+                required>
+              </label>
+            </div>
+          </div>
+        </div>
+
         <!-- campaign type -->
         <div class="field">
           <p class="control">
@@ -54,7 +70,6 @@
           </div>
         </div>
 
-        <!--categories-->
         <div class="categories">
           <h4>Categories:</h4>
           <ul class="categories__created">
@@ -63,7 +78,7 @@
                 <p class="control">
                   <label class="label" for="category">Category</label>
                 </p>
-                {{ category }}
+
                 <select type="text" class="input" id="category" name="category" ng-model="category.name" required>
                   <option value="food">Food</option>
                   <option value="shelter">Shelter</option>
@@ -93,7 +108,8 @@
 
           <button class="button is-small is-success" type="button" name="button" ng-click="campaignsEdit.addCategory()" ng-if="main.isAuthenticated()">Add Category</button>
 
-        </div>
+          </div>
+
         <!-- expiry date -->
         <div class="field">
           <p class="control">

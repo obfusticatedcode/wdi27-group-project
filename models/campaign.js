@@ -39,8 +39,6 @@ campaignSchema.pre('remove', function removeImage(next) {
   next();
 });
 
-
-
 campaignSchema.post('save', function sendMail(next) {
   User
     .find()

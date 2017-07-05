@@ -25,12 +25,13 @@ function CampaignsIndexCtrl(Campaign, filterFilter, orderByFilter, $scope) {
     filterCampaigns();
   });
 
-  function getDistances(){
+  function getDistances() {
     vm.all = vm.all.map(campaign => {
       campaign.distance = geolib.getDistance(vm.center, campaign.location);
       return campaign;
     });
   }
+  
   console.log('VM', vm);
   //filter function
   function filterCampaigns() {

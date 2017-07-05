@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const nodemailer = require('../lib/nodemailer');
 const User = require('../models/user');
-const geolib = require('geolib');
 const s3 = require('../lib/s3');
 
 // define categorySchema

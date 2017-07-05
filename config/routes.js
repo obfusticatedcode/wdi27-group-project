@@ -37,6 +37,12 @@ router.route('/campaigns/:id/categories')
 router.route('/campaigns/:id/categories/:categoryId')
   .delete(secureRoute, campaigns.deleteCategory);
 
+router.route('/users/:id/comments')
+  .post(secureRoute, users.addComment);
+
+router.route('/users/:id/comments/:commentId')
+  .delete(secureRoute, users.deleteComment);
+
 router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;

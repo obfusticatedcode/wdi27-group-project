@@ -15,7 +15,7 @@ if ('test' !== env) app.use(require('morgan')('dev'));
 
 app.use(express.static(`${__dirname}/public`));
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '5mb' }));
 app.use(customResponses);
 app.use('/api', routes);
 app.use(errorHandler);

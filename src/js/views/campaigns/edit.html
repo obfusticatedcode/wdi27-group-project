@@ -10,6 +10,7 @@
       <!-- form name -->
       <form ng-submit="campaignsEdit.update()" name="campaignsEdit.campaignForm" novalidate>
         <!-- name -->
+        {{ campaignsEdit.campaign.name}}
         <div class="field">
           <p class="control">
             <label class="label" for="name">Name</label>
@@ -68,47 +69,58 @@
             <div ng-message="required" class="notification">You forgot to enter the type of campaign</div>
           </div>
         </div>
-        <!-- category -->
-        <div class="field">
-          <p class="control">
-            <label class="label" for="campaignType">Category</label>
-          </p>
 
-          <select type="text" class="input" id="category" name="category" ng-model="campaignsEdit.campaign.category" required>
-            <option value="food">Food</option>
-            <option value="shelter">Shelter</option>
-            <option value="medical">Medical Assistance</option>
-          </select>
-          <!-- ng message category -->
-          <div ng-messages="campaignsEdit.campaignForm.category.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.category.$touched">
-            <div ng-message="required" class="notification">You forgot to enter the category</div>
-          </div>
-        </div>
-        <!-- number of people -->
-        <div class="field">
-          <p class="control">
-            <label class="label" for="people">Number of people</label>
-          </p>
+        <div class="categories">
+          <h4>Categories:</h4>
+          <ul class="categories__created">
+            <li ng-repeat="category in campaignsEdit.campaign.categories track by $index">
+              <div class="field">
+                <p class="control">
+                  <label class="label" for="category">Category</label>
+                </p>
 
-          <input type="number" class="input" min="1" max="50" id="people" name="people"
-          ng-model="campaignsEdit.campaign.people"
-          required>
-          <!-- ng message number of people -->
-          <div ng-messages="campaignsEdit.campaignForm.people.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.people.$touched">
-            <div ng-message="required" class="notification">You forgot to enter the number of people</div>
+                <select type="text" class="input" id="category" name="category" ng-model="category.name" required>
+                  <option value="food">Food</option>
+                  <option value="shelter">Shelter</option>
+                  <option value="medical">Medical Assistance</option>
+                </select>
+                <!-- ng message category -->
+                <div ng-messages="campaignsEdit.campaignForm.category.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.category.$touched">
+                  <div ng-message="required" class="notification">You forgot to enter the category</div>
+                </div>
+
+                <!-- number of people -->
+                <p class="control">
+                  <label class="label" for="people">Number of people</label>
+                </p>
+
+                <input type="number" class="input" min="1" max="50" id="people" name="people" ng-model="category.people" required>
+                <!-- ng message number of people -->
+                <div ng-messages="campaignsEdit.campaignForm.people.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.people.$touched">
+                  <div ng-message="required" class="notification">You forgot to enter the number of people</div>
+                </div>
+              </div>
+
+              <button class="button is-small is-danger" type="button" name="button"  ng-click="campaignsEdit.deleteCategory(category)" ng-if="main.isAuthenticated()">Delete Category</button>
+
+            </li> <!--comment gets passed in so it knows which comment to delete -->
+          </ul>
+
+          <button class="button is-small is-success" type="button" name="button" ng-click="campaignsEdit.addCategory()" ng-if="main.isAuthenticated()">Add Category</button>
+
           </div>
-        </div>
+
         <!-- expiry date -->
         <div class="field">
           <p class="control">
             <label class="label" for="name">Expiry date</label>
           </p>
 
-          <input type="date" class="input" id="date" name="date"
-          ng-model="campaignsEdit.campaign.date"
+          <input type="date" class="input" id="expiryDate" name="expiryDate"
+          ng-model="campaignsEdit.campaign.expiryDate"
           required>
           <!-- ng message expiry date -->
-          <div ng-messages="campaignsEdit.campaignForm.date.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.date.$touched">
+          <div ng-messages="campaignsEdit.campaignForm.expiryDate.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.expiryDate.$touched">
 
             <div ng-message="required" class="notification">You forgot to enter the campaign expiry date</div>
           </div>

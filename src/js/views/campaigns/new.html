@@ -51,6 +51,25 @@
             <div ng-message="required" class="notification">You forgot to enter the type of campaign</div>
           </div>
         </div>
+        New one: {{ campaignsNew.campaign }}
+
+
+         <!-- is Available? -->
+         <div class="field is-horizontal">
+           <div class="field-label">
+             <label class="label">Is available?</label>
+           </div>
+           <div class="field">
+             <div class="control">
+               <label class="checkbox">
+                 <input type="checkbox" id="isAvailable" name="isAvailable"
+                 ng-model="campaignsNew.campaign.isAvailable"
+                 required>
+               </label>
+             </div>
+           </div>
+         </div>
+
 
         <!--categories-->
         <div class="categories">
@@ -61,6 +80,8 @@
                 <p class="control">
                   <label class="label" for="category">Category</label>
                 </p>
+
+
 
          <!-- category -->
         <div class="field">
@@ -85,8 +106,8 @@
                 <p class="control">
                   <label class="label" for="people">Number of people</label>
                 </p>
-
-                <input type="number" class="input" min="1" max="50" id="people" name="people" ng-model="campaign.people" required>
+                Individual campaign: {{ campaign }}
+                <input type="number" class="input" min="1" max="50" id="people" name="people" ng-model="category.people" required>
                 <!-- ng message number of people -->
                 <div ng-messages="campaignsNew.campaignForm.people.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.people.$touched">
                   <div ng-message="required" class="notification">You forgot to enter the number of people</div>
@@ -99,10 +120,8 @@
           </ul>
 
           <button class="button is-small is-success" type="button" name="button" ng-click="campaignsNew.addCategory()" ng-if="main.isAuthenticated()">Add Category</button>
+          </div>
 
-          <!-- category -->
-
-        </div>
 
 
         <!-- expiry date -->
@@ -111,11 +130,11 @@
             <label class="label" for="name">Expiry date</label>
           </p>
 
-          <input type="date" class="input" id="date" name="date"
-          ng-model="campaignsNew.campaign.date"
+          <input type="date" class="input" id="expiryDate" name="expiryDate"
+          ng-model="campaignsNew.campaign.expiryDate"
           required>
           <!-- ng message expiry date -->
-          <div ng-messages="campaignsNew.campaignForm.date.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.date.$touched">
+          <div ng-messages="campaignsNew.campaignForm.expiryDate.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.expiryDate.$touched">
 
             <div ng-message="required" class="notification">You forgot to enter the campaign expiry date</div>
           </div>

@@ -30,7 +30,7 @@
 
       <label for="description">Created by</label>
       <p>
-        <a ui-sref="usersShow({id: campaignsShow.campaign.createdBy.id })">{{ campaignsShow.campaign.createdBy.firstName }} {{ campaignsShow.campaign.createdBy.lastName }}</a>
+        <a ui-sref="usersShow({id: campaignsShow.campaign.createdBy.id })">{{ campaignsShow.campaign.createdBy.username }} </a>
       </p>
 
       <g-map class="map" center="campaignsShow.campaign.location"></g-map>

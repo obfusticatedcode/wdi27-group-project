@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
   lastName: {type: String },
   image: {type: String, default: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD4LcbfB9GWwypdalbf9DxRoIxdk8x578SKYIy0CfnF_nj3tzdiwHcG4c' },
   location: { lat: Number, lng: Number },
+  address: { type: String },
   email: { type: String, trim: true },
   username: { type: String, required: true, trim: true },
   password: { type: String },

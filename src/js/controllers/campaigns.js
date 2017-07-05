@@ -12,7 +12,7 @@ function CampaignsIndexCtrl(Campaign, filterFilter, orderByFilter, $scope) {
   const vm        = this;
   vm.all          = [];
   vm.center       = { lat: 51.5004808, lng: -0.07 };
-
+  console.log(vm);
   $scope.$watch(() => vm.center, getDistances);
 
   Campaign

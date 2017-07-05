@@ -3,15 +3,14 @@
 <section class="section">
   <div class="columns">
     <div class="column is-one-quarter is-offset-one-third">
-      <h1 class="title">Register your account</h1>
+      <h1 class="title">Edit your account</h1>
       <!-- form name -->
-      <form name="register.registerForm" ng-submit="register.submit()" novalidate>
+      <form name="usersEdit.editForm" ng-submit="usersEdit.update()" novalidate>
 
         <!--image-->
         <div class="form-group">
           <label for="image">Image</label>
-          <input base64 type="file" name="image" id="image" ng-model="register.user.base64">
-          <img ng-src="{{ register.user.base64 }}">
+          <input base64 type="file" name="image" id="image" ng-model="usersEdit.user.base64">
         </div>
 
         <!-- username -->
@@ -19,14 +18,14 @@
           <label class="label" for="email">Username</label>
           <p class="control">
             <input class="input" type="text" name="username" id="username"
-            ng-model="register.user.username"
+            ng-model="usersEdit.user.username"
             ng-minlength="1"
             ng-maxlength="30"
             required>
           </p>
         </div>
         <!-- ng-messages username-->
-        <div class="error-messages" ng-messages="register.registerForm.username.$error" ng-show="register.registerForm.$submitted || register.registerForm.username.$touched" ng-messages-multiple>
+        <div class="error-messages" ng-messages="usersEdit.editForm.username.$error" ng-show="usersEdit.editForm.$submitted || usersEdit.editForm.username.$touched" ng-messages-multiple>
           <div ng-message="required">
             You forgot to enter the username
           </div>
@@ -45,14 +44,14 @@
           <label class="label" for="email">Email</label>
           <p class="control">
             <input class="input" type="text" name="email" id="email"
-            ng-model="register.user.email"
+            ng-model="usersEdit.user.email"
             ng-minlength="5"
             ng-maxlength="30"
             required>
           </p>
         </div>
         <!-- ng-messages email-->
-        <div class="error-messages" ng-messages="register.registerForm.email.$error" ng-show="register.registerForm.$submitted || register.registerForm.email.$touched" ng-messages-multiple>
+        <div class="error-messages" ng-messages="usersEdit.editForm.email.$error" ng-show="usersEdit.editForm.$submitted || usersEdit.editForm.email.$touched" ng-messages-multiple>
           <div ng-message="required">
             You forgot to enter the email address
           </div>
@@ -73,12 +72,12 @@
           </p>
 
           <input type="text" class="input" id="location" name="location"
-          ng-model="register.user.location" location="register.user.location"
+          ng-model="usersEdit.user.address" location="usersEdit.user.location"
           required autocomplete>
           <h1>{{ register.user.location }}</h1>
 
           <!-- ng message location -->
-          <div ng-messages="register.user.location.$error" ng-show="register.user.$submitted || register.user.location.$touched">
+          <div ng-messages="usersEdit.editForm.location.$error" ng-show="usersEdit.editForm.$submitted || usersEdit.editForm.location.$touched">
             <div ng-message="required" class="notification">You forgot to enter the location</div>
           </div>
         </div>
@@ -87,12 +86,12 @@
           <label class="label" for="password">Password</label>
           <p class="control">
             <input class="input" type="password" name="password" id="password"
-            ng-model="register.user.password" required>
+            ng-model="usersEdit.user.password" required>
           </p>
 
         </div>
         <!-- ng messages password-->
-        <div ng-messages="register.registerForm.password.$error" ng-show="register.registerForm.$submitted || register.registerForm.password.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages">
+        <div ng-messages="usersEdit.editForm.password.$error" ng-show="usersEdit.editForm.$submitted || usersEdit.editForm.password.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages">
           <div ng-message="required">You forgot to enter a password</div>
         </div>
 
@@ -102,11 +101,11 @@
           <p class="control">
             <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation"
             match-password="password"
-            ng-model="register.user.passwordConfirmation" required>
+            ng-model="usersEdit.user.passwordConfirmation" required>
           </p>
         </div>
         <!-- ng messages password confirmation-->
-        <div ng-messages="register.registerForm.passwordConfirmation.$error" ng-show="register.registerForm.$submitted || register.registerForm.passwordConfirmation.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages">
+        <div ng-messages="usersEdit.editForm.passwordConfirmation.$error" ng-show="usersEdit.editForm.$submitted || usersEdit.editForm.passwordConfirmation.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages">
           <div ng-message="required">You forgot to enter a password</div>
           <div ng-message="passwordMatch">Your passwords didn't match</div>
         </div>
@@ -114,10 +113,11 @@
         <!-- submit -->
         <div class="field">
           <p class="control">
-            <input type="submit" class="button is-primary is-fullwidth" value="Register">
+            <input type="submit" class="button is-primary is-fullwidth" value="Edit">
           </p>
         </div>
       </form>
     </div>
   </div>
+  <button ng-if="main.isAuthenticated() && main.currentUserId === usersEdit.user.id" ng-click="usersEdit.delete()">Delete</button>
 </section>

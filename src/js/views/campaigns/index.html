@@ -21,6 +21,7 @@
       <p class="control">
         <input type="text" class="input" id="location" name="location" location="campaignsIndex.center"
         autocomplete ng-model="campaignsIndex.address">
+        {{ campaignsIndex.campaign.location }}
       </p>
     </div>
     <div class="column">
@@ -55,8 +56,8 @@
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
-                <div class="campaign single-image" style="background-image:url('{{ campaign.imageSRC }}')" ui-sref="campaignsShow({ id: campaign.id })"></div>
-                <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Image">
+                <div class="campaign single-image" style="background-image:url('{{ campaignsIndex.campaign.imageSRC }}')" ui-sref="campaignsShow({ id: campaign.id })"></div>
+                <img ng-src="{{ campaign.imageSRC }}">
               </figure>
             </div>
             <div class="card-content">

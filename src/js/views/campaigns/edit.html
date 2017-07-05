@@ -6,11 +6,18 @@
     <div class="column is-one-quarter is-offset-1">
 
       <h1 class="title">Edit a campaign</h1>
+      <img ng-src="{{ campaignsEdit.campaign.imageSRC }}">
 
       <!-- form name -->
       <form ng-submit="campaignsEdit.update()" name="campaignsEdit.campaignForm" novalidate>
+
+        <!--image-->
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input base64 type="file" name="image" id="image" ng-model="campaignsEdit.campaign.base64">
+        </div>
+
         <!-- name -->
-        {{ campaignsEdit.campaign.name}}
         <div class="field">
           <p class="control">
             <label class="label" for="name">Name</label>

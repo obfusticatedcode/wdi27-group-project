@@ -6,6 +6,13 @@
       <h1 class="title">Register your account</h1>
       <!-- form name -->
       <form name="register.registerForm" ng-submit="register.submit()" novalidate>
+
+        <!--image-->
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input base64 type="file" name="image" id="image" ng-model="register.user.base64">
+        </div>
+
         <!-- username -->
         <div class="field">
           <label class="label" for="email">Username</label>

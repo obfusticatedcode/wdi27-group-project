@@ -1,6 +1,7 @@
 const Campaign = require('../models/campaign');
 
 function indexRoute(req, res, next) {
+  
   Campaign
   .find()
   .populate('createdBy')
@@ -11,6 +12,7 @@ function indexRoute(req, res, next) {
 
 function createRoute(req, res, next) {
 
+  if(req.file) req.body.image = req.file.filename;
   req.body.createdBy = req.user;
   console.log(req.body);
   Campaign
@@ -37,6 +39,8 @@ function showRoute(req, res, next) {
 }
 
 function updateRoute(req, res, next) {
+
+  if(req.file) req.body.image = req.file.filename;
   req.body.createdBy = req.user;
   Campaign
   .findById(req.params.id)

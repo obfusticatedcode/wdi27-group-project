@@ -4,6 +4,7 @@ const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
 const oauth = require('../controllers/oauth');
 const users = require('../controllers/users');
+const imageUpload = require('../lib/imageUpload'); // imageUpload needs to be brought in from lib
 
 router.route('/users/:id')
   .all(secureRoute)
@@ -11,12 +12,12 @@ router.route('/users/:id')
 
 router.route('/campaigns')
   .get(campaigns.index)
-  .post(secureRoute, campaigns.create);
+  .post(secureRoute, imageUpload, campaigns.create);
 
 router.route('/campaigns/:id')
   .get(campaigns.show)
   .delete(secureRoute, campaigns.delete)
-  .put(secureRoute, campaigns.update);
+  .put(secureRoute, imageUpload, campaigns.update);
 
 router.route('/register')
   .post(auth.register);

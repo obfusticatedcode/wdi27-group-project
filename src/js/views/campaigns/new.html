@@ -8,6 +8,11 @@
 
       <!-- form name -->
       <form ng-submit="campaignsNew.create()" name="campaignsNew.campaignForm" novalidate>
+        <!--image-->
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input base64 type="file" name="image" id="image" ng-model="campaignsNew.campaign.base64">
+        </div>
         <!-- name -->
         <div class="field">
           <p class="control">
@@ -54,21 +59,21 @@
         New one: {{ campaignsNew.campaign }}
 
 
-         <!-- is Available? -->
-         <div class="field is-horizontal">
-           <div class="field-label">
-             <label class="label">Is available?</label>
-           </div>
-           <div class="field">
-             <div class="control">
-               <label class="checkbox">
-                 <input type="checkbox" id="isAvailable" name="isAvailable"
-                 ng-model="campaignsNew.campaign.isAvailable"
-                 required>
-               </label>
-             </div>
-           </div>
-         </div>
+        <!-- is Available? -->
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label">Is available?</label>
+          </div>
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox" id="isAvailable" name="isAvailable"
+                ng-model="campaignsNew.campaign.isAvailable"
+                required>
+              </label>
+            </div>
+          </div>
+        </div>
 
 
         <!--categories-->
@@ -83,23 +88,23 @@
 
 
 
-         <!-- category -->
-        <div class="field">
-          <p class="control">
-            <label class="label" for="campaignType">Category</label>
-          </p>
-          <select type="text" class="input" id="category" name="category" ng-model="campaignsEdit.campaign.category" required>
-            <option value="food">Food</option>
-            <option value="shelter">Shelter</option>
-            <option value="medical">Medical Assistance</option>
-          </select>
-          <!-- ng message category -->
-          <div ng-messages="campaignsEdit.campaignForm.category.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.category.$touched">
-            <div ng-message="required" class="notification">You forgot to enter the category</div>
-          </div>
-        </div>
+                <!-- category -->
+                <div class="field">
+                  <p class="control">
+                    <label class="label" for="campaignType">Category</label>
+                  </p>
+                  <select type="text" class="input" id="category" name="category" ng-model="campaignsEdit.campaign.category" required>
+                    <option value="food">Food</option>
+                    <option value="shelter">Shelter</option>
+                    <option value="medical">Medical Assistance</option>
+                  </select>
+                  <!-- ng message category -->
+                  <div ng-messages="campaignsEdit.campaignForm.category.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.category.$touched">
+                    <div ng-message="required" class="notification">You forgot to enter the category</div>
+                  </div>
+                </div>
 
-        <!-- number of people -->
+                <!-- number of people -->
 
                 <!-- number of people -->
 
@@ -120,7 +125,7 @@
           </ul>
 
           <button class="button is-small is-success" type="button" name="button" ng-click="campaignsNew.addCategory()" ng-if="main.isAuthenticated()">Add Category</button>
-          </div>
+        </div>
 
 
 

@@ -3,6 +3,8 @@
   <div class="columns">
     <div class="column is-6 is-offset-2">
       <h1>{{ campaignsShow.campaign.name }}</h1>
+      <!-- image -->
+      <img ng-src="{{ campaignsShow.campaign.imageSRC }}">
 
       <a class="button is-small is-success" href="mailto:{{campaignsShow.campaign.createdBy.email}}?Subject=Can%20you%20help%20me%20out?">Send Mail</a>
       <!-- campaignType -->

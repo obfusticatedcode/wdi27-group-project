@@ -4,7 +4,7 @@ const User = require('../models/user');
 function showRoute(req, res, next) {
   User
     .findById(req.params.id)
-    .populate('campaigns', 'comments.createdBy')
+    .populate('campaigns comments.createdBy')
     .exec()
     .then((user) => {
       if(!user) return res.notFound();

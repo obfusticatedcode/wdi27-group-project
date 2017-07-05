@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<h1>{{ profile }}</h1>
+
 <div class="columns">
   <div class="column is-4 is-offset-2">
     <h1 class="title">Your Profile</h1>
@@ -25,7 +25,6 @@
             <strong>{{ comment.createdBy.username }}</strong> - {{ comment.text }}
           </li>
         </ul>
-        <h4>{{ usersShow.user }}</h4>
         <form ng-submit="usersShow.user.addComment" ng-if="main.isAuthenticated()">
           <div class="field">
             <p class="control">
@@ -47,21 +46,17 @@
             </div>
           </nav>
         </form>
-
-
       </div>
     </article>
   </div>
-
-
 </div>
 
 <div class="columns is-multiline">
   <!-- user campaigns -->
-  <div class="column is-4 is-offset-2" ng-repeat="campaign in usersShow.campaigns">
+  <div class="column is-4 is-offset-2" ng-repeat="campaign in usersShow.user.campaigns">
     <div >
       <p>
-        <strong>{{ campaign.name }}</strong>
+        <strong>{{ usersShow.campaign.name }}</strong>
       </p>
       <p>
         <strong>{{ campaign.address }}</strong>

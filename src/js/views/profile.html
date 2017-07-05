@@ -77,12 +77,12 @@
       </p>
       <p>
         {{ campaign.description }}
-        {{ campaign.isAvailable }}
+        {{ campaign }}
       </p>
       <ul>
         <li class="tg-list-item">
-          <input ng-model="campaign.isAvailable" name="isAvailable" ng-click="profile.toggleAvailability(campaign)" id="cb5" type="checkbox" class="tgl tgl-flip"/>
-          <label data-tg-off="Nope" data-tg-on="Yeah!" for="cb5" class="tgl-btn"></label>
+          <input ng-model="campaign.isAvailable" ng-click="usersShow.toggleAvailability(campaign)" id="{{campaign.id}}" type="checkbox" class="tgl tgl-flip"/>
+          <label data-tg-off="Nope" data-tg-on="Yeah!" for="{{campaign.id}}" class="tgl-btn"></label>
         </li>
       </ul>
     </div>

@@ -12,6 +12,7 @@
         <div class="form-group">
           <label for="image">Image</label>
           <input base64 type="file" name="image" id="image" ng-model="campaignsNew.campaign.base64">
+          <img ng-src="{{ campaignsNew.campaign.base64 }}">
         </div>
         <!-- name -->
         <div class="field">
@@ -56,7 +57,6 @@
             <div ng-message="required" class="notification">You forgot to enter the type of campaign</div>
           </div>
         </div>
-        New one: {{ campaignsNew.campaign }}
 
         <!--categories-->
         <div class="categories">
@@ -85,8 +85,6 @@
                     <div ng-message="required" class="notification">You forgot to enter the category</div>
                   </div>
                 </div>
-
-                <!-- number of people -->
 
                 <!-- number of people -->
 

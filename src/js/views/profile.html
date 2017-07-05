@@ -3,7 +3,7 @@
 <div class="columns">
   <div class="column is-4 is-offset-2">
     <h1 class="title">Your Profile</h1>
-    <img class="image" ng-src="{{ profile.user.image }}" alt="profile.data.user.username">
+    <img class="image" ng-src="{{ profile.user.imageSRC }}" alt="profile.data.user.username">
     <h2>{{ profile.data.user.username }}</h2>
     <p class="title is-4" ng-if="profile.data.user.firstname">{{ profile.data.user.firstname }}</p>
     <p class="title is-4" ng-if="profile.data.user.lastname">{{ profile.data.user.lastname }}</p>
@@ -12,12 +12,6 @@
     <p ng-if="profile.data.user.instagramId">Instagram Id: <strong>{{ profile.data.user.instagramId }}</strong></p>
 
   </div>
-
-  <div class="form-group">
-    <label for="image">Image</label>
-    <input base64 type="file" name="image" id="image" ng-model="profile.user.base64">
-  </div>
-
 
   <!-- comments -->
   <div class="column is-4">

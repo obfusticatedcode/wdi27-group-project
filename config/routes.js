@@ -20,7 +20,7 @@ router.route('/campaigns/:id')
   .put(secureRoute, imageUpload, campaigns.update);
 
 router.route('/register')
-  .post(auth.register);
+  .post(imageUpload, auth.register);
 
 router.route('/login')
   .post(auth.login);

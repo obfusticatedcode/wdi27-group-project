@@ -12,7 +12,7 @@ function base64() {
 
       fileReader.onload = function fileLoaded() {
         ngModel.$setViewValue(fileReader.result);
-        console.log(fileReader.result);
+        // console.log(fileReader.result);
       }; //OLDSKOOL VANILLA JS
       // console.log(element);
       element.on('change', (e) => {

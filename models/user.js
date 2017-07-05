@@ -40,6 +40,10 @@ userSchema.pre('remove', function removeImage(next) {
   next();
 });
 
+userSchema.pre('remove', function removeUserPosts(next) {
+  this.model('Campaign').remove({ createdBy: this.id }, next);
+});
+
 userSchema
   .virtual('campaigns', {
     ref: 'Campaign',

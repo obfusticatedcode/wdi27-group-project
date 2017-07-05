@@ -11,6 +11,7 @@
         <div class="form-group">
           <label for="image">Image</label>
           <input base64 type="file" name="image" id="image" ng-model="register.user.base64">
+          <img ng-src="{{ register.user.base64 }}">
         </div>
 
         <!-- username -->

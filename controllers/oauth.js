@@ -88,7 +88,7 @@ function instagram (req, res, next) {
     });
   })
   .then((user) => {
-    console.log(user);
+    console.log('INSTA', user);
     //Create a JWT tocken and send it back to Angular app
 
     const payload = { userId: user.id };

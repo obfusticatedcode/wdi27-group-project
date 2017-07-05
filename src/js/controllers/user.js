@@ -19,14 +19,13 @@ function UsersShowCtrl($auth, User, $state, UserComment, Campaign) {
 
   function toggleAvailability(campaign) {
     console.log('ID: ', campaign.id);
-    //vm.data.campaigns[0].isAvailable = !vm.data.campaigns[0].isAvailable;
+
     Campaign
-    .get({ id: vm.data.campaigns[0].id })
+    .get({ id: campaign.id })
     .$promise
     .then((campaign) => {
-      console.log(campaign);
       campaign.isAvailable = !campaign.isAvailable;
-      console.log(vm);
+      campaign.$update();
     });
 
 

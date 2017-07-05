@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const s3 = require('../lib/s3');
 
 //comments
 const commentSchema = new mongoose.Schema({
@@ -22,10 +23,22 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema
-  .virtual('passwordConfirmation')
-  .set(function setPasswordConfirmation(passwordConfirmation) {
-    this._passwordConfirmation = passwordConfirmation;
-  });
+.virtual('passwordConfirmation')
+.set(function setPasswordConfirmation(passwordConfirmation) {
+  this._passwordConfirmation = passwordConfirmation;
+});
+
+userSchema.virtual('imageSRC')
+.get(function getImageSRC(){
+  if(!this.image) return null;
+  if(this.image.match(/^http/)) return this.image;
+  return `https://s3-eu-west-1.amazonaws.com/${process.env.AWS_BUCKET_NAME}/${this.image}`;
+});
+
+userSchema.pre('remove', function removeImage(next) {
+  if(this.image) return s3.deleteObject({ Key: this.image }, next);
+  next();
+});
 
 userSchema
   .virtual('campaigns', {

@@ -2,19 +2,37 @@ angular
   .module('disasterRelief')
   .controller('UsersShowCtrl', UsersShowCtrl);
 
-UsersShowCtrl.$inject = ['$auth', 'User', '$state', 'UserComment'];
-function UsersShowCtrl($auth, User, $state, UserComment) {
+UsersShowCtrl.$inject = ['$auth', 'User', '$state', 'UserComment', 'Campaign'];
+function UsersShowCtrl($auth, User, $state, UserComment, Campaign) {
   const vm = this;
 
-  console.log('hello!');//getting the token from the local storage
+  console.log('Profile: ', vm);
+
 
   vm.user = User.get($state.params);
+
 
   function logout() {
     $auth.logout();
     $state.go('login');
   }
 
+  function toggleAvailability(campaign) {
+    console.log('ID: ', campaign.id);
+    //vm.data.campaigns[0].isAvailable = !vm.data.campaigns[0].isAvailable;
+    Campaign
+    .get({ id: vm.data.campaigns[0].id })
+    .$promise
+    .then((campaign) => {
+      console.log(campaign);
+      campaign.isAvailable = !campaign.isAvailable;
+      console.log(vm);
+    });
+
+
+  }
+
+  vm.toggleAvailability = toggleAvailability;
   vm.logout = logout;
 
   // vm.user = User.get($stateParams);

@@ -2,8 +2,8 @@ angular
   .module('disasterRelief')
   .controller('UsersShowCtrl', UsersShowCtrl);
 
-UsersShowCtrl.$inject = ['$auth', 'User', '$state'];
-function UsersShowCtrl($auth, User, $state) {
+UsersShowCtrl.$inject = ['$auth', 'User', '$state', 'UserComment'];
+function UsersShowCtrl($auth, User, $state, UserComment) {
   const vm = this;
 
   console.log('hello!');//getting the token from the local storage
@@ -26,4 +26,16 @@ function UsersShowCtrl($auth, User, $state) {
   }
 
   vm.delete = usersDelete;
+
+  function addComment() {
+    UserComment
+      .save({ userId: vm.user.id }, vm.newComment)
+      .$promise
+      .then((comment) => {
+        vm.user.comments.push(comment);
+        vm.newComment = {};
+      });
+  }
+
+  vm.addComment = addComment;
 }

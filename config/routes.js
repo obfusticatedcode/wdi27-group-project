@@ -6,6 +6,7 @@ const oauth = require('../controllers/oauth');
 const users = require('../controllers/users');
 
 router.route('/users/:id')
+  .all(secureRoute)
   .get(users.show);
 
 router.route('/campaigns')

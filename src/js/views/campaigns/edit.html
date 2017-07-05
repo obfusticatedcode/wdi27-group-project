@@ -6,7 +6,7 @@
     <div class="column is-one-quarter is-offset-1">
 
       <h1 class="title">Edit a campaign</h1>
-      <img ng-src="{{ campaignsEdit.campaign.imageSRC }}">
+      <img ng-src="{{ campaignsEdit.campaign.base64 || campaignsEdit.campaign.imageSRC }}">
 
       <!-- form name -->
       <form ng-submit="campaignsEdit.update()" name="campaignsEdit.campaignForm" novalidate>

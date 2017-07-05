@@ -51,10 +51,7 @@
       </div>
     </article>
   </div>
-
 </div>
-
-
 
 <!-- user campaigns -->
 <div class="columns is-multiline">
@@ -80,3 +77,5 @@
 
   </div>
 </div>
+
+<button ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ui-sref="usersEdit({ id: usersShow.user.id})">Edit</button>

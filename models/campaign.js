@@ -21,7 +21,7 @@ const campaignSchema = new mongoose.Schema({
   people: { type: Number },
   description: { type: String },
   expiryDate: { type: Date },
-  isAvailable: { type: Boolean },
+  isAvailable: { type: Boolean, default: true },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   categories: [ categorySchema ]
 }, {
@@ -43,45 +43,20 @@ campaignSchema.pre('remove', function removeImage(next) {
 
 
 campaignSchema.post('save', function sendMail(next) {
-  // console.log('LOCATION: ', this.location);
-  // console.log('CAMPAIGN DETAILS: ', this);
-
   User
-  .find()
-  .exec()
-  .then((users) => {
-    // Loop through users
-    return users.forEach((user) => {
+    .find()
+    .exec()
+    .then((users) => {
+      const suitableUsers = nodemailer.findSuitableUsers(users, this);
+      return suitableUsers.forEach((item) => {
+        // Return false if registered user does not have location data (due to oAuth login)
+        if (!item) return false;
 
-      // Return false if registered user does not have location data (due to oAuth login)
-      if (!user['location'].lat && !user['location'].lng) return false;
-
-      // Calculate the distance between the campaign posted and users registered location
-      const distance = geolib.getDistance(
-        user.location,
-        this.location
-      );
-
-      console.log('Distance from: ', distance);
-
-      // I
-      if(distance < 25000) {
-        const emailConfig = {
-          from: `"Disaster Relief" <${process.env.GMAIL_ADDRESS}>`, // sender address
-          to: `${user.email}`, // list of receivers
-          subject: `${this.createdBy.username} needs your help!`, // Subject line
-          text: `${this.createdBy.username} is looking for your help. They are only ${distance} away from you!`, // plain text body
-          html: `<h3>${this.createdBy.username} is looking for your help. They are only ${distance} meters away from you!</h3><br>
-          <b>${this.description}</b>` // html body
-        };
-
-        return nodemailer.sendMail(emailConfig);
-      }
-
-    });
-  })
-  .catch(next);
+        const configEmail = nodemailer.configEmail(this, item);
+        return nodemailer.sendMail(configEmail);
+      });
+    })
+    .catch(next);
 });
-
 
 module.exports = mongoose.model('Campaign', campaignSchema);

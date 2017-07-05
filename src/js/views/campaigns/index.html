@@ -69,7 +69,7 @@
                 <div class="media-content">
                   <p class="title is-4">{{ campaign.name }}</p>
                   <p class="subtitle is-6">{{ campaign.address }}</p>
-                  <p> {{ campaign.distance | number }} metres away </p>
+                  <p> {{ (campaign.distance / 1000).toFixed(1) | number }} km away </p>
                   <p><strong>{{ campaign.campaignType }}</strong></p>
                   <p><strong>{{ campaign.category }}</strong></p>
                   <p><strong>{{ campaign.people }}</strong></p>

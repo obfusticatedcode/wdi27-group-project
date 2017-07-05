@@ -31,12 +31,13 @@ function CampaignsIndexCtrl(Campaign, filterFilter, orderByFilter, $scope) {
       return campaign;
     });
   }
-  
+
   console.log('VM', vm);
   //filter function
   function filterCampaigns() {
     const params = {
-      name: vm.q
+      name: vm.q,
+      description: vm.description
     };
     vm.filtered = filterFilter(vm.all, params);//taking the whole array and filtering it
     vm.filtered = orderByFilter(vm.filtered, vm.distance);//taking the whole array and filtering it
@@ -46,6 +47,7 @@ function CampaignsIndexCtrl(Campaign, filterFilter, orderByFilter, $scope) {
   //create a watch group to listen out for changes and then running the function
   $scope.$watchGroup([
     () => vm.q,
+    () => vm.description,
     () => vm.distance
   ], filterCampaigns);
 

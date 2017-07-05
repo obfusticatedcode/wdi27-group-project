@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-
+<h1>{{ profile }}</h1>
 <div class="columns">
   <div class="column is-4 is-offset-2">
     <h1 class="title">Your Profile</h1>
-    <img class="image" ng-src="{{ profile.data.user.image }}" alt="profile.data.user.username">
-    <h2>{{ profile.data.user.username }}</h2>
-    <p class="title is-4" ng-if="profile.data.user.firstname">{{ profile.data.user.firstname }}</p>
-    <p class="title is-4" ng-if="profile.data.user.lastname">{{ profile.data.user.lastname }}</p>
-    <a href="mailto:{{ profile.data.user.email }}" ng-if="profile.user.email">{{ profile.data.user.email }}</a>
-    <p ng-if="profile.data.user.facebookId">Facebook Id: <strong>{{ profile.data.user.facebookId }}</strong></p>
-    <p ng-if="profile.data.user.instagramId">Instagram Id: <strong>{{ profile.data.user.instagramId }}</strong></p>
+    <img class="image" ng-src="{{ usersShow.user.image }}" alt="usersShow.user.username">
+    <h2>{{ usersShow.user.username }}</h2>
+    <p class="title is-4" ng-if="usersShow.user.firstname">{{ usersShow.user.firstname }}</p>
+    <p class="title is-4" ng-if="usersShow.user.lastname">{{ usersShow.user.lastname }}</p>
+    <a href="mailto:{{ usersShow.user.email }}" ng-if="profile.user.email">{{ usersShow.user.email }}</a>
+    <p ng-if="usersShow.user.facebookId">Facebook Id: <strong>{{ usersShow.user.facebookId }}</strong></p>
+    <p ng-if="usersShow.user.instagramId">Instagram Id: <strong>{{ usersShow.user.instagramId }}</strong></p>
 
   </div>
 
@@ -20,25 +20,35 @@
     <h1 class="title">Comments</h1>
     <article class="media">
       <div class="media-content">
-        <div class="field">
-          <p class="control">
-            <textarea class="textarea" placeholder="Add a comment..."></textarea>
-          </p>
-        </div>
-        <nav class="level">
-          <div class="level-left">
-            <div class="level-item">
-              <a class="button is-info">Submit</a>
-            </div>
+        <ul>
+          <li ng-repeat="comment in usersShow.user.comments track by $index">
+            <strong>{{ comment.createdBy.username }}</strong> - {{ comment.text }}
+          </li>
+        </ul>
+        <h4>{{ usersShow.user }}</h4>
+        <form ng-submit="usersShow.user.addComment" ng-if="main.isAuthenticated()">
+          <div class="field">
+            <p class="control">
+              <textarea class="textarea" placeholder="Add a comment..."></textarea>
+            </p>
           </div>
-          <div class="level-right">
-            <div class="level-item">
-              <label class="checkbox">
-                <input type="checkbox"> Press enter to submit
-              </label>
+          <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <a class="button is-info">Submit</a>
+              </div>
             </div>
-          </div>
-        </nav>
+            <div class="level-right">
+              <div class="level-item">
+                <label class="checkbox">
+                  <input type="checkbox"> Press enter to submit
+                </label>
+              </div>
+            </div>
+          </nav>
+        </form>
+
+
       </div>
     </article>
   </div>
@@ -48,7 +58,7 @@
 
 <div class="columns is-multiline">
   <!-- user campaigns -->
-  <div class="column is-4 is-offset-2" ng-repeat="campaign in profile.data.campaigns">
+  <div class="column is-4 is-offset-2" ng-repeat="campaign in usersShow.campaigns">
     <div >
       <p>
         <strong>{{ campaign.name }}</strong>

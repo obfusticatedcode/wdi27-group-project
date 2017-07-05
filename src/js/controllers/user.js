@@ -1,17 +1,14 @@
 angular
   .module('disasterRelief')
-  .controller('ProfileCtrl', ProfileCtrl);
+  .controller('UsersShowCtrl', UsersShowCtrl);
 
-ProfileCtrl.$inject = ['$auth', 'User', '$state'];
-function ProfileCtrl($auth, User, $state) {
+UsersShowCtrl.$inject = ['$auth', 'User', '$state'];
+function UsersShowCtrl($auth, User, $state) {
   const vm = this;
 
   console.log('hello!');//getting the token from the local storage
 
-  const { userId } = $auth.getPayload();
-  console.log(userId);
-
-  if (userId) vm.data = User.get({ id: userId });
+  vm.user = User.get($state.params);
 
   function logout() {
     $auth.logout();
@@ -19,4 +16,14 @@ function ProfileCtrl($auth, User, $state) {
   }
 
   vm.logout = logout;
+
+  // vm.user = User.get($stateParams);
+
+  function usersDelete() {
+    vm.user
+      .$remove()
+      .then(() => $state.go('campaignsIndex'));
+  }
+
+  vm.delete = usersDelete;
 }

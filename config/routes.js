@@ -6,7 +6,6 @@ const oauth = require('../controllers/oauth');
 const users = require('../controllers/users');
 
 router.route('/users/:id')
-  .all(secureRoute)
   .get(users.show);
 
 router.route('/campaigns')
@@ -35,6 +34,9 @@ router.route('/campaigns/:id/categories')
 
 router.route('/campaigns/:id/categories/:categoryId')
   .delete(secureRoute, campaigns.deleteCategory);
+
+router.route('/users/:id/comments')
+  .post(secureRoute, users.addComment);
 
 router.all('/*', (req, res) => res.notFound());
 

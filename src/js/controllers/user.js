@@ -32,10 +32,22 @@ function UsersShowCtrl($auth, User, $state, UserComment, Campaign) {
 
   }
 
+  //delete user
+  function usersDelete() {
+    console.log('clicked');
+    vm.user
+      .$remove()
+      .then(() => {
+        $auth.logout();
+        $state.go('register');
+      });
+  }
+
+  vm.delete = usersDelete;
+
   vm.toggleAvailability = toggleAvailability;
   vm.logout = logout;
 
-  // vm.user = User.get($stateParams);
 
 
 
@@ -80,14 +92,4 @@ function UsersEditCtrl(User, $stateParams, $state) {
   }
   vm.update = usersUpdate;
 
-  function usersDelete() {
-    console.log('clicked');
-    vm.user
-      .$remove()
-      .then(() => {
-        $state.go('register');
-      });
-  }
-
-  vm.delete = usersDelete;
 }

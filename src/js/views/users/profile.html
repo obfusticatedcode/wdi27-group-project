@@ -12,6 +12,8 @@
     <a href="mailto:{{ usersShow.user.email }}" ng-if="profile.user.email">{{ usersShow.user.email }}</a>
     <p ng-if="usersShow.user.facebookId">Facebook Id: <strong>{{ usersShow.user.facebookId }}</strong></p>
     <p ng-if="usersShow.user.instagramId">Instagram Id: <strong>{{ usersShow.user.instagramId }}</strong></p>
+    <button class="button is-warning" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ui-sref="usersShow({ id: usersShow.user.id})">Edit</button>
+    <button class="button is-danger" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ng-click="usersShow.delete()">Delete</button>
 
   </div>
 
@@ -77,5 +79,3 @@
 
   </div>
 </div>
-
-<button ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ui-sref="usersEdit({ id: usersShow.user.id})">Edit</button>

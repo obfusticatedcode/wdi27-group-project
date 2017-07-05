@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <div class="columns">
+  <!-- profile -->
   <div class="column is-4 is-offset-2">
     <h1 class="title">Your Profile</h1>
     <img class="image" ng-src="{{ usersShow.user.image }}" alt="usersShow.user.username">
@@ -13,29 +14,51 @@
 
   </div>
 
+  <!-- comments -->
+  <div class="column is-4">
+    <h1 class="title">Comments</h1>
+    <article class="media">
+      <div class="media-content">
+        <ul>
+          <li ng-repeat="comment in usersShow.user.comments track by $index">
+            <strong>{{ comment.createdBy.username }}</strong> - {{ comment.text }}
+            <!-- comments delete button -->
+            <button type="button" name="button" class="button" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id" ng-click="usersShow.deleteComment(comment)">Delete</button>
+          </li>
+        </ul>
+        <form ng-submit="usersShow.addComment()" ng-if="main.isAuthenticated()">
+          <div class="field">
+            <p class="control">
+              <textarea class="textarea" placeholder="Add a comment..." ng-model="usersShow.newComment.text"></textarea>
+            </p>
+          </div>
+          <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <button class="button is-info">Submit</button>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <label class="checkbox">
+                  <input type="checkbox"> Press enter to submit
+                </label>
+              </div>
+            </div>
+          </nav>
+        </form>
+      </div>
+    </article>
+  </div>
+
 </div>
 
-<!-- comments test -->
-<div class="comments">
-  <h2>Comments</h2>
-  <ul >
-    <li ng-repeat="comment in usersShow.user.comments track by $index">
-      <strong>{{ comment.createdBy.username }}</strong> - {{ comment.text }}
-      <!-- comments delete button -->
-      <button type="button" name="button" class="button" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id" ng-click="usersShow.deleteComment(comment)">Delete</button>
-    </li>
-    <form ng-submit="usersShow.addComment()" ng-if="main.isAuthenticated()">
-      <label>Add comment</label>
-      <textarea ng-model="usersShow.newComment.text"></textarea>
-      <button class="button button--full">Comment</button>
 
-    </form>
 
-  </ul>
 
-</div>
+
+<!-- user campaigns -->
 <div class="columns is-multiline">
-  <!-- user campaigns -->
   <div class="column is-4 is-offset-2" ng-repeat="campaign in usersShow.user.campaigns">
     <div >
       <p>

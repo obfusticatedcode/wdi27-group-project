@@ -8,7 +8,9 @@ const imageUpload = require('../lib/imageUpload'); // imageUpload needs to be br
 
 router.route('/users/:id')
   .all(secureRoute)
-  .get(users.show);
+  .get(users.show)
+  .put(imageUpload, users.update)
+  .delete( users.delete);
 
 router.route('/campaigns')
   .get(campaigns.index)
@@ -20,7 +22,7 @@ router.route('/campaigns/:id')
   .put(secureRoute, imageUpload, campaigns.update);
 
 router.route('/register')
-  .post(auth.register);
+  .post(imageUpload, auth.register);
 
 router.route('/login')
   .post(auth.login);

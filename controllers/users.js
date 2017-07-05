@@ -1,5 +1,4 @@
 const User = require('../models/user');
-// const Campaign = require('../models/campaign');
 
 function showRoute(req, res, next) {
   User
@@ -8,16 +7,6 @@ function showRoute(req, res, next) {
     .exec()
     .then((user) => {
       if(!user) return res.notFound();
-
-      // Campaign
-      //   .find({createdBy: req.params.id })
-      //   .exec()
-      //   .then((campaigns) => {
-      //     res.json({ user, campaigns });
-      //   })
-      //   .catch((err) => {
-      //     next(err);
-      //   });
       res.json(user);
 
     })
@@ -25,7 +14,7 @@ function showRoute(req, res, next) {
 }
 
 
-//comments
+//add comments
 function addCommentRoute(req, res, next) {
 
   req.body.createdBy = req.user;
@@ -46,7 +35,25 @@ function addCommentRoute(req, res, next) {
     .catch(next);
 }
 
+//delete comments
+function deleteCommentRoute(req, res, next) {
+  User
+    .findById(req.params.id)
+    .exec()
+    .then((user) => {
+      if(!user) return res.notFound();
+
+      const comment = user.comments.id(req.params.commentId);
+      comment.remove();
+
+      return user.save();
+    })
+    .then(() => res.status(204).end())
+    .catch(next);
+}
+
 module.exports = {
   show: showRoute,
-  addComment: addCommentRoute
+  addComment: addCommentRoute,
+  deleteComment: deleteCommentRoute
 };

@@ -38,4 +38,16 @@ function UsersShowCtrl($auth, User, $state, UserComment) {
   }
 
   vm.addComment = addComment;
+
+  function deleteComment(comment) {
+    UserComment
+      .delete({ userId: vm.user.id, id: comment.id })
+      .$promise
+      .then(() => {
+        const index = vm.user.comments.indexOf(comment);
+        vm.user.comments.splice(index, 1);
+      });
+  }
+
+  vm.deleteComment = deleteComment;
 }

@@ -1,4 +1,4 @@
-/* global google */
+/* global google, MarkerClusterer */
 
 angular
 .module('disasterRelief')
@@ -54,8 +54,7 @@ function googleMap() {
         console.log('Markers: ', markers);
 
         // Add a marker clusterer to manage the markers.
-        const markerCluster = new MarkerClusterer(map, markers,
-          { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+        new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
       }
 
       function destroyMap() {

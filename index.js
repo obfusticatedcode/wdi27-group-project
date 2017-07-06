@@ -11,7 +11,7 @@ const errorHandler = require('./lib/errorHandler');
 const { dbURI, port, env }    = require('./config/environment');
 mongoose.connect(dbURI);
 
-if ('test' !== env) app.use(require('morgan')('dev'));
+if ('test' !== env) app.use(morgan('dev'));
 
 app.use(express.static(`${__dirname}/public`));
 

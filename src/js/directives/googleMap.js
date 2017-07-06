@@ -69,7 +69,6 @@ function googleMap() {
 
           google.maps.event.addListener(markers[i], 'click', function () {
             // When clicked, open the selected marker's message
-            console.log('I have been clicked!');
             infowindow.setContent(contentString);
             infowindow.open(map, this);
           });

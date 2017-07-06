@@ -28,8 +28,6 @@ function UsersShowCtrl($auth, User, $state, UserComment, Campaign) {
       campaign.isAvailable = !campaign.isAvailable;
       campaign.$update();
     });
-
-
   }
 
   //delete user

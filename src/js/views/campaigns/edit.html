@@ -117,21 +117,6 @@
 
           </div>
 
-        <!-- expiry date -->
-        <div class="field">
-          <p class="control">
-            <label class="label" for="name">Expiry date</label>
-          </p>
-
-          <input type="date" class="input" id="expiryDate" name="expiryDate"
-          ng-model="campaignsEdit.campaign.expiryDate"
-          required>
-          <!-- ng message expiry date -->
-          <div ng-messages="campaignsEdit.campaignForm.expiryDate.$error" ng-show="campaignsEdit.campaignForm.$submitted || campaignsEdit.campaignForm.expiryDate.$touched">
-
-            <div ng-message="required" class="notification">You forgot to enter the campaign expiry date</div>
-          </div>
-        </div>
         <!-- campaign description -->
         <div class="field">
           <p class="control">

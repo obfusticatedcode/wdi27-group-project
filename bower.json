@@ -24,9 +24,15 @@
     "angularjs-geolocation": "^0.1.1",
     "ngGeolocation": "^0.0.8",
     "Geolib": "geolib#^2.0.22",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "font-awesome": "fontawesome#^4.7.0"
   },
   "resolutions": {
     "angular": "1.6.4"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": ["css/font-awesome.css", "fonts/**/*.*"]
+    }
   }
 }

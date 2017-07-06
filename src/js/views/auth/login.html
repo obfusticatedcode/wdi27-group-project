@@ -3,7 +3,7 @@
 <section class="section">
   <div class="columns">
 
-    <div class="column is-one-quarter is-offset-one-third">
+    <div class="column is-half is-offset-one-quarter">
       <h1 class="title">Login</h1>
       <!-- form name -->
       <form name="login.loginForm" ng-submit="login.submit()" novalidate>
@@ -12,10 +12,10 @@
           <label class="label" for="email">Email</label>
           <p class="control">
             <input class="input" type="text" name="email" id="email"
-              ng-model="login.credentials.email"
-              ng-minlength="5"
-              ng-maxlength="30"
-              required>
+            ng-model="login.credentials.email"
+            ng-minlength="5"
+            ng-maxlength="30"
+            required>
           </p>
         </div>
         <!-- ng-messages email-->
@@ -50,14 +50,16 @@
             <input type="submit" class="button is-primary is-fullwidth" value="Login">
           </p>
         </div>
+        <!-- facebook  and instagram buttons-->
+        <div class="field">
+          <button class="button field" ng-click="login.authenticate('facebook')"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i>Login with Facebook</button>
+        </div>
+        <div class="field">
+          <button class="button field" ng-click="login.authenticate('instagram')"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i>  Login with Instagram</button>
+        </div>
 
       </form>
 
-      <!-- facebook  and instagram buttons-->
-      <div class="field">
-        <button class="button" ng-click="login.authenticate('facebook')">Login with Facebook</button>
-        <button class="button" ng-click="login.authenticate('instagram')">Login with Instagram</button>
-      </div>
     </div>
   </div>
 </section>

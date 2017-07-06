@@ -10,7 +10,8 @@
         <!--image-->
         <div class="form-group">
           <label for="image">Image</label>
-          <input base64 type="file" name="image" id="image" ng-model="usersEdit.user.base64">
+          <label class="button is-primary" for="image">Choose File</label>
+          <input base64 type="file" name="image" id="image" ng-model="usersEdit.user.base64" hidden>
         </div>
 
         <!-- username -->
@@ -73,7 +74,7 @@
 
           <input type="text" class="input" id="location" name="location"
           ng-model="usersEdit.user.address" location="usersEdit.user.location"
-          required autocomplete>
+          required google-autocomplete>
           <h1>{{ register.user.location }}</h1>
 
           <!-- ng message location -->

@@ -5,11 +5,13 @@ angular
   .module('disasterRelief')
   .directive('gMap', gMap);
 
-function gMap() {
+gMap.$inject = ['$timeout'];
+function gMap($timeout) {
   return {
     restrict: 'E',
     replace: true,
-    templateUrl: '/js/views/directives/googleMap.html',
+    // templateUrl: '/js/views/directives/googleMap.html',
+    template: '<div class="map">Google Map</div>',
     scope: {
       center: '='
     },
@@ -26,6 +28,10 @@ function gMap() {
         scrollwheel: false,
         center: {lat: 51.515419, lng: -0.141099 }
       });
+
+      $timeout(() => {
+        google.maps.event.trigger(map, 'resize');
+      }, 250);
 
       function centerMap(center){
         if(!center) return false;

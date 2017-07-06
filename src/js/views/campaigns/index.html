@@ -47,7 +47,6 @@
     </aside>
 
 
-
     <div class="column is-8 campaigns">
       <div class="columns is-multiline">
         <div ng-repeat="campaign in campaignsIndex.filtered"  ng-if="campaign.isAvailable" class="column is-4 campaign">
@@ -61,29 +60,33 @@
             </div>
             <div class="card-content">
               <div class="media">
-                <div class="media-left">
-                  <figure class="image is-48x48">
-                    <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
-                  </figure>
-                </div>
+
                 <div class="media-content">
-                  <p class="title is-4">{{ campaign.name }}</p>
+                  <p class="title is-4">{{ campaign.name | uppercase }}</p>
                   <p class="subtitle is-6">{{ campaign.address }}</p>
                   <p> {{ (campaign.distance / 1000).toFixed(1) | number }} km away </p>
                   <p><strong>{{ campaign.campaignType }}</strong></p>
                   <p><strong>{{ campaign.category }}</strong></p>
-                  <p><strong>{{ campaign.people }}</strong></p>
+                  <p ng-repeat="category in campaign.categories">
+                    <strong>{{ category.name }} </strong>
+                    <br>
+                    <strong>{{ category.people }}</strong>
+                  </p>
 
-                  <p><em>{{ campaign.createdBy.username }}</em></p>
+
                 </div>
               </div>
 
               <div class="content">
                 <p><strong>{{ campaign.description }}</strong></p>
                 <br>
-                <small>{{ campaign.createdBy.username }}</small>
+
+              <p>
+                <em><a ui-sref="usersShow({id: campaign.createdBy.id })">{{ campaign.createdBy.username  }}</a></em>
+              </p>
               </div>
-              <p ui-sref="campaignsShow({ id: campaign.id })">View</p>
+
+              <button class="button" type="button" name="button" ui-sref="campaignsShow({ id: campaign.id })">View</button>
             </div>
           </div>
 

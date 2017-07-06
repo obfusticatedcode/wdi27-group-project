@@ -23,7 +23,8 @@
     "angular-password": "^1.0.3",
     "angularjs-geolocation": "^0.1.1",
     "ngGeolocation": "^0.0.8",
-    "Geolib": "geolib#^2.0.22"
+    "Geolib": "geolib#^2.0.22",
+    "moment": "^2.18.1"
   },
   "resolutions": {
     "angular": "1.6.4"

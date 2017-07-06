@@ -8,9 +8,10 @@
       <form name="register.registerForm" ng-submit="register.submit()" novalidate>
 
         <!--image-->
-        <div class="form-group">
-          <label for="image">Image</label>
-          <input base64 type="file" name="image" id="image" ng-model="register.user.base64">
+        <div class="field">
+          <label class="label" for="image">Image</label>
+          <label class="button is-primary" for="image">Choose File</label>
+          <input base64 type="file" name="image" id="image" ng-model="register.user.base64" hidden>
           <img ng-src="{{ register.user.base64 }}">
         </div>
 

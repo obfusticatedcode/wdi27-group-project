@@ -40,7 +40,7 @@ function gMap() {
 
       function destroyMap() {
         console.log('destroying the second map');
-        marker.setMap(null);
+        if(marker) marker.setMap(null);
         marker = null;
         map = null;
       }

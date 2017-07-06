@@ -36,7 +36,7 @@
 
           <input type="text" class="input" id="location" name="location"
           ng-model="campaignsNew.campaign.address" location="campaignsNew.campaign.location"
-          required autocomplete>
+          required google-autocomplete>
           <!-- ng message location -->
           <div ng-messages="campaignsNew.campaignForm.location.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.location.$touched">
             <div ng-message="required" class="notification">You forgot to enter the location</div>

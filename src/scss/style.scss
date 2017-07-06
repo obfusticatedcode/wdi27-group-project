@@ -21,12 +21,17 @@ body, html {
   background: $whiteSmoke;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+}
+
 /*classes */
 .map {
   height: 100%;
   width: 100%;
   &.map-show {
-    height: 500px;
+    height: 100%;
   }
 }
 
@@ -35,6 +40,7 @@ body, html {
   width: 150px;
 }
 
+
 .campaign-item {
   border: 2px solid black;
   margin: 5px;
@@ -42,6 +48,11 @@ body, html {
 
 .button {
   width: 100%;
+  margin-bottom: 10px;
+}
+
+.showtitle {
+  color: grey;
 }
 
 
@@ -62,6 +73,11 @@ body, html {
   // }
 }
 
+.indeximage {
+  height: 200px;
+  width: 100%;
+
+}
 /*ids*/
 
 #map {
@@ -69,6 +85,13 @@ body, html {
   height: 600px;
   width: 100%;
 }
+
+#editimg {
+  width: 100%;
+  height: auto;
+}
+
+
 
 // header {
 //   position: fixed;
@@ -115,7 +138,7 @@ li {
 }
 
 .tg-list-item {
-	margin: 0 2em;
+	margin: 0;
 }
 
 h2 {
@@ -240,4 +263,38 @@ label {
 h1 {
   font-size: 20px;
   font-weight: bold;
+}
+
+
+.card.is-4 {
+  width: 100%;
+  height: 35rem;
+}
+
+.card-content {
+  // position: absolute;
+  // bottom: 0;
+  width: 100%;
+  height: 600px
+}
+
+
+
+.indexpic {
+  width: 100%;
+  height: 100%;
+}
+
+.profilephoto {
+  height: auto;
+  width: 100%;
+}
+
+
+.availability {
+  width: 100%;
+}
+
+.profilecampaign {
+  border: 2px black solid;
 }

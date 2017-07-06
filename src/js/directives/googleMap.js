@@ -62,7 +62,7 @@ function googleMap() {
         });
 
 
-        const infowindow = new google.maps.InfoWindow();
+        infowindow = new google.maps.InfoWindow();
         for(let i = 0; i < markers.length; i++) {
           const contentString = `
             <strong>${scope.campaigns[i].name}</strong>

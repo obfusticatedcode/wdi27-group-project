@@ -51,40 +51,28 @@
       <div class="columns is-multiline">
         <div ng-repeat="campaign in campaignsIndex.filtered"  ng-if="campaign.isAvailable" class="column is-4 campaign">
           <!-- card -->
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <div class="campaign single-image" style="background-image:url('{{ campaignsIndex.campaign.imageSRC }}')" ui-sref="campaignsShow({ id: campaign.id })"></div>
-                <img ng-src="{{ campaign.imageSRC }}">
+          <div class="card is-4">
+            <div>
+              <figure class="indeximage">
+                <img  class="indexpic image is-480x480" ng-src="{{ campaign.imageSRC }}">
               </figure>
             </div>
             <div class="card-content">
               <div class="media">
-
                 <div class="media-content">
-                  <p class="title is-4">{{ campaign.name | uppercase }}</p>
-                  <p class="subtitle is-6">{{ campaign.address }}</p>
-                  <p> {{ (campaign.distance / 1000).toFixed(1) | number }} km away </p>
-                  <p><strong>{{ campaign.campaignType }}</strong></p>
-                  <p><strong>{{ campaign.category }}</strong></p>
-                  <p ng-repeat="category in campaign.categories">
-                    <strong>{{ category.name }} </strong>
-                    <br>
-                    <strong>{{ category.people }}</strong>
-                  </p>
-
-
+                  <p>{{ campaign.name | uppercase }}</p>
+                  <p><strong>Location:</strong> {{ campaign.address }}</p>
+                  <p><strong>Distance:</strong> {{ (campaign.distance / 1000).toFixed(1) | number }} km away </p>
+                  <p><strong>Campaign type:</strong> {{ campaign.campaignType }}</p>
+                  <p><strong>Campaign category:</strong> {{ campaign.category }}</p>
+                  <div ng-repeat="category in campaign.categories">
+                    <p>{{ category.name }}:  {{ category.people }}</p>
+                  </div>
+                  <p><strong>Description:</strong> {{ campaign.description }}</p>
                 </div>
               </div>
 
-              <div class="content">
-                <p><strong>{{ campaign.description }}</strong></p>
-                <br>
-
-              <p>
-                <em><a ui-sref="usersShow({id: campaign.createdBy.id })">{{ campaign.createdBy.username  }}</a></em>
-              </p>
-              </div>
+              <p><em><a ui-sref="usersShow({id: campaign.createdBy.id })"><strong>Created by:</strong> {{ campaign.createdBy.username  }}</a></em></p>
 
               <button class="button" type="button" name="button" ui-sref="campaignsShow({ id: campaign.id })">View</button>
             </div>

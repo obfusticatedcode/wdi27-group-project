@@ -12,7 +12,7 @@ const commentSchema = new mongoose.Schema({
 const userSchema = new mongoose.Schema({
   firstName: {type: String },
   lastName: {type: String },
-  image: {type: String, default: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD4LcbfB9GWwypdalbf9DxRoIxdk8x578SKYIy0CfnF_nj3tzdiwHcG4c' },
+  image: {type: String, default: 'https://eliaslealblog.files.wordpress.com/2014/03/user-200.png' },
   location: { lat: Number, lng: Number },
   address: { type: String },
   email: { type: String, trim: true },

@@ -52,7 +52,7 @@ function googleMap() {
 
         markers = scope.locations.map(function(location, i) {
 
-          infowindow = new google.maps.InfoWindow();
+          // infowindow = new google.maps.InfoWindow();
 
           return new google.maps.Marker({
             position: location,

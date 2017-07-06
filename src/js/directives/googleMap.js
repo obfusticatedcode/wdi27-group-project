@@ -17,6 +17,7 @@ function googleMap() {
     link(scope, element) {
       let map = null;
       let markers = null;
+      let infowindow = null;
 
       scope.$watch('locations', generateMarkers);
       scope.$on('$destroy', destroyMap);
@@ -50,6 +51,8 @@ function googleMap() {
         // The map() method here has nothing to do with the Google Maps API.
 
         markers = scope.locations.map(function(location, i) {
+
+          infowindow = new google.maps.InfoWindow();
 
           return new google.maps.Marker({
             position: location,

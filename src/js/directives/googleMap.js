@@ -30,7 +30,7 @@ function googleMap() {
       function centerMap(center){
         if(!center) return false;
         map.setCenter(center);
-        map.setZoom(16);
+        map.setZoom(3);
 
       }
 

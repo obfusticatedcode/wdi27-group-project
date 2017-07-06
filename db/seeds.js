@@ -50,7 +50,6 @@ User
     location: { lat: 51.515419, lng: -0.141099 },
     createdBy: users[0],
     description: 'I need shelter for my family',
-    expiryDate: '2017/08/01',
     isAvailable: true,
     type: true,
     categories: [{ 'beds': 2 }]
@@ -59,7 +58,6 @@ User
     location: { lat: 51.71541, lng: -0.111099 },
     createdBy: users[0],
     description: 'I need shelter for my family',
-    expiryDate: '2017/10/01',
     isAvailable: true,
     type: true,
     categories: [{ 'beds': 4 }]
@@ -68,7 +66,6 @@ User
     location: { lat: 51.215419, lng: -0.101099 },
     createdBy: users[0],
     description: 'I need food and shelter for my family',
-    expiryDate: '2017/09/01',
     isAvailable: true,
     type: false,
     categories: [{ 'beds': 3 }]
@@ -77,7 +74,6 @@ User
     location: { lat: 51.915419, lng: -0.21099 },
     createdBy: users[0],
     description: 'I need shelter for my family',
-    expiryDate: '2017/08/01',
     isAvailable: true,
     type: false,
     categories: [{ 'beds': 4 }]
@@ -86,7 +82,6 @@ User
     location: { lat: 51.645419, lng: -0.1111099 },
     createdBy: users[0],
     description: 'I need shelter for my family',
-    expiryDate: '2017/08/01',
     isAvailable: true,
     type: false,
     categories: [{ 'beds': 4 }]

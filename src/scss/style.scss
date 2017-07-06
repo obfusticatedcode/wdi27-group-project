@@ -24,6 +24,10 @@ body, html {
 /*classes */
 .map {
   height: 100%;
+  width: 100%;
+  &.map-show {
+    height: 500px;
+  }
 }
 
 .indexmap {
@@ -36,22 +40,26 @@ body, html {
   margin: 5px;
 }
 
+.button {
+  width: 100%;
+}
+
 
 
 .map-container {
   position: relative;
   overflow: hidden;
-  .map-marker {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: $heading;
-    border-radius: 50%;
-    height: 15px;
-    width: 15px;
-    z-index: 10;
-  }
+  // .map-marker {
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   background-color: $heading;
+  //   border-radius: 50%;
+  //   height: 15px;
+  //   width: 15px;
+  //   z-index: 10;
+  // }
 }
 
 /*ids*/
@@ -221,4 +229,15 @@ h4 {
       transform: rotateY(20deg);
     }
 	}
+}
+
+
+label {
+  margin-top: 10px;
+}
+
+
+h1 {
+  font-size: 20px;
+  font-weight: bold;
 }

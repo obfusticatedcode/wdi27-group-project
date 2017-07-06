@@ -2,7 +2,7 @@
 
 <section class="section">
   <div class="columns">
-    <div class="column is-one-quarter is-offset-1">
+    <div class="column is-half is-offset-one-quarter">
 
       <h1 class="title">Start a campaign</h1>
 
@@ -36,7 +36,7 @@
 
           <input type="text" class="input" id="location" name="location"
           ng-model="campaignsNew.campaign.address" location="campaignsNew.campaign.location"
-          required autocomplete>
+          required google-autocomplete>
           <!-- ng message location -->
           <div ng-messages="campaignsNew.campaignForm.location.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.location.$touched">
             <div ng-message="required" class="notification">You forgot to enter the location</div>
@@ -63,7 +63,6 @@
         <div class="categories">
           <ul >
             <li ng-repeat="category in campaignsNew.campaign.categories track by $index">
-              Category test: {{ category }}
               <!-- category -->
               <div class="field">
                 <p class="control">
@@ -85,24 +84,29 @@
               </div>
 
               <!-- number of people -->
+              <div class="field">
+                <p class="control">
+                  <label class="label" for="people">Number of people</label>
+                </p>
 
-              <p class="control">
-                <label class="label" for="people">Number of people</label>
-              </p>
-
-              <input type="number" class="input" min="1" max="50" id="people" name="people" ng-model="category.people" required>
-              <!-- ng message number of people -->
-              <div ng-messages="campaignsNew.campaignForm.people.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.people.$touched">
-                <div ng-message="required" class="notification">You forgot to enter the number of people</div>
+                <input type="number" class="input" min="1" max="50" id="people" name="people" ng-model="category.people" required>
+                <!-- ng message number of people -->
+                <div ng-messages="campaignsNew.campaignForm.people.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.people.$touched">
+                  <div ng-message="required" class="notification">You forgot to enter the number of people</div>
+                </div>
               </div>
 
 
-              <button class="button is-danger" type="button" name="button"  ng-click="campaignsNew.deleteCategoryFromView(category)" ng-if="main.isAuthenticated()">Delete a category</button>
-
+              <div class="field">
+                <button class="button is-danger" type="button" name="button"  ng-click="campaignsNew.deleteCategoryFromView(category)" ng-if="main.isAuthenticated()">Delete a category</button>
+              </div>
+              <div class="field">
+                <button class="button is-success" type="button" name="button" ng-click="campaignsNew.addCategory()" ng-if="main.isAuthenticated()">Add another category</button>
+              </div>
             </li>
           </ul>
 
-          <button class="button is-success" type="button" name="button" ng-click="campaignsNew.addCategory()" ng-if="main.isAuthenticated()">Add another category</button>
+
         </div>
 
         <!-- expiry date -->

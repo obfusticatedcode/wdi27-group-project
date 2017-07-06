@@ -44,24 +44,13 @@
         </div>
       </article>
 
-
-
       <footer class="card-footer">
         <a class="card-footer-item" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="editbutton">Edit</a>
-
-
-
         <a class="card-footer-item" ng-click="campaignsShow.delete()" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="deletebutton">Delete</a>
-
-
-
         <a class="card-footer-item" href="mailto:{{campaignsShow.campaign.createdBy.email}}?Subject=Can%20you%20help%20me%20out?">Send Mail</a>
       </footer>
 
-
-
     </div>
-
 
     <div class="column is-6 remove-padding">
       <g-map class="map map-show column is-11" center="campaignsShow.campaign.location"></g-map>

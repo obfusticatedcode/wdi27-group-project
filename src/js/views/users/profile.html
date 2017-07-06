@@ -71,8 +71,8 @@
       </p>
       <ul>
         <li class="tg-list-item">
-          <input ng-model="campaign.isAvailable" ng-click="usersShow.toggleAvailability(campaign)" id="{{campaign.id}}" type="checkbox" class="tgl tgl-flip"/>
-          <label data-tg-off="Nope" data-tg-on="Yeah!" for="{{campaign.id}}" class="tgl-btn"></label>
+          <input ng-model="campaign.isAvailable" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ng-click="usersShow.toggleAvailability(campaign)" id="{{campaign.id}}" type="checkbox" class="tgl tgl-flip"/>
+          <label ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" data-tg-off="Nope" data-tg-on="Yeah!" for="{{campaign.id}}" class="tgl-btn"></label>
         </li>
       </ul>
     </div>

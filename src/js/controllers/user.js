@@ -41,6 +41,8 @@ function UsersShowCtrl($auth, User, $state, UserComment, Campaign) {
       });
   }
 
+
+
   vm.delete = usersDelete;
 
   vm.toggleAvailability = toggleAvailability;

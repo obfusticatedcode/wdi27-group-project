@@ -69,7 +69,6 @@
                   <p><strong>{{ campaign.category }}</strong></p>
                   <p ng-repeat="category in campaign.categories">
                     <strong>{{ category.name }} </strong>
-                    <br>
                     <strong>{{ category.people }}</strong>
                   </p>
 
@@ -81,9 +80,9 @@
                 <p><strong>{{ campaign.description }}</strong></p>
                 <br>
 
-              <p>
-                <em><a ui-sref="usersShow({id: campaign.createdBy.id })">{{ campaign.createdBy.username  }}</a></em>
-              </p>
+                <p>
+                  <em><a ui-sref="usersShow({id: campaign.createdBy.id })">{{ campaign.createdBy.username  }}</a></em>
+                </p>
               </div>
 
               <button class="button" type="button" name="button" ui-sref="campaignsShow({ id: campaign.id })">View</button>

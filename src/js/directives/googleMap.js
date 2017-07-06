@@ -15,7 +15,7 @@ function googleMap() {
     },
     link(scope, element) {
       let map = null;
-      let marker = null;
+      let markers = null;
 
 
       scope.$watch('locations', generateMarkers);
@@ -45,7 +45,7 @@ function googleMap() {
         // create an array of markers based on a given "locations" array.
         // The map() method here has nothing to do with the Google Maps API.
 
-        const markers = scope.locations.map(function(location, i) {
+        markers = scope.locations.map(function(location, i) {
 
           return new google.maps.Marker({
             position: location,
@@ -60,8 +60,8 @@ function googleMap() {
 
       function destroyMap() {
         console.log('destroying map... ');
-        marker.setMap(null);
-        marker = null;
+        markers.map((marker) => marker.setMap(null));
+        markers = null;
         map = null;
       }
 

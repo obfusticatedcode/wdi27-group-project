@@ -10,8 +10,9 @@
       <form ng-submit="campaignsNew.create()" name="campaignsNew.campaignForm" novalidate>
         <!--image-->
         <div class="form-group">
-          <label for="image">Image</label>
-          <input base64 type="file" name="image" id="image" ng-model="campaignsNew.campaign.base64">
+          <label class="label" for="image">Image</label>
+          <label class="button is-primary" for="image">Choose File</label>
+          <input base64 type="file" name="image" id="image" ng-model="campaignsNew.campaign.base64" hidden>
           <img ng-src="{{ campaignsNew.campaign.base64 }}">
         </div>
         <!-- name -->
@@ -63,10 +64,7 @@
           <h4>Categories:</h4>
           <ul class="categories__created">
             <li ng-repeat="category in campaignsNew.campaign.categories track by $index">
-              <div class="field">
-                <p class="control">
-                  <label class="label" for="category">Category</label>
-                </p>
+
 
 
 
@@ -97,7 +95,7 @@
                 <div ng-messages="campaignsNew.campaignForm.people.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.people.$touched">
                   <div ng-message="required" class="notification">You forgot to enter the number of people</div>
                 </div>
-              </div>
+
 
               <button class="button is-small is-danger" type="button" name="button"  ng-click="campaignsNew.deleteCategoryFromView(category)" ng-if="main.isAuthenticated()">Delete Category</button>
 

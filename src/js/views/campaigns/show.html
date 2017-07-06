@@ -1,56 +1,69 @@
 <!DOCTYPE html>
-<section>
-  <div class="columns">
+<section class="register-setion">
+  <div class="columns fore-setion">
     <div class="column is-5 is-offset-1">
-      <h1 class="showtitle">{{ campaignsShow.campaign.name }}</h1>
+      <h1 class="title black-title">{{ campaignsShow.campaign.name }}</h1>
       <!-- image -->
-      <img id="editimg" ng-src="{{ campaignsShow.campaign.imageSRC }}">
+      <img class="is-square" id="editimg" ng-src="{{ campaignsShow.campaign.imageSRC }}">
 
 
       <!-- campaignType -->
-      <label class="label" for="campaignType">Campaign Type:</label>
-      <p>
-        {{ campaignsShow.campaign.campaignType }}
-      </p>
-      <!-- category -->
-      <label class="label" for="category">Category:</label>
-      <div ng-repeat="category in campaignsShow.campaign.categories">
-        <p> {{ category.name }} </p>
-        <p> {{ category.people }} </p>
-      </div>
+      <p ng-class="campaign.campaignType ? 'button is-success' : 'button is-danger'">{{ campaignsShow.campaign.campaignType }}</p>
+
       <!-- address -->
-      <label class="label" for="address">Address:</label>
-      <p>
-        {{ campaignsShow.campaign.address}}
-      </p>
+
+      <p><i class="fa fa-address-card" aria-hidden="true"></i> {{ campaignsShow.campaign.address }}</p>
+
+      <!-- category -->
+      <p>CATEGORIES</p>
+      <div ng-repeat="category in campaignsShow.campaign.categories">
+
+          <p ng-class="campaign.campaignType ? 'button is-success' : 'button is-danger'"><small>{{ category.name }} for {{ category.people }}</small></p>
+
+      </div>
+
       <!-- description -->
       <label class="label" for="description">Description:</label>
       <p>
         {{ campaignsShow.campaign.description }}
       </p>
-
-      <label class="label" for="description">Created by:</label>
-      <p>
-        <a ui-sref="usersShow({id: campaignsShow.campaign.createdBy.id })">{{ campaignsShow.campaign.createdBy.username }} </a>
-      </p>
-
       <hr>
-      <div class="">
-        <button class="button is-success" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="editbutton">Edit</button>
-      </div>
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-48x48" ui-sref="usersShow({id: campaignsShow.campaign.createdBy.id })">
+            <img class="circle" ng-src="{{ campaignsShow.campaign.createdBy.imageSRC }}">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>{{ campaignsShow.campaign.createdBy.username }}</strong><br>
+              <em>31m</em>
+            </p>
+          </div>
+        </div>
+      </article>
 
-      <div class="">
-        <button class="button is-danger" ng-click="campaignsShow.delete()" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="deletebutton">Delete</button>
-      </div>
 
-      <div class="">
-        <a class="button  is-success" href="mailto:{{campaignsShow.campaign.createdBy.email}}?Subject=Can%20you%20help%20me%20out?">Send Mail</a>
-      </div>
+
+      <footer class="card-footer">
+        <a class="card-footer-item" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="editbutton">Edit</a>
+
+
+
+        <a class="card-footer-item" ng-click="campaignsShow.delete()" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="deletebutton">Delete</a>
+
+
+
+        <a class="card-footer-item" href="mailto:{{campaignsShow.campaign.createdBy.email}}?Subject=Can%20you%20help%20me%20out?">Send Mail</a>
+      </footer>
+
+
+
     </div>
 
 
-    <div class="column is-6">
-      <h1 class="showtitle">Map</h1>
+    <div class="column is-6 remove-padding">
       <g-map class="map map-show column is-11" center="campaignsShow.campaign.location"></g-map>
     </div>
 

@@ -4,26 +4,27 @@
   <!-- profile -->
   <div class="column is-6">
     <div class="column is-11 is-offset-1">
-      <h1>{{ usersShow.user.username }}</h1>
+      <h1 class="title black-title">{{ usersShow.user.username }}</h1>
 
-      <div>
+      <div class="card">
         <img class="profilephoto" ng-src="{{ usersShow.user.imageSRC }}" alt="usersShow.user.username">
+        <footer class="card-footer">
+          <a class="card-footer-item" href="mailto:{{ usersShow.user.email }}" ng-if="usersShow.user.email">Contact</a>
+          <a class="is-warning card-footer-item" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ui-sref="usersEdit({ id: usersShow.user.id})">Edit</a>
+          <a class="card-footer-item is-danger" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ng-click="usersShow.delete()">Delete</a>
+        </footer>
       </div>
 
-      <p class="title is-4" ng-if="usersShow.user.firstname">{{ usersShow.user.firstname }}</p>
-      <p class="title is-4" ng-if="usersShow.user.lastname">{{ usersShow.user.lastname }}</p>
-      <a href="mailto:{{ usersShow.user.email }}" ng-if="profile.user.email">{{ usersShow.user.email }}</a>
-      <p ng-if="usersShow.user.facebookId">Facebook Id: <strong>{{ usersShow.user.facebookId }}</strong></p>
-      <p ng-if="usersShow.user.instagramId">Instagram Id: <strong>{{ usersShow.user.instagramId }}</strong></p>
-      <button class="button is-warning" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ui-sref="usersEdit({ id: usersShow.user.id})">Edit</button>
-      <button class="button is-danger" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ng-click="usersShow.delete()">Delete</button>
+
+
+
     </div>
   </div>
 
   <!-- comments -->
   <div class="column is-6">
     <div class="column is-12">
-    <h1>Comments</h1>
+    <h1 class="title black-title">Comments</h1>
     <article class="media">
       <div class="media-content">
         <ul>
@@ -66,7 +67,7 @@
 <div >
   <div class="column is-6">
     <div class="column is-11 is-offset-1 profilecampaign" ng-repeat="campaign in usersShow.user.campaigns">
-      <div >
+      <div class="card">
         <p>
           <strong>{{ campaign.name }}</strong>
         </p>

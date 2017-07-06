@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 
-<section class="section">
-  <div class="columns">
+<section class="">
+  <div class="columns register-setion">
 
     <div class="column is-half is-offset-one-quarter">
       <h1 class="title">Login</h1>
       <!-- form name -->
-      <form name="login.loginForm" ng-submit="login.submit()" novalidate>
+      <form class="form-style" name="login.loginForm" ng-submit="login.submit()" novalidate>
         <!-- email -->
         <div class="field">
-          <label class="label" for="email">Email</label>
-          <p class="control">
-            <input class="input" type="text" name="email" id="email"
+          <label class="label centered" for="email">Email</label>
+          <p class="control has-icons-left has-icons-right">
+            <input class="input rounded-input" type="text" name="email" id="email"
             ng-model="login.credentials.email"
             ng-minlength="5"
             ng-maxlength="30"
             required>
+            <span class="icon is-small is-left">
+              <i class="fa fa-envelope"></i>
+            </span>
           </p>
         </div>
         <!-- ng-messages email-->
         <div class="error-messages" ng-messages="login.loginForm.email.$error" ng-show="login.loginForm.$submitted || login.loginForm.email.$touched" ng-messages-multiple>
           <div ng-message="required">
-            You forgot to enter the email address
+            <p class="help is-danger">You forgot to enter the email address</p>
           </div>
           <div ng-message="email">
-            You didn't enter the email address correctly
+            <p class="help is-danger">You didn't enter the email address correctly</p>
           </div>
           <div ng-message="minlength">
-            The email address you entered is too short
+            <p class="help is-danger">The email address you entered is too short</p>
           </div>
           <div ng-message="maxlength">
-            The email address you entered is too long
+            <p class="help is-danger">The email address you entered is too long</p>
           </div>
         </div>
         <!-- password -->
         <div class="field">
-          <label class="label" for="password">Password</label>
-          <p class="control">
-            <input class="input" type="password" name="password" id="password" ng-model="login.credentials.password" required>
+          <label class="label centered" for="password">Password</label>
+          <p class="control control has-icons-left has-icons-right">
+            <input class="input rounded-input" type="password" name="password" id="password" ng-model="login.credentials.password" required>
+            <span class="icon is-small is-left">
+              <i class="fa fa-lock"></i>
+            </span>
           </p>
         </div>
         <!-- ng messages password-->
         <div ng-messages="login.loginForm.password.$error" ng-show="login.loginForm.$submitted || login.loginForm.password.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages">
-          <div ng-message="required">You forgot to enter a password</div>
+          <div ng-message="required"><p class="help is-danger">You forgot to enter a password</p></div>
         </div>
         <!-- submit button -->
-        <div class="field">
-          <p class="control">
-            <input type="submit" class="button is-primary is-fullwidth" value="Login">
+        <div class="field form-button">
+          <p class="control button-holder">
+            <input type="submit" class="button rounded-input" value="Login">
           </p>
         </div>
 
@@ -55,13 +61,13 @@
       </form>
 
       <!-- facebook  and instagram buttons-->
-      <div class="field">
-        <button class="button field" ng-click="login.authenticate('facebook')"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i>Login with Facebook</button>
+      <div class="field button-holder">
+        <button class="button field fb-button" ng-click="login.authenticate('facebook')"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i>Login with Facebook</button>
       </div>
-      <div class="field">
-        <button class="button field" ng-click="login.authenticate('instagram')"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i>  Login with Instagram</button>
+      <div class="field button-holder">
+        <button class="button field insta-button" ng-click="login.authenticate('instagram')"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i>  Login with Instagram</button>
       </div>
-      
+
     </div>
   </div>
 </section>

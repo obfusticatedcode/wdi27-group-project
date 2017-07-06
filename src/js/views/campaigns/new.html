@@ -74,7 +74,7 @@
                 <datalist id="category">
                   <option value="Food"></option>
                   <option value="Shelter"></option>
-                  <option value="Medical Asssistance"></option>
+                  <option value="Medical Assistance"></option>
                   <option value="Water"></option>
                   <option value="Clothing"></option>
                 </datalist>
@@ -97,12 +97,12 @@
               </div>
 
 
-              <button class="button is-small is-danger" type="button" name="button"  ng-click="campaignsNew.deleteCategoryFromView(category)" ng-if="main.isAuthenticated()">Delete Category</button>
+              <button class="button is-danger" type="button" name="button"  ng-click="campaignsNew.deleteCategoryFromView(category)" ng-if="main.isAuthenticated()">Delete a category</button>
 
-            </li> <!--comment gets passed in so it knows which comment to delete -->
+            </li>
           </ul>
 
-          <button class="button is-small is-success" type="button" name="button" ng-click="campaignsNew.addCategory()" ng-if="main.isAuthenticated()">Add Category</button>
+          <button class="button is-success" type="button" name="button" ng-click="campaignsNew.addCategory()" ng-if="main.isAuthenticated()">Add another category</button>
         </div>
 
         <!-- expiry date -->

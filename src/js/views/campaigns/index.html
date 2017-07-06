@@ -47,7 +47,6 @@
     </aside>
 
 
-
     <div class="column is-8 campaigns">
       <div class="columns is-multiline">
         <div ng-repeat="campaign in campaignsIndex.filtered"  ng-if="campaign.isAvailable" class="column is-4 campaign">
@@ -68,7 +67,11 @@
                   <p> {{ (campaign.distance / 1000).toFixed(1) | number }} km away </p>
                   <p><strong>{{ campaign.campaignType }}</strong></p>
                   <p><strong>{{ campaign.category }}</strong></p>
-                  <p><strong>{{ campaign.categories }}</strong></p>
+                  <p ng-repeat="category in campaign.categories">
+                    <strong>{{ category.name }} </strong>
+                    <br>
+                    <strong>{{ category.people }}</strong>
+                  </p>
 
 
                 </div>

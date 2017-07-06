@@ -1,42 +1,56 @@
 <!DOCTYPE html>
 <html ng-app="disasterRelief">
-  <head>
-    <base href="/">
-    <meta charset="utf-8">
-    <title>Disaster Relief</title>
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-    </script>
-    <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBw-SQX-XVh5cB5A56mAJTq97SbS0PuVfU&libraries=places,geometry">
-    </script>
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body ng-controller="MainCtrl as main">
-    <header>
-      <!-- navigation -->
-      <nav>
-        <div class="nav-right nav-menu">
-            <a class="nav-item" ui-sref="campaignsIndex" ui-sref-active="active">All campaigns</a>
-            <a class="nav-item" ng-if="main.isAuthenticated()" ui-sref="campaignsNew" ui-sref-active="active">Start a campaign</a>
-            <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
-            <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
-            <a class="nav-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <title>Disaster Relief</title>
+  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+  </script>
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBw-SQX-XVh5cB5A56mAJTq97SbS0PuVfU&libraries=places,geometry">
+  </script>
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body ng-controller="MainCtrl as main">
+  <header>
+    <!-- new navigation     -->
+    <nav class="navbar ">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="">
+        </a>
+
+        <div class="navbar-burger burger" data-target="navMenuExample">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div class="nav-left nav-menu">
-            <a class="nav-item" ui-sref="usersShow({id: main.currentUserId})" ng-if="main.isAuthenticated()">Profile</a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a class="nav-item" ui-sref="usersShow({id: main.currentUserId})" ng-if="main.isAuthenticated()">Profile</a>
         </div>
-      </nav>
-    </header>
 
-    <!-- displaying error message -->
-    <div class="notification" ng-if="main.message" >{{ main.message }}</div>
+        <div class="navbar-end">
+          <a class="nav-item" ui-sref="campaignsIndex" ui-sref-active="active">All campaigns</a>
+          <a class="nav-item" ng-if="main.isAuthenticated()" ui-sref="campaignsNew" ui-sref-active="active">Start a campaign</a>
+          <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
+          <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
+          <a class="nav-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
+      </div>
+    </div>
+  </nav>
+</header>
 
-    <!-- main -->
-    <main ui-view></main>
+<!-- displaying error message -->
+<div class="notification" ng-if="main.message" >{{ main.message }}</div>
+
+<!-- main -->
+<main ui-view></main>
 
 
-  </body>
+</body>
 </html>

@@ -105,21 +105,6 @@
           <button class="button is-success" type="button" name="button" ng-click="campaignsNew.addCategory()" ng-if="main.isAuthenticated()">Add another category</button>
         </div>
 
-        <!-- expiry date -->
-        <div class="field">
-          <p class="control">
-            <label class="label" for="name">Expiry date</label>
-          </p>
-
-          <input type="date" class="input" id="expiryDate" name="expiryDate"
-          ng-model="campaignsNew.campaign.expiryDate"
-          required>
-          <!-- ng message expiry date -->
-          <div ng-messages="campaignsNew.campaignForm.expiryDate.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.expiryDate.$touched">
-
-            <div ng-message="required" class="notification">You forgot to enter the campaign expiry date</div>
-          </div>
-        </div>
         <!-- campaign description -->
         <div class="field">
           <p class="control">

@@ -26,7 +26,6 @@ describe('Campaign tests', () => {
         lng: '0.0877',
         createdBy: '53cb6b9b4f4ddef1ad47f943',
         description: 'This is an example description',
-        expiryDate: new Date('12-10-1990'),
         isAvailable: true,
         type: true,
         categories: [ {} ]
@@ -61,11 +60,10 @@ describe('Campaign tests', () => {
             .and.have.all.keys([
               'id',
               'name',
-              'lat',
-              'lng',
+              'location',
+              'address',
               'createdBy',
               'description',
-              'expiryDate',
               'isAvailable',
               'type',
               'categories',
@@ -89,7 +87,6 @@ describe('Campaign tests', () => {
             lng: '0.0877',
             createdBy: '53cb6b9b4f4ddef1ad47f943',
             description: 'This is an example description',
-            expiryDate: new Date('12-10-1990'),
             isAvailable: true,
             type: true,
             categories: [ {} ]
@@ -130,7 +127,6 @@ describe('Campaign tests', () => {
           lng: '0.0877',
           createdBy: user.id,
           description: 'This is an example description',
-          expiryDate: new Date('12-10-1990'),
           isAvailable: true,
           type: true,
           categories: [ {} ]
@@ -149,7 +145,6 @@ describe('Campaign tests', () => {
         lng: '0.0877',
         createdBy: '53cb6b9b4f4ddef1ad47f943',
         description: 'This is an example description',
-        expiryDate: new Date('12-10-1990'),
         isAvailable: true,
         type: true,
         categories: [ {} ]
@@ -177,7 +172,6 @@ describe('Campaign tests', () => {
         lng: '0.0877',
         createdBy: '53cb6b9b4f4ddef1ad47f943',
         description: 'This is an example description',
-        expiryDate: new Date('12-10-1990'),
         isAvailable: true,
         type: true,
         categories: [ {} ]
@@ -216,7 +210,6 @@ describe('Campaign tests', () => {
         lng: '0.0877',
         createdBy: '53cb6b9b4f4ddef1ad47f943',
         description: 'This is an example description',
-        expiryDate: new Date('12-10-1990'),
         isAvailable: true,
         type: true,
         categories: [ {} ]

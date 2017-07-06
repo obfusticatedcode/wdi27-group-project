@@ -11,18 +11,19 @@ function googleMap() {
     template: '<div class="map">Google Map</div>',
     scope: {
       center: '=',
-      locations: '='
+      locations: '=',
+      campaigns: '='
     },
     link(scope, element) {
       let map = null;
       let markers = null;
       let infowindow = null;
 
-
       scope.$watch('locations', generateMarkers);
       scope.$on('$destroy', destroyMap);
       scope.$watch('center', centerMap);
-      // console.log(element[0]);
+
+
 
       map = new google.maps.Map(element[0], {
         zoom: 8,
@@ -36,8 +37,11 @@ function googleMap() {
         map.setZoom(3);
       }
 
-      function generateMarkers(locations) {
+
+      function generateMarkers() {
         if(!scope.locations) return false;
+
+        console.log('Campaigns: ', scope.campaigns);
         // Create an array of alphabetical characters used to label the markers.
         const labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -56,6 +60,22 @@ function googleMap() {
           });
 
         });
+
+
+        const infowindow = new google.maps.InfoWindow();
+        for(let i = 0; i < markers.length; i++) {
+          const contentString = `
+            <strong>${scope.campaigns[i].name}</strong>
+            <p>${scope.campaigns[i].description}</p>
+            <p>${scope.campaigns[i].distance} km away</p>
+            `;
+
+          google.maps.event.addListener(markers[i], 'click', function () {
+            // When clicked, open the selected marker's message
+            infowindow.setContent(contentString);
+            infowindow.open(map, this);
+          });
+        }
 
         // Add a marker clusterer to manage the markers.
         new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });

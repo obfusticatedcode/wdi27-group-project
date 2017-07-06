@@ -20,7 +20,7 @@
     <div class="column">
       <p class="control">
         <input type="text" class="input" id="location" name="location" location="campaignsIndex.center"
-        autocomplete ng-model="campaignsIndex.address">
+        google-autocomplete ng-model="campaignsIndex.address">
         {{ campaignsIndex.campaign.location }}
       </p>
     </div>
@@ -43,7 +43,7 @@
   <div class="columns">
     <!-- the map -->
     <aside class="column is-4 campaigns-map">
-      <google-map center="campaignsIndex.center" locations="campaignsIndex.locations"></google-map>
+      <google-map campaigns="campaignsIndex.all" center="campaignsIndex.center" locations="campaignsIndex.locations"></google-map>
     </aside>
 
 

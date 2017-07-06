@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <section>
   <div class="columns">
-    <div class="column is-6 is-offset-2">
-      <h1>{{ campaignsShow.campaign.name | uppercase }}</h1>
+    <div class="column is-5 is-offset-1">
+      <h1>{{ campaignsShow.campaign.name }}</h1>
       <!-- image -->
       <img ng-src="{{ campaignsShow.campaign.imageSRC }}">
+      <div class="">
+        <a class="button  is-success" href="mailto:{{campaignsShow.campaign.createdBy.email}}?Subject=Can%20you%20help%20me%20out?">Send Mail</a>
+      </div>
 
-      <a class="button  is-success" href="mailto:{{campaignsShow.campaign.createdBy.email}}?Subject=Can%20you%20help%20me%20out?">Send Mail</a>
       <!-- campaignType -->
-      <label class="label" for="campaignType">Campaign Type</label>
+      <label class="label" for="campaignType">Campaign Type:</label>
       <p>
         {{ campaignsShow.campaign.campaignType }}
       </p>
       <!-- category -->
-      <label class="label" for="category">Category</label>
+      <label class="label" for="category">Category:</label>
       <p>
         {{ campaignsShow.campaign.categories }}
       </p>
       <!-- address -->
-      <label class="label" for="address">Address</label>
+      <label class="label" for="address">Address:</label>
       <p>
-          {{ campaignsShow.campaign.address}}
+        {{ campaignsShow.campaign.address}}
       </p>
       <!-- description -->
-      <label class="label" for="description">Description</label>
+      <label class="label" for="description">Description:</label>
       <p>
         {{ campaignsShow.campaign.description }}
       </p>
 
-      <label class="label" for="description">Created by</label>
+      <label class="label" for="description">Created by:</label>
       <p>
         <a ui-sref="usersShow({id: campaignsShow.campaign.createdBy.id })">{{ campaignsShow.campaign.createdBy.username }} </a>
       </p>
 
-      <g-map class="map" center="campaignsShow.campaign.location"></g-map>
-
       <hr>
-      <button class="button is-success" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="editbutton">Edit</button>
+      <div class="">
+        <button class="button is-success" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="editbutton">Edit</button>
+      </div>
 
-      <button class="button is-danger" ng-click="campaignsShow.delete()" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="deletebutton">Delete</button>
-
-
+      <div class="">
+        <button class="button is-danger" ng-click="campaignsShow.delete()" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="deletebutton">Delete</button>
+      </div>
     </div>
+
+    <div class="column is-6">
+      <h1>Map</h1>
+      <g-map class="map map-show column is-11" center="campaignsShow.campaign.location"></g-map>
+    </div>
+
+
   </div>
+
 </section>

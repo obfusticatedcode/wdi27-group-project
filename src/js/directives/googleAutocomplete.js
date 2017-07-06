@@ -3,10 +3,10 @@
 
 angular
   .module('disasterRelief')
-  .directive('autocomplete', autocomplete);
+  .directive('googleAutocomplete', googleAutocomplete);
 
-autocomplete.$inject = [];
-function autocomplete() {
+googleAutocomplete.$inject = [];
+function googleAutocomplete() {
   return {
     restrict: 'A',
     require: 'ngModel',
@@ -14,6 +14,8 @@ function autocomplete() {
       location: '='
     },
     link: function(scope, element, attrs, model) {
+      attrs.autocomplete = 'off';
+      
       const options = {
         types: []
         // componentRestrictions: {}

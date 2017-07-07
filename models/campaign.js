@@ -38,21 +38,21 @@ campaignSchema.pre('remove', function removeImage(next) {
   next();
 });
 
-// campaignSchema.post('save', function sendMail(next) {
-//   User
-//     .find()
-//     .exec()
-//     .then((users) => {
-//       const suitableUsers = nodemailer.findSuitableUsers(users, this);
-//       return suitableUsers.forEach((item) => {
-//         // Return false if registered user does not have location data (due to oAuth login)
-//         if (!item) return false;
-//
-//         const configEmail = nodemailer.configEmail(this, item);
-//         return nodemailer.sendMail(configEmail);
-//       });
-//     })
-//     .catch(next);
-// });
+campaignSchema.post('save', function sendMail(next) {
+  User
+    .find()
+    .exec()
+    .then((users) => {
+      const suitableUsers = nodemailer.findSuitableUsers(users, this);
+      return suitableUsers.forEach((item) => {
+        // Return false if registered user does not have location data (due to oAuth login)
+        if (!item) return false;
+
+        const configEmail = nodemailer.configEmail(this, item);
+        return nodemailer.sendMail(configEmail);
+      });
+    })
+    .catch(next);
+});
 
 module.exports = mongoose.model('Campaign', campaignSchema);

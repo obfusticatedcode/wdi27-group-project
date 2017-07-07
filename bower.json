@@ -28,11 +28,15 @@
     "font-awesome": "fontawesome#^4.7.0"
   },
   "resolutions": {
+<<<<<<< HEAD
     "angular": "1.6.4"
   },
   "overrides": {
     "font-awesome": {
       "main": ["css/font-awesome.css", "fonts/**/*.*"]
     }
+=======
+    "angular": "^1.6.4"
+>>>>>>> 19976ba0b626f4ad7058a590acda27e50070ad53
   }
 }

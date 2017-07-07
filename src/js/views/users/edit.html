@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <!-- register -->
-<section class="section">
-  <div class="columns">
-    <div class="column is-one-quarter is-offset-one-third">
+<section class="">
+  <div class="columns register-setion">
+    <div class="column is-half is-offset-one-quarter">
       <h1 class="title">Edit your account</h1>
       <!-- form name -->
-      <form name="usersEdit.editForm" ng-submit="usersEdit.update()" novalidate>
+      <form class="form-style" name="usersEdit.editForm" ng-submit="usersEdit.update()" novalidate>
 
         <!--image-->
         <div class="form-group">
           <label for="image">Image</label>
-          <label class="button is-primary" for="image">Choose File</label>
+          <label class="button rounded-input" for="image">Choose File</label>
           <input base64 type="file" name="image" id="image" ng-model="usersEdit.user.base64" hidden>
         </div>
 
@@ -18,7 +18,7 @@
         <div class="field">
           <label class="label" for="email">Username</label>
           <p class="control">
-            <input class="input" type="text" name="username" id="username"
+            <input class="input rounded-input" type="text" name="username" id="username"
             ng-model="usersEdit.user.username"
             ng-minlength="1"
             ng-maxlength="30"
@@ -28,23 +28,23 @@
         <!-- ng-messages username-->
         <div class="error-messages" ng-messages="usersEdit.editForm.username.$error" ng-show="usersEdit.editForm.$submitted || usersEdit.editForm.username.$touched" ng-messages-multiple>
           <div ng-message="required">
-            You forgot to enter the username
+            <p class="help is-danger">You forgot to enter the username</p>
           </div>
           <div ng-message="username">
-            You didn't enter the username  correctly
+            <p class="help is-danger">You didn't enter the username correctly</p>
           </div>
           <div ng-message="minlength">
-            The username  you entered is too short
+            <p class="help is-danger">The username you entered is too short</p>
           </div>
           <div ng-message="maxlength">
-            The username  you entered is too long
+            <p class="help is-danger">The username you entered is too long</p>
           </div>
         </div>
         <!-- email -->
         <div class="field">
           <label class="label" for="email">Email</label>
           <p class="control">
-            <input class="input" type="text" name="email" id="email"
+            <input class="input rounded-input" type="text" name="email" id="email"
             ng-model="usersEdit.user.email"
             ng-minlength="5"
             ng-maxlength="30"
@@ -54,16 +54,16 @@
         <!-- ng-messages email-->
         <div class="error-messages" ng-messages="usersEdit.editForm.email.$error" ng-show="usersEdit.editForm.$submitted || usersEdit.editForm.email.$touched" ng-messages-multiple>
           <div ng-message="required">
-            You forgot to enter the email address
+            <p class="help is-danger">You forgot to enter the email address</p>
           </div>
           <div ng-message="email">
-            You didn't enter the email address correctly
+            <p class="help is-danger">You didn't enter the email address correctly</p>
           </div>
           <div ng-message="minlength">
-            The email address you entered is too short
+            <p class="help is-danger">The email address you entered is too short</p>
           </div>
           <div ng-message="maxlength">
-            The email address you entered is too long
+            <p class="help is-danger">The email address you entered is too long</p>
           </div>
         </div>
         <!-- address / location -->
@@ -72,21 +72,21 @@
             <label class="label" for="location">Location</label>
           </p>
 
-          <input type="text" class="input" id="location" name="location"
+          <input type="text" class="input rounded-input" id="location" name="location"
           ng-model="usersEdit.user.address" location="usersEdit.user.location"
           required google-autocomplete>
           <h1>{{ register.user.location }}</h1>
 
           <!-- ng message location -->
           <div ng-messages="usersEdit.editForm.location.$error" ng-show="usersEdit.editForm.$submitted || usersEdit.editForm.location.$touched">
-            <div ng-message="required" class="notification">You forgot to enter the location</div>
+            <div ng-message="required" class="help is-danger">You forgot to enter the location</div>
           </div>
         </div>
         <!-- password -->
         <div class="field">
           <label class="label" for="password">Password</label>
           <p class="control">
-            <input class="input" type="password" name="password" id="password"
+            <input class="input rounded-input" type="password" name="password" id="password"
             ng-model="usersEdit.user.password" required>
           </p>
 
@@ -100,21 +100,21 @@
         <div class="field">
           <label class="label" for="passwordConfirmation">Password Confirmation</label>
           <p class="control">
-            <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation"
+            <input class="input rounded-input" type="password" name="passwordConfirmation" id="passwordConfirmation"
             match-password="password"
             ng-model="usersEdit.user.passwordConfirmation" required>
           </p>
         </div>
         <!-- ng messages password confirmation-->
         <div ng-messages="usersEdit.editForm.passwordConfirmation.$error" ng-show="usersEdit.editForm.$submitted || usersEdit.editForm.passwordConfirmation.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages">
-          <div ng-message="required">You forgot to enter a password</div>
-          <div ng-message="passwordMatch">Your passwords didn't match</div>
+          <div ng-message="required"><p class="help is-danger">You forgot to enter a password</p></div>
+          <div ng-message="passwordMatch"><p class="help is-danger">Your passwords didn't match</p></div>
         </div>
 
         <!-- submit -->
         <div class="field">
           <p class="control">
-            <input type="submit" class="button is-primary is-fullwidth" value="Edit">
+            <input type="submit" class="button" value="Edit">
           </p>
         </div>
       </form>

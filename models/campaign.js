@@ -18,7 +18,7 @@ const campaignSchema = new mongoose.Schema({
   location: { lat: Number, lng: Number },
   campaignType: { type: String },
   people: { type: Number },
-  description: { type: String },
+  description: { type: String, required: true },
   isAvailable: { type: Boolean, default: true },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   categories: [ categorySchema ]

@@ -3,30 +3,37 @@
   <div class="columns fore-setion">
     <div class="column is-5 is-offset-1">
       <h1 class="title black-title">{{ campaignsShow.campaign.name }}</h1>
+      <!-- address -->
+      <p class="card-details centered">{{ campaignsShow.campaign.address }}</p>
+      <!-- <p class="card-details centered"><i class="fa fa-map-pin card-icon" aria-hidden="true"></i>{{ (campaignsShow.campaign.distance / 1000).toFixed(1) | number }} <small><em>km away</em></small></p> -->
+
+
       <!-- image -->
       <img class="is-square" id="editimg" ng-src="{{ campaignsShow.campaign.imageSRC }}">
 
 
       <!-- campaignType -->
-      <p ng-class="campaign.campaignType ? 'button is-success' : 'button is-danger'">{{ campaignsShow.campaign.campaignType }}</p>
+      <p ng-class="campaignsShow.campaign.campaignType === 'Helper' ? 'button is-success' : 'button is-danger'">{{ campaignsShow.campaign.campaignType }}</p>
 
-      <!-- address -->
 
-      <p><i class="fa fa-address-card" aria-hidden="true"></i> {{ campaignsShow.campaign.address }}</p>
 
       <!-- category -->
-      <p>CATEGORIES</p>
-      <div ng-repeat="category in campaignsShow.campaign.categories">
-
-          <p ng-class="campaign.campaignType ? 'button is-success' : 'button is-danger'"><small>{{ category.name }} for {{ category.people }}</small></p>
-
+      <hr>
+      <div class="category-card">
+        <p class="centered">CATEGORIES</p>
+        <div ng-repeat="category in campaignsShow.campaign.categories">
+          <p class="category-in-card centered"><em><small>{{ category.name }} for {{ category.people }}</small></em></p>
+        </div>
       </div>
 
       <!-- description -->
-      <label class="label" for="description">Description:</label>
-      <p>
-        {{ campaignsShow.campaign.description }}
-      </p>
+      <div class="description-area">
+        <p class="centered">DESCRIPTION</p>
+        <p class="description centered">
+          {{ campaignsShow.campaign.description }}
+        </p>
+      </div>
+
       <hr>
       <article class="media">
         <figure class="media-left">
@@ -44,7 +51,7 @@
         </div>
       </article>
 
-      <footer class="card-footer">
+      <footer class="card-footer show-footer">
         <a class="card-footer-item" ui-sref="campaignsEdit({ id: campaignsShow.campaign.id })" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="editbutton">Edit</a>
         <a class="card-footer-item" ng-click="campaignsShow.delete()" ng-if="main.isAuthenticated() && main.currentUserId === campaignsShow.campaign.createdBy.id" id="deletebutton">Delete</a>
         <a class="card-footer-item" href="mailto:{{campaignsShow.campaign.createdBy.email}}?Subject=Can%20you%20help%20me%20out?">Send Mail</a>

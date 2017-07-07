@@ -196,7 +196,7 @@ User
         firstName: 'Tim',
         lastName: 'Rooke',
         image: 'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/10609487_10152259133751701_530836782283067901_n.jpg?oh=9e05d3dd2f5f2c61106d8f75b0ce9895&oe=59C67B',
-        location: { lat: 0.07, lng: 51.5055 },
+        location: { lat: 51.5055, lng: 0.07 },
         email: 'timrooke1991@gmail.com',
         username: 'timrooke',
         password: 'password',

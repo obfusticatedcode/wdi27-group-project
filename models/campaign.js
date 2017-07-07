@@ -9,8 +9,6 @@ const categorySchema = new mongoose.Schema({
   people: { type: Number }
 });
 
-
-
 const campaignSchema = new mongoose.Schema({
   name: { type: String, required: true },
   image: { type: String },
@@ -43,9 +41,12 @@ campaignSchema.post('save', function sendMail(next) {
     .find()
     .exec()
     .then((users) => {
+
       const suitableUsers = nodemailer.findSuitableUsers(users, this);
+      // console.log('suitableUser >>> ', suitableUsers);
       return suitableUsers.forEach((item) => {
         // Return false if registered user does not have location data (due to oAuth login)
+
         if (!item) return false;
 
         const configEmail = nodemailer.configEmail(this, item);

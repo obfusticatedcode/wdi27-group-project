@@ -66,14 +66,17 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <p>{{ campaign.name | uppercase }}</p>
-                  <p><i class="fa fa-address-card" aria-hidden="true"></i> {{ campaign.address }}</p>
-                  <p><i class="fa fa-map-pin" aria-hidden="true"></i>{{ (campaign.distance / 1000).toFixed(1) | number }} <small><em>km away</em></small></p>
+                  <p class="card-heading centered">{{ campaign.name | uppercase }}</p>
+                  <p class="card-details centered"><small>{{ campaign.address }}</small></p>
+                  <p class="card-details centered"><i class="fa fa-map-pin card-icon" aria-hidden="true"></i>{{ (campaign.distance / 1000).toFixed(1) | number }} <small><em>km away</em></small></p>
                   <hr>
-                  <p>CATEGORIES</p>
-                  <div ng-repeat="category in campaign.categories">
-                    <p ng-class="campaign.campaignType ? 'button is-success' : 'button is-danger'"><small>{{ category.name }} for {{ category.people }}</small></p>
+                  <div class="card category-card">
+                    <p class="centered">CATEGORIES</p>
+                    <div ng-repeat="category in campaign.categories">
+                      <p class="category-in-card centered"><em><small>{{ category.name }} for {{ category.people }}</small></em></p>
+                    </div>
                   </div>
+
                 </div>
               </div>
 
@@ -94,7 +97,7 @@
                   </div>
                 </div>
               </article>
-              <p ng-class="campaign.campaignType ? 'button is-success' : 'button is-danger'">{{ campaign.campaignType }}</p>
+              <p ng-class="campaign.campaignType === 'Helper' ? 'button is-success' : 'button is-danger'">{{ campaign.campaignType }}</p>
               <!-- <button class="button" type="button" name="button" ui-sref="campaignsShow({ id: campaign.id })">View</button> -->
             </div>
           </div>

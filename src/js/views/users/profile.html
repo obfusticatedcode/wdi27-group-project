@@ -64,32 +64,34 @@
 
 
 <!-- user campaigns -->
-<div >
+<div>
   <div class="column is-6">
     <div class="column is-11 is-offset-1 profilecampaign" ng-repeat="campaign in usersShow.user.campaigns">
-      <div class="card">
+      <div class="">
         <p>
-          <strong>{{ campaign.name }}</strong>
+          <h1 class="title black-title">{{ campaign.name }}</h1>
         </p>
-        <label class="label" for="campaignType">Campaign Type:</label>
-        <p>
-          {{ campaign.campaignType }}
-        </p>
-        <label class="label" for="campaignType">Address:</label>
-        <p>
-          {{ campaign.address }}
-        </p>
-        <label class="label" for="campaignType">Categories:</label>
-        <div ng-repeat="category in campaign.categories">
-          <p> {{ category.name }}: {{ category.people }} </p>
+        <p class="card-details centered">{{ campaign.address }}</p>
+        <p ng-class="campaignsShow.campaign.campaignType === 'Helper' ? 'button is-success' : 'button is-danger'">{{ campaign.campaignType }}</p>
+
+        <hr>
+        <div class="category-card">
+          <p class="centered">CATEGORIES</p>
+          <div ng-repeat="category in campaign.categories">
+            <p class="category-in-card centered"><em><small>{{ category.name }} for {{ category.people }}</small></em></p>
+          </div>
         </div>
-        <label class="label" for="campaignType">Description:</label>
-        <p>
-          {{ campaign.description }}
-        </p>
-        <li class="tg-list-item availability">
+
+        <div class="description-area">
+          <p class="centered">DESCRIPTION</p>
+          <p class="description centered">
+            {{ campaign.description }}
+          </p>
+        </div>
+
+        <li class="tg-list-item availability center">
           <input ng-model="campaign.isAvailable" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ng-click="usersShow.toggleAvailability(campaign)" id="{{campaign.id}}" type="checkbox" class="tgl tgl-flip"/>
-          <label ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" data-tg-off="Nope" data-tg-on="Yeah!" for="{{campaign.id}}" class="tgl-btn"></label>
+          <label ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" data-tg-off="Inactive" data-tg-on="Active!" for="{{campaign.id}}" class="tgl-btn"></label>
         </li>
       </div>
     </div>

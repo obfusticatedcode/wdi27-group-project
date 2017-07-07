@@ -1,7 +1,7 @@
 const Campaign = require('../models/campaign');
 
 function indexRoute(req, res, next) {
-  
+
   Campaign
   .find()
   .populate('createdBy')

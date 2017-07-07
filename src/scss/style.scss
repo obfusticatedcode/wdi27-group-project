@@ -23,6 +23,40 @@ html, body, section {
   text-align: center;
 }
 
+.card-icon {
+  width: 30px;
+}
+
+.card-details {
+  color: #666;
+  letter-spacing: 1.1px;
+  padding-bottom: 3px;
+}
+
+.card-heading {
+  font-size: 22px;
+  padding-bottom: 5px;
+}
+
+.description-area {
+  padding-top: 20px;
+  .description {
+    letter-spacing: 1,1px;
+    padding: 5px
+  }
+}
+
+.show-footer {
+  border: 1px solid white;
+  border-right: 1px solid white;
+
+  margin-top: 20px;
+}
+
+.category-in-card {
+  padding: 2.5px
+}
+
 h1.black-title {
     color: $black;
     text-align: center;
@@ -446,5 +480,6 @@ h1 {
 }
 
 .profilecampaign {
+  margin: 10px;
   border: 2px black solid;
 }

@@ -87,7 +87,7 @@ function CampaignsNewCtrl(Campaign, $state) {
   }
   vm.deleteCategoryFromView = deleteCategoryFromView;
 
-}
+}//end of CampaignsNewCtrl function
 
 
 
@@ -145,4 +145,4 @@ function CampaignsEditCtrl(Campaign, $stateParams, $state, CampaignCategory) {
   vm.deleteCategory = deleteCategory; //attached to controller
 
 
-}
+}//end of the CampaignsEditCtrl function

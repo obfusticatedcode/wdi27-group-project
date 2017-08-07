@@ -233,7 +233,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: false,
         campaignType: 'Campaigner',
-        categories: [{ name: 'washing',  people: 0 }]
+        categories: [{ name: 'washing',  people: 1 }]
       }, {
         name: 'Bed for tonight?',
         image: 'http://lorempixel.com/640/480/city',
@@ -251,7 +251,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: false,
         campaignType: 'Campaigner',
-        categories: [{ name: 'undefined',  people: 2 }]
+        categories: [{ name: 'food',  people: 2 }]
       }, {
         name: 'Assistance needed',
         image: 'http://lorempixel.com/640/480/city',
@@ -296,7 +296,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: false,
         campaignType: 'Campaigner',
-        categories: [{ name: 'undefined',  people: 2 }]
+        categories: [{ name: 'food',  people: 2 }]
       }, {
         name: 'Help needed',
         image: 'http://lorempixel.com/640/480/city',
@@ -314,7 +314,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: false,
         campaignType: 'Campaigner',
-        categories: [{ name: 'undefined',  people: 2 }]
+        categories: [{ name: 'food',  people: 2 }]
       }, {
         name: 'Can someone help?',
         image: 'http://lorempixel.com/640/480/city',
@@ -341,7 +341,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: true,
         campaignType: 'Campaigner',
-        categories: [{ name: 'undefined',  people: 2 }]
+        categories: [{ name: 'food',  people: 2 }]
       }, {
         name: 'Bed required',
         image: 'http://lorempixel.com/640/480/city',
@@ -368,7 +368,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: true,
         campaignType: 'Campaigner',
-        categories: [{ name: 'washing',  people: 0 }]
+        categories: [{ name: 'washing',  people: 3 }]
       }, {
         name: 'I need help',
         image: 'http://lorempixel.com/640/480/city',
@@ -413,7 +413,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: false,
         campaignType: 'Helper',
-        categories: [{ name: 'undefined',  people: 0 }]
+        categories: [{ name: 'food',  people: 4 }]
       }, {
         name: 'Bed on offer',
         image: 'http://lorempixel.com/640/480/city',
@@ -431,7 +431,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: true,
         campaignType: 'Helper',
-        categories: [{ name: 'food',  people: 0 }]
+        categories: [{ name: 'food',  people: 1 }]
       }, {
         name: 'Help offered',
         image: 'http://lorempixel.com/640/480/city',
@@ -440,7 +440,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: true,
         campaignType: 'Helper',
-        categories: [{ name: 'undefined',  people: 3 }]
+        categories: [{ name: 'food',  people: 3 }]
       }, {
         name: 'Do you need food?',
         image: 'http://lorempixel.com/640/480/city',
@@ -449,7 +449,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: true,
         campaignType: 'Helper',
-        categories: [{ name: 'undefined',  people: 4 }]
+        categories: [{ name: 'food',  people: 4 }]
       }, {
         name: 'Can I help?',
         image: 'http://lorempixel.com/640/480/city',
@@ -458,7 +458,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: false,
         campaignType: 'Helper',
-        categories: [{ name: 'washing',  people: 0 }]
+        categories: [{ name: 'washing',  people: 2 }]
       }, {
         name: 'Bed on offer',
         image: 'http://lorempixel.com/640/480/city',
@@ -467,7 +467,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: false,
         campaignType: 'Helper',
-        categories: [{ name: 'food',  people: 0 }]
+        categories: [{ name: 'food',  people: 2 }]
       }, {
         name: 'Bed on offer',
         image: 'http://lorempixel.com/640/480/city',
@@ -566,7 +566,7 @@ User
         description: 'Philanthropy systems thinking move the needle the resistance fairness. Thought partnership; the grit, grit changemaker, catalyze, revolutionary B-corp. Shine deep dive effective corporate social responsibility thought leadership shared value improve the world',
         isAvailable: false,
         campaignType: 'Helper',
-        categories: [{ name: 'undefined',  people: 2 }]
+        categories: [{ name: 'food',  people: 2 }]
       }]);
 })
 

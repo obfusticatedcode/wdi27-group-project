@@ -2,17 +2,17 @@
 JimBo Harris, Tim Rooke and Chisomo Lungu
 
 
-##Installation and setup
+## Installation and setup
 
 * `yarn` to install dependencies.
 * `gulp` to compile the source code and open in browser
 
-##Link to wireframes and trello
+## Link to wireframes and trello
 https://generalassembly.mybalsamiq.com/projects/wdi-ldn-27/Jim%20Tim%20Chisomo%20mockup
 
 https://trello.com/b/4iEribek/wdi-27-group-project
 
-##Description
+## Description
 
 The site is designed to enable individuals to respond to a tragedy by either posting for help needed or offering aid to those effected. Posts on the site are referred to as "campaigns".
 
@@ -22,7 +22,7 @@ The site uses Google maps API (Geolib and Autocomplete) to calculate distances b
 
 Filter, search and sort functions enable users to refine the results by location, distance and keywords.
 
-##Technologies used
+## Technologies used
 
 * HTML 5
 * Angular JS
@@ -37,9 +37,9 @@ Filter, search and sort functions enable users to refine the results by location
 * Google maps API (Geolib and Autocomplete)
 * Amazon web services
 
-##Approach
+## Approach
 
 The team pair coded major tasks but small individual features were completed individually in order to save time. Merges were done daily and bug fixing sessions were pair coded for significant issues. Small bugs were fixed as and when they arose. Trello was used to manage specific tasks being split into backlog (desirable), bakclog (essential), in progress, waiting to merge and merged.
 
 
-##Hurdles
+## Hurdles

@@ -19,6 +19,64 @@ html, body, section {
   height: 100%
 }
 
+nav {
+  margin-bottom: 10px;
+}
+
+section {
+  margin-top: -10px;
+}
+
+
+
+.nav-item a:not(.button):not(.tag):hover, a.nav-item:not(.button):not(.tag):hover {
+  color: $whiteSmoke
+}
+
+.nav-item a {
+  &.active {
+    color: $whiteSmoke
+  }
+}
+
+.brand-logo {
+  border: 1px solid $whiteSmoke;
+  color: $whiteSmoke;
+  background: transparent;
+  letter-spacing: 1.2px;
+  border-radius: 15px;
+  padding: 15px 12px;
+  margin: 12px;
+}
+
+.search-panel {
+  padding-left: 20px;
+
+  p.control.has-icons-left {
+    width: 30%;
+    position: absolute;
+    .input.rounded-input {
+      // position: absolute;
+      width: 100%;
+    }
+  }
+  div p.search-button {
+    margin-left: 65%;
+    a.button {
+      border-radius: 0 20px 20px 0;
+    }
+  }
+}
+
+.campaign-form {
+  padding: 35px;
+}
+
+.sort-distance {
+  text-align: right;
+  padding-right: 30px;
+}
+
 .centered {
   text-align: center;
 }
@@ -129,16 +187,6 @@ h1.black-title {
   border-radius: 2.5px;
 }
 
-// .form-black {
-//   background: $black;
-//   padding: 20px 35px;
-//   border-radius: 2.5px;
-//   p {
-//     color: white;
-//   }
-//
-// }
-
 img {
   width: 100%;
 }
@@ -173,6 +221,8 @@ img {
   text-align: center;
 }
 
+
+
 .button {
   width: 50%;
   background: #222222;
@@ -197,7 +247,7 @@ img {
     border: none;
     outline: 0;
     line-height: 1.4px;
-    min-width: 180px;
+    min-width: 250px;
     margin: 20px auto;
     display: block;
     border: none;
@@ -216,7 +266,7 @@ img {
   border: none;
   outline: 0;
   line-height: 1.4px;
-  min-width: 180px;
+  min-width: 250px;
   margin: 0 auto;
   display: block;
   border: none;
@@ -227,6 +277,12 @@ img {
     transition: background 0.5s;
     color: white;
   }
+}
+
+.tag {
+  @extend .button;
+  cursor: default;
+  font-size: 18px;
 }
 
 .showtitle {
@@ -256,17 +312,6 @@ img {
 .map-container {
   position: relative;
   overflow: hidden;
-  // .map-marker {
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%, -50%);
-  //   background-color: $heading;
-  //   border-radius: 50%;
-  //   height: 15px;
-  //   width: 15px;
-  //   z-index: 10;
-  // }
 }
 
 .indeximage {
@@ -288,7 +333,7 @@ img {
 }
 
 .campaigns-index {
-  height: calc(100vh - 28px);
+  // height: calc(100vh - 28px);
   // padding-right: 20px;
   .campaigns {
     height: calc(100vh - 120px);
@@ -350,7 +395,7 @@ h4 {
 	+ .tgl-btn {
 		outline: 0;
 		display: block;
-		width: 4em;
+		width: 5em;
 		height: 2em;
 		position: relative;
 		cursor: pointer;
@@ -462,8 +507,6 @@ h1 {
   // height: 600px
 }
 
-
-
 .indexpic {
   width: 100%;
   height: 100%;
@@ -474,12 +517,40 @@ h1 {
   width: 100%;
 }
 
-
+li.availability {
+  position: absolute;
+}
 .availability {
   width: 100%;
 }
 
 .profilecampaign {
   margin: 10px;
-  border: 2px black solid;
+  // border: 2px black solid;
+}
+
+@media screen and (max-width: 800px) {
+  .search-panel {
+    p.control.has-icons-left {
+      display: none;
+    }
+    .search-button a {
+      display: none;
+    }
+  }
+
+  .sort-distance div {
+      display: none;
+    }
+
+  .campaigns-index .panel .column {
+    padding-left: 20px;
+    input {
+        width: 92.2%
+    };
+  }
+
+  .sort-distance {
+    padding-right: 50px;
+  }
 }

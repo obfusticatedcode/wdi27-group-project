@@ -23,17 +23,16 @@
     <!-- new navigation     -->
     <nav class="navbar ">
       <div class="navbar-brand">
-        <a class="navbar-item" href="">
-        </a>
+        <a class="navbar-item brand-logo" href="/">Disaster Relief</a>
 
-        <div class="navbar-burger burger" data-target="navMenuExample">
+        <div class="navbar-burger burger" ng-click="menuIsOpen = !menuIsOpen" data-target="navMenuExample">
           <span></span>
           <span></span>
           <span></span>
         </div>
       </div>
 
-      <div class="navbar-menu">
+      <div class="navbar-menu"  ng-class="{ 'navbar-menu': menuIsOpen }">
         <div class="navbar-start">
           <a class="nav-item" ui-sref="usersShow({id: main.currentUserId})" ng-if="main.isAuthenticated()">Profile</a>
         </div>

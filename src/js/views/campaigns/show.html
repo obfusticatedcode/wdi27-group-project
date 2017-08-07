@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <section class="register-setion">
   <div class="columns fore-setion">
-    <div class="column is-5 is-offset-1">
+    <div class="column is-4 is-offset-1">
       <h1 class="title black-title">{{ campaignsShow.campaign.name }}</h1>
       <!-- address -->
       <p class="card-details centered">{{ campaignsShow.campaign.address }}</p>
       <!-- <p class="card-details centered"><i class="fa fa-map-pin card-icon" aria-hidden="true"></i>{{ (campaignsShow.campaign.distance / 1000).toFixed(1) | number }} <small><em>km away</em></small></p> -->
-
-
       <!-- image -->
       <img class="is-square" id="editimg" ng-src="{{ campaignsShow.campaign.imageSRC }}">
 
 
       <!-- campaignType -->
-      <p ng-class="campaignsShow.campaign.campaignType === 'Helper' ? 'button is-success' : 'button is-danger'">{{ campaignsShow.campaign.campaignType }}</p>
+      <p ng-class="campaignsShow.campaign.campaignType === 'Helper' ? 'tag is-success' : 'tag is-danger'">{{ campaignsShow.campaign.campaignType }}</p>
 
 
 
@@ -59,7 +57,7 @@
 
     </div>
 
-    <div class="column is-6 remove-padding">
+    <div class="column is-6 is-offset-1 remove-padding">
       <g-map class="map map-show column is-11" center="campaignsShow.campaign.location"></g-map>
     </div>
 

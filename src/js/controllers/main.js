@@ -8,7 +8,12 @@ function MainCtrl($rootScope, $state, $auth, $transitions) {
 
   //hide and show DOM elements based on authentication
   vm.isAuthenticated = $auth.isAuthenticated;
-
+  vm.menuIsOpen = true;
+  $transitions.onStart({}, () => {
+    if(vm.stateHasChanged) vm.message = null;
+    if(!vm.stateHasChanged) vm.stateHasChanged = true;
+    vm.menuIsOpen = true;
+  });
 
   $rootScope.$on('error', (e, err) => {
     vm.message = err.data.message;

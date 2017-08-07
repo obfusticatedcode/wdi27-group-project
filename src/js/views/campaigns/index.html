@@ -4,16 +4,16 @@
 
   <div class="columns panel">
     <!-- the search -->
-    <div class="column">
+    <div class="column search-panel">
       <div class="field is-grouped">
         <p class="control has-icons-left has-icons-right">
-          <input class="input rounded-input" type="text" placeholder="Search" ng-model="campaignsIndex.q">
+          <input class="input rounded-input" type="text" placeholder="Bed needed for a night..." ng-model="campaignsIndex.q">
           <span class="icon is-small is-left">
             <i class="fa fa-search"></i>
           </span>
         </p>
 
-        <p class="control">
+        <p class="control search-button">
           <a class="button is-info">
             Search
           </a>
@@ -21,18 +21,19 @@
       </div>
     </div>
     <!-- location search-->
-    <div class="column">
-      <p class="control">
+    <div class="column is-grouped">
+      <p class="control has-icons-left">
         <input type="text" class="input rounded-input" id="location" name="location" location="campaignsIndex.center"
         google-autocomplete ng-model="campaignsIndex.address">
         {{ campaignsIndex.campaign.location }}
+        <span class="icon is-small is-left">
+          <i class="fa fa-map-marker"></i>
+        </span>
       </p>
     </div>
-    <div class="column">
-      <!-- order by -->
-      <!-- <label for="distance">Order By Distance</label> -->
-      <!-- dropdown -->
-      <div class="select">
+    <div class="column sort-distance">
+
+      <div class="select ">
         <select class="select" id="distance" ng-model="campaignsIndex.distance">
           <optgroup label="Sort by distance">
             <option value="distance">Ascending</option>
@@ -97,7 +98,7 @@
                   </div>
                 </div>
               </article>
-              <p ng-class="campaign.campaignType === 'Helper' ? 'button is-success' : 'button is-danger'">{{ campaign.campaignType }}</p>
+              <p ng-class="campaign.campaignType === 'Helper' ? 'tag is-success' : 'tag is-danger'">{{ campaign.campaignType }}</p>
               <!-- <button class="button" type="button" name="button" ui-sref="campaignsShow({ id: campaign.id })">View</button> -->
             </div>
           </div>

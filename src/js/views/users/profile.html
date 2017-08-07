@@ -20,54 +20,57 @@
 
     </div>
   </div>
-
   <!-- comments -->
   <div class="column is-6">
     <div class="column is-12">
-    <h1 class="title black-title">Comments</h1>
-    <article class="media">
-      <div class="media-content">
-        <ul>
-          <li ng-repeat="comment in usersShow.user.comments track by $index">
-            <strong>{{ comment.createdBy.username }}</strong> - {{ comment.text }}
-            <!-- comments delete button -->
-            <button type="button" name="button" class="button" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id" ng-click="usersShow.deleteComment(comment)">Delete</button>
-          </li>
-        </ul>
-        <form ng-submit="usersShow.addComment()" ng-if="main.isAuthenticated()">
-          <div class="field">
-            <p class="control">
-              <textarea class="textarea" placeholder="Add a comment..." ng-model="usersShow.newComment.text"></textarea>
-            </p>
-          </div>
-          <nav class="level">
-            <div class="level-left">
-              <div class="level-item">
-                <button class="button is-info">Submit</button>
-              </div>
+      <h1 class="title black-title">Comments</h1>
+      <article class="media">
+        <div class="media-content">
+          <ul>
+            <li ng-repeat="comment in usersShow.user.comments track by $index">
+              <strong>{{ comment.createdBy.username }}</strong> - {{ comment.text }}
+              <!-- comments delete button -->
+              <button type="button" name="button" class="button" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id" ng-click="usersShow.deleteComment(comment)">Delete</button>
+            </li>
+          </ul>
+          <form ng-submit="usersShow.addComment()" ng-if="main.isAuthenticated()">
+            <div class="field">
+              <p class="control">
+                <textarea class="textarea" placeholder="Add a comment..." ng-model="usersShow.newComment.text"></textarea>
+              </p>
             </div>
-            <div class="level-right">
-              <div class="level-item">
-                <label class="checkbox">
-                  <input type="checkbox"> Press enter to submit
-                </label>
+            <nav class="level">
+              <div class="level-left">
+                <div class="level-item">
+                  <button class="button is-info">Submit</button>
+                </div>
               </div>
-            </div>
-          </nav>
-        </form>
-      </div>
-    </article>
+              <div class="level-right">
+                <div class="level-item">
+                  <label class="checkbox">
+                    <input type="checkbox">Press enter to submit
+                  </label>
+                </div>
+              </div>
+            </nav>
+          </form>
+        </div>
+      </article>
+    </div>
   </div>
-</div>
-
 </div>
 
 
 <!-- user campaigns -->
 <div>
   <div class="column is-6">
-    <div class="column is-11 is-offset-1 profilecampaign" ng-repeat="campaign in usersShow.user.campaigns">
+    <h1 class="title black-title centered">Campaigns Posted</h1>
+    <div class="column is-11 is-offset-1 profilecampaign card campaign" ng-repeat="campaign in usersShow.user.campaigns">
       <div class="">
+        <li class="tg-list-item availability center">
+          <input ng-model="campaign.isAvailable" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ng-click="usersShow.toggleAvailability(campaign)" id="{{campaign.id}}" type="checkbox" class="tgl tgl-flip"/>
+          <label ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" data-tg-off="Inactive" data-tg-on="Active!" for="{{campaign.id}}" class="tgl-btn"></label>
+        </li>
         <p>
           <h1 class="title black-title">{{ campaign.name }}</h1>
         </p>
@@ -89,10 +92,7 @@
           </p>
         </div>
 
-        <li class="tg-list-item availability center">
-          <input ng-model="campaign.isAvailable" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ng-click="usersShow.toggleAvailability(campaign)" id="{{campaign.id}}" type="checkbox" class="tgl tgl-flip"/>
-          <label ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" data-tg-off="Inactive" data-tg-on="Active!" for="{{campaign.id}}" class="tgl-btn"></label>
-        </li>
+
       </div>
     </div>
   </div>

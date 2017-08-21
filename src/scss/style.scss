@@ -12,18 +12,192 @@
 /*Colors*/
 $whiteSmoke: #f5f5f5;
 $royalBlue: #4169e1;
-$black: #171717;
+$black: #222222;
 $heading:hsl(0,100%,40%);
+$white: #ffffff;
+$caribbean-green: #00D1B2;
+
+html, body, section {
+  height: 100%
+}
+
+nav {
+  margin-bottom: 10px;
+}
+
+section {
+  margin-top: -10px;
+}
 
 
 
-body, html {
-  background: $whiteSmoke;
+.nav-item a:not(.button):not(.tag):hover, a.nav-item:not(.button):not(.tag):hover {
+  color: $caribbean-green;
+}
+
+.nav-item a:not(.button):not(.tag),
+a.nav-item:not(.button):not(.tag) {
+  color: $white;
+  }
+
+
+
+.nav-item a {
+  &.active {
+    color: $whiteSmoke;
+  }
+}
+
+.brand-logo {
+  border: 1px solid $whiteSmoke;
+  color: $whiteSmoke;
+  background: transparent;
+  letter-spacing: 1.2px;
+  border-radius: 15px;
+  padding: 15px 12px;
+  margin: 12px;
+}
+
+.search-panel {
+  padding-left: 20px;
+
+  p.control.has-icons-left {
+    width: 30%;
+    position: absolute;
+    .input.rounded-input {
+      // position: absolute;
+      width: 100%;
+    }
+  }
+  div p.search-button {
+    margin-left: 65%;
+    a.button {
+      border-radius: 0 20px 20px 0;
+    }
+  }
+}
+
+.campaign-form {
+  padding: 35px;
+}
+
+.sort-distance {
+  text-align: right;
+  padding-right: 30px;
+}
+
+.centered {
+  text-align: center;
+}
+
+.card-icon {
+  width: 30px;
+}
+
+.card-details {
+  color: #666;
+  letter-spacing: 1.1px;
+  padding-bottom: 3px;
+}
+
+.card-heading {
+  font-size: 22px;
+  padding-bottom: 5px;
+}
+
+.description-area {
+  padding-top: 20px;
+  .description {
+    letter-spacing: 1,1px;
+    padding: 5px
+  }
+}
+
+.show-footer {
+  border: 1px solid white;
+  border-right: 1px solid white;
+
+  margin-top: 20px;
+}
+
+.category-in-card {
+  padding: 2.5px
+}
+
+h1.black-title {
+    color: $black;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.remove-padding {
+  padding: 0;
+}
+
+.circle {
+  border-radius: 50%;
+  height: 100% !important;
+}
+
+.notification:not(:last-child) {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.panel {
+  background-color: $black;
+  box-shadow: 1px 2px 1px #444;
+  input {
+    padding-left: 15px;
+  }
+}
+
+.navbar {
+  background-color: $black;
+  .navbar-menu .nav-item {
+    margin: 12px;
+    color: white;
+    background: transparent;
+    border: none;
+    border-radius: 15px;
+    padding: 15px 12px;
+    &:hover {
+      background: #f5f5f5;
+      color: $black;
+      transition: color 0.75s;
+      transition: background 0.4s;
+    }
+  }
+}
+
+.register-setion {
+  background-color: $black;
+  height: 100%;
+  min-height: 100vh;
+  padding: 1.5em;
+}
+
+.fore-setion {
+  color: $black;
+  background: white;
+}
+
+.title {
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.form-style {
+  background: white;
+  padding: 20px;
+  border-radius: 2.5px;
 }
 
 img {
   width: 100%;
-  height: 100%;
 }
 
 /*classes */
@@ -31,7 +205,8 @@ img {
   height: 100%;
   width: 100%;
   &.map-show {
-    height: 100%;
+    height: 110vh;
+    width: 100%;
   }
 }
 
@@ -46,21 +221,107 @@ img {
   margin: 5px;
 }
 
-.button {
-  width: 100%;
+.form-button {
   margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+.button-holder {
+  text-align: center;
+}
+
+
+
+.button {
+  width: 50%;
+  background: #222222;
+  color: white !important;
+  border: none;
+  outline: 0;
+  min-width: 180px;
+  margin: 0 auto;
+  display: block;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 8px;
+  &:hover {
+    background: lighten(#222222, 20%);
+    transition: background 0.5s;
+    color: white;
+  }
+}
+.fb-button {
+    background: #3B5998;
+    color: white !important;
+    border: none;
+    outline: 0;
+    line-height: 1.4px;
+    min-width: 250px;
+    margin: 20px auto;
+    display: block;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 8px;
+    &:hover {
+      background: lighten(#3B5998, 20%);
+      transition: background 0.5s;
+      color: white;
+    }
+}
+
+.insta-button {
+  background: #3F729B;
+  color: white !important;
+  border: none;
+  outline: 0;
+  line-height: 1.4px;
+  min-width: 250px;
+  margin: 0 auto;
+  display: block;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 8px;
+  &:hover {
+    background: lighten(#3F729B, 20%);
+    transition: background 0.5s;
+    color: white;
+  }
+}
+
+.tag {
+  @extend .button;
+  cursor: default;
+  font-size: 18px;
+
 }
 
 .showtitle {
   color: grey;
 }
 
+.rounded-input {
+  display: block;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 8px;
+  color: #222;
+  box-shadow:
+    inset 0 2px 0 rgba(0,0,0,.2),
+    0 0 4px rgba(0,0,0,0.1);
+}
+
+.rounded-input:focus {
+  outline: none;
+  box-shadow:
+    inset 0 2px 0 rgba(0,0,0,.2),
+    0 0 4px rgba(0,0,0,0.1),
+    0 0 3px 1px #222;
+}
 
 
 .map-container {
   position: relative;
   overflow: hidden;
-
 }
 
 .indeximage {
@@ -76,29 +337,14 @@ img {
   width: 100%;
 }
 
-<<<<<<< HEAD
-=======
 #editimg {
   width: 100%;
   height: auto;
 }
 
-
-
-// header {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   background-color: #f5f5f5;
-//   z-index: 1;
-// }
->>>>>>> development
-
-
 .campaigns-index {
-  height: calc(100vh - 28px);
-  padding-right: 20px;
+  // height: calc(100vh - 28px);
+  // padding-right: 20px;
   .campaigns {
     height: calc(100vh - 120px);
     overflow: scroll;
@@ -159,7 +405,7 @@ h4 {
 	+ .tgl-btn {
 		outline: 0;
 		display: block;
-		width: 4em;
+		width: 5em;
 		height: 2em;
 		position: relative;
 		cursor: pointer;
@@ -258,17 +504,17 @@ h1 {
 
 .card.is-4 {
   width: 100%;
-  height: 35rem;
+  // height: 35rem;
+}
+
+.new-image {
+  margin-top: 10px;
+  border-radius: 3px;
 }
 
 .card-content {
-  // position: absolute;
-  // bottom: 0;
   width: 100%;
-  height: 600px
 }
-
-
 
 .indexpic {
   width: 100%;
@@ -280,11 +526,40 @@ h1 {
   width: 100%;
 }
 
-
+li.availability {
+  position: absolute;
+}
 .availability {
   width: 100%;
 }
 
 .profilecampaign {
-  border: 2px black solid;
+  margin: 10px;
+  // border: 2px black solid;
+}
+
+@media screen and (max-width: 800px) {
+  .search-panel {
+    p.control.has-icons-left {
+      display: none;
+    }
+    .search-button a {
+      display: none;
+    }
+  }
+
+  .sort-distance div {
+      display: none;
+    }
+
+  .campaigns-index .panel .column {
+    padding-left: 20px;
+    input {
+        width: 92.2%
+    };
+  }
+
+  .sort-distance {
+    padding-right: 50px;
+  }
 }

@@ -2,14 +2,18 @@
 
 <section class="campaigns-index">
 
-  <div class="columns">
+  <div class="columns panel">
     <!-- the search -->
-    <div class="column">
+    <div class="column search-panel">
       <div class="field is-grouped">
-        <p class="control">
-          <input class="input" type="text" placeholder="Search" ng-model="campaignsIndex.q">
+        <p class="control has-icons-left has-icons-right">
+          <input class="input rounded-input" type="text" placeholder="Bed needed for a night..." ng-model="campaignsIndex.q">
+          <span class="icon is-small is-left">
+            <i class="fa fa-search"></i>
+          </span>
         </p>
-        <p class="control">
+
+        <p class="control search-button">
           <a class="button is-info">
             Search
           </a>
@@ -17,21 +21,22 @@
       </div>
     </div>
     <!-- location search-->
-    <div class="column">
-      <p class="control">
-        <input type="text" class="input" id="location" name="location" location="campaignsIndex.center"
+    <div class="column is-grouped">
+      <p class="control has-icons-left">
+        <input type="text" class="input rounded-input" id="location" name="location" location="campaignsIndex.center"
         google-autocomplete ng-model="campaignsIndex.address">
         {{ campaignsIndex.campaign.location }}
+        <span class="icon is-small is-left">
+          <i class="fa fa-map-marker"></i>
+        </span>
       </p>
     </div>
-    <div class="column">
-      <!-- order by -->
-      <label for="distance">Order By Distance</label>
-      <!-- dropdown -->
-      <div class="select">
-        <select id="distance" ng-model="campaignsIndex.distance">
-          <optgroup label="Choose an option">
-            <option  value="distance">Ascending</option>
+    <div class="column sort-distance">
+
+      <div class="select ">
+        <select class="select" id="distance" ng-model="campaignsIndex.distance">
+          <optgroup label="Sort by distance">
+            <option value="distance">Ascending</option>
             <option value="-distance">Descending</option>
           </optgroup>
         </select>
@@ -53,28 +58,46 @@
           <!-- card -->
           <div class="card is-4">
             <div>
+              <a ui-sref="campaignsShow({ id: campaign.id })">
               <figure class="indeximage">
                 <img  class="indexpic image is-480x480" ng-src="{{ campaign.imageSRC }}">
               </figure>
+              </a>
             </div>
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <p>{{ campaign.name | uppercase }}</p>
-                  <p><strong>Location:</strong> {{ campaign.address }}</p>
-                  <p><strong>Distance:</strong> {{ (campaign.distance / 1000).toFixed(1) | number }} km away </p>
-                  <p><strong>Campaign type:</strong> {{ campaign.campaignType }}</p>
-                  <p><strong>Campaign category:</strong> {{ campaign.category }}</p>
-                  <div ng-repeat="category in campaign.categories">
-                    <p>{{ category.name }}:  {{ category.people }}</p>
+                  <p class="card-heading centered">{{ campaign.name | uppercase }}</p>
+                  <p class="card-details centered"><small>{{ campaign.address }}</small></p>
+                  <p class="card-details centered"><i class="fa fa-map-pin card-icon" aria-hidden="true"></i>{{ (campaign.distance / 1000).toFixed(1) | number }} <small><em>km away</em></small></p>
+                  <hr>
+                  <div class="card category-card">
+                    <p class="centered">CATEGORIES</p>
+                    <div ng-repeat="category in campaign.categories">
+                      <p class="category-in-card centered"><em><small>{{ category.name }} for {{ category.people }}</small></em></p>
+                    </div>
                   </div>
-                  <p><strong>Description:</strong> {{ campaign.description }}</p>
+
                 </div>
               </div>
 
-              <p><em><a ui-sref="usersShow({id: campaign.createdBy.id })"><strong>Created by:</strong> {{ campaign.createdBy.username  }}</a></em></p>
 
-              <button class="button" type="button" name="button" ui-sref="campaignsShow({ id: campaign.id })">View</button>
+
+              <article class="media">
+                <figure class="media-left">
+                  <p class="image is-48x48" ui-sref="usersShow({id: campaign.createdBy.id })">
+                    <img class="circle" ng-src="{{ campaign.createdBy.imageSRC }}">
+                  </p>
+                </figure>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong>{{ campaign.createdBy.username }}</strong><br>
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <p ng-class="campaign.campaignType === 'Helper' ? 'tag is-success' : 'tag is-danger'">{{ campaign.campaignType }}</p>
             </div>
           </div>
 

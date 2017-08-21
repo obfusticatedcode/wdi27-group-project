@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 
-<section class="section">
-  <div class="columns">
-    <div class="column is-5 is-offset-1">
+<section class="section register-setion">
+  <div class="columns fore-setion">
+    <div class="column is-6">
 
-      <h1 class="title">Start a campaign</h1>
 
+      <h1 class="title black-title">Start a campaign</h1>
       <!-- form name -->
-      <form ng-submit="campaignsNew.create()" name="campaignsNew.campaignForm" novalidate>
+      <form class="campaign-form form-black" ng-submit="campaignsNew.create()" name="campaignsNew.campaignForm" novalidate>
+
         <!--image-->
         <div class="field">
-          <label class="label" for="image">Image</label>
-          <label class="button is-primary" for="image">Choose File</label>
+          <label class="button rounded-input" for="image">Choose Image</label>
           <input base64 type="file" name="image" id="image" ng-model="campaignsNew.campaign.base64" hidden>
-          <img ng-src="{{ campaignsNew.campaign.base64 }}">
+          <img class="image new-image" ng-src="{{ campaignsNew.campaign.base64 }}">
         </div>
         <!-- name -->
         <div class="field">
           <p class="control">
             <label class="label" for="name">Name</label>
           </p>
-          <input type="text" class="input" id="name" name="name"
+          <input type="text" class="input rounded-input" id="name" name="name"
           ng-model="campaignsNew.campaign.name"
-          required>
+          required
+          placeholder="I need a shelter tonight">
           <!-- ng message name -->
           <div ng-messages="campaignsNew.campaignForm.name.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.name.$touched">
-            <div ng-message="required" class="notification">You forgot to enter the  name</div>
+            <div ng-message="required" class="help is-danger">You forgot to enter the name</div>
           </div>
         </div>
         <!-- location -->
@@ -34,12 +35,12 @@
             <label class="label" for="location">Location</label>
           </p>
 
-          <input type="text" class="input" id="location" name="location"
+          <input type="text" class="input rounded-input" id="location" name="location"
           ng-model="campaignsNew.campaign.address" location="campaignsNew.campaign.location"
-          required google-autocomplete>
+          required google-autocomplete placeholder="London, England">
           <!-- ng message location -->
           <div ng-messages="campaignsNew.campaignForm.location.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.location.$touched">
-            <div ng-message="required" class="notification">You forgot to enter the location</div>
+            <div ng-message="required" class="help is-danger">You forgot to enter the location</div>
           </div>
         </div>
 
@@ -49,13 +50,13 @@
             <label class="label" for="campaignType">Campaign type</label>
           </p>
 
-          <select type="text" class="input" id="campaignType" name="campaignType" ng-model="campaignsNew.campaign.campaignType" required>
+          <select type="text" class="input rounded-input" id="campaignType" name="campaignType" ng-model="campaignsNew.campaign.campaignType" required>
             <option value="Campaigner">Campaigner</option>
             <option value="Helper">Helper</option>
           </select>
           <!-- ng message campaign type -->
           <div ng-messages="campaignsNew.campaignForm.campaignType.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.campaignType.$touched">
-            <div ng-message="required" class="notification">You forgot to enter the type of campaign</div>
+            <div ng-message="required" class="help is-danger">You forgot to enter the type of campaign</div>
           </div>
         </div>
 
@@ -68,8 +69,8 @@
                 <p class="control">
                   <label class="label" for="category">Category</label>
                 </p>
-                <input class="input" type="text" name="category" list="category"
-                ng-model="category.name" required>
+                <input class="input rounded-input" type="text" name="category" list="category"
+                ng-model="category.name" required placeholder="Food">
                 <datalist id="category">
                   <option value="Food"></option>
                   <option value="Shelter"></option>
@@ -79,7 +80,7 @@
                 </datalist>
                 <!-- ng message category -->
                 <div ng-messages="campaignsNew.campaignForm.category.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.category.$touched">
-                  <div ng-message="required" class="notification">You forgot to enter the category</div>
+                  <div ng-message="required" class="help is-danger">You forgot to enter the category</div>
                 </div>
               </div>
 
@@ -89,10 +90,10 @@
                   <label class="label" for="people">Number of people</label>
                 </p>
 
-                <input type="number" class="input" min="1" max="50" id="people" name="people" ng-model="category.people" required>
+                <input type="number" class="input rounded-input" min="1" max="50" id="people" name="people" ng-model="category.people" required placeholder="3">
                 <!-- ng message number of people -->
                 <div ng-messages="campaignsNew.campaignForm.people.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.people.$touched">
-                  <div ng-message="required" class="notification">You forgot to enter the number of people</div>
+                  <div ng-message="required" class="help is-danger">You forgot to enter the number of people</div>
                 </div>
               </div>
 
@@ -119,14 +120,14 @@
           <!-- ng message campaign description -->
           <div ng-messages="campaignsNew.campaignForm.description.$error" ng-show="campaignsNew.campaignForm.$submitted || campaignsNew.campaignForm.description.$touched">
 
-            <div ng-message="required" class="notification">You forgot to enter a description</div>
+            <div ng-message="required" class="help is-danger">You forgot to enter a description</div>
           </div>
         </div>
 
         <!-- submit button -->
         <div class="field">
           <p class="control">
-            <input type="submit" class="button is-primary is-fullwidth" value="Start">
+            <input type="submit" class="button rounded-input" value="Start">
           </p>
         </div>
       </form>
@@ -134,8 +135,8 @@
 
     <!-- the google map -->
 
-    <div class="column is-6">
-      <h1 class="showtitle">Map</h1>
+    <div class="column is-6 remove-padding">
+      <h1 class="showtitle"></h1>
       <g-map class="map map-show column is-11" center="campaignsNew.campaign.location"></g-map>
     </div>
 

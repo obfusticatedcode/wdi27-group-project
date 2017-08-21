@@ -52,7 +52,7 @@ function googleMap() {
 
         markers = scope.locations.map(function(location, i) {
 
-          infowindow = new google.maps.InfoWindow();
+          // infowindow = new google.maps.InfoWindow();
 
           return new google.maps.Marker({
             position: location,
@@ -67,7 +67,7 @@ function googleMap() {
           const contentString = `
             <strong>${scope.campaigns[i].name}</strong>
             <p>${scope.campaigns[i].description}</p>
-            <p>${scope.campaigns[i].distance} km away</p>
+            <p>${(scope.campaigns[i].distance / 1000).toFixed(1)} km away</p>
             `;
 
           google.maps.event.addListener(markers[i], 'click', function () {
